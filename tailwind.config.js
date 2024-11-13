@@ -2,34 +2,30 @@
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    colors: {
-      green: "#16a34a",
-      "light-green": "#22c55e",
-      white: "#fff",
-      gray: "#D9D9D9",
-      "light-gray": "#f9fafb",
-      "very-light-gray": "#F7F8FA",
-      "dark-gray": "#6b7280",
-      background: "#f2f2f2",
-      dark: "#0F172A",
-      "light-red": "#EF8989",
-      blue: "#0060df",
-      transparent: "transparent",
-      overlay: "rgba(0,0,0,.4)",
-      danger: "#ff0000",
-      gold: "#f6b01e",
+    extend: {
+      colors: {
+        skyBlue: '#B6E1EB',
+        gray: '#EDE7F4',
+        DeepBlue: '#230081',
+        LightBlue: '#1e7bc4',
+        Dark: '#202020',
+      },
+      backgroundImage: {
+        'gradient-radial': 'linear-gradient(to right, #B6E1EB 20%, #EDE7F4 50%, #B6E1EB 20%)',
+      },
+      screens: {
+        xxs: "448px",
+        xs: "540px",
+        sm: "640px",
+        md: "768px",
+        xmd: "820px",
+        mlg: "912px",
+        lg: "1024px",
+        sxl: "73.25rem",
+        xl: "1280px", //1280px
+        xxl: "96rem", //1536px,
+      },
     },
-    screens: {
-      "2xs": "28rem", //448px
-      xs: "33.75rem", //540px
-      sm: "40rem", //640px
-      md: "48rem", //768px
-      lg: "64rem", //1024px
-      sxl: "73.25rem",
-      xl: "80rem", //1280px
-      "2xl": "96rem", //1536px
-    },
-    extend: {},
   },
   plugins: [],
 };
