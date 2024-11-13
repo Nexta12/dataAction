@@ -6,9 +6,10 @@ export default {
       colors: {
         skyBlue: '#B6E1EB',
         gray: '#EDE7F4',
+        lightgray: '#F8F8F8',
         DeepBlue: '#230081',
         LightBlue: '#1e7bc4',
-        Dark: '#202020',
+        dark: '#20104B',
       },
       backgroundImage: {
         'gradient-radial': 'linear-gradient(to right, #B6E1EB 20%, #EDE7F4 50%, #B6E1EB 20%)',
