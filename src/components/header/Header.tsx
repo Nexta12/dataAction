@@ -13,7 +13,7 @@ const menuItems: MenuItem[] = [
 
 const Header = () => {
   return (
-    <>
+  
       <header className="bg-gray sticky top-0 px-3 py-6 sm:p-6 xmd:p-8 mlg:p-10 lg:p-16 xmd:flex xmd:items-center xmd:gap-4 xmd:px-12 overflow-x-hidden lg:justify-between xxl:px-[150px] z-50">
         <div className="flex items-center relative w-full xmd:w-[10%] ">
           <div className="w-[10%] text-left xmd:hidden">
@@ -44,7 +44,7 @@ const Header = () => {
         </a>
         {/* Mobile drawer */}
       </header>
-    </>
+  
   );
 };
 
