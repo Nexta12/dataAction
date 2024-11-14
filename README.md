@@ -1,5 +1,3 @@
-
-
 # DataAction
 
 DataAction is a dynamic web application built with **React**, **TypeScript**, and **Vite**. This project is designed for fast development, optimized bundling, and modern web standards. It includes Hot Module Replacement (HMR) for a seamless development experience and enhanced ESLint configurations for code quality.
@@ -93,14 +91,14 @@ This project uses a customized ESLint configuration to support React and TypeScr
    export default tseslint.config({
      languageOptions: {
        parserOptions: {
-         project: ['./tsconfig.node.json', './tsconfig.app.json'],
+         project: ["./tsconfig.node.json", "./tsconfig.app.json"],
          tsconfigRootDir: import.meta.dirname,
        },
      },
    });
    ```
 
-4. Ensure the `eslint-plugin-react` package is installed:
+2. Ensure the `eslint-plugin-react` package is installed:
 
    ```bash
    npm install eslint-plugin-react

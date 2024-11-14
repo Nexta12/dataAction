@@ -1,14 +1,14 @@
-import PublicPageContainer from '@components/container/PublicPageContainer';
-import Heading from '@components/heading/Heading';
-import Paragraph from '@components/paragraph/Paragraph';
+import PublicPageContainer from "@components/container/PublicPageContainer";
+import Heading from "@components/heading/Heading";
+import Paragraph from "@components/paragraph/Paragraph";
 
 const Header = () => {
   return (
     <PublicPageContainer
       className="py-[60px]"
       gradientDirection="45deg"
-      gradientColors={['#c7e8f2', '#EDE7F4', '#EDE7F4']}
-      gradientPositions={['0%', '60%', '100%']}
+      gradientColors={["#c7e8f2", "#EDE7F4", "#EDE7F4"]}
+      // gradientPositions={['0%', '60%', '100%']}
     >
       <div className="flex flex-col xmd:flex-row items-center gap-[40px] sm:gap-[50px] lg:gap-[110px]">
         <div className="flex-[1] order-1 xmd:order-2">
