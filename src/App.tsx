@@ -1,5 +1,5 @@
-import HomePage from "./pages/publicPages/landingPage/HomePage";
+import { AppRoutes } from "@routes/AppRoutes";
 
-const App = () => <HomePage/>
+const App: React.FC = () => <AppRoutes />;
 
-export default App
+export default App;
