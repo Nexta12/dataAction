@@ -1,4 +1,3 @@
-import BulletPointDot from '@components/bulletPointDot/BulletPointDot';
 import PublicPageContainer from '@components/container/PublicPageContainer';
 import Heading from '@components/heading/Heading';
 import Paragraph from '@components/paragraph/Paragraph';
