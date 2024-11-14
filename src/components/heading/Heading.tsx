@@ -6,7 +6,7 @@ interface Heading extends HTMLAttributes<HTMLDivElement> {
 }
 const Heading = ({ text, className, ...props }: Heading) => {
   return (
-    <div className={`text-[30px] text-DeepBlue font-[400] ${className}`} {...props}>
+    <div className={`text-[30px] mb-[16px] text-DeepBlue font-[400] ${className}`} {...props}>
       {text}
     </div>
   );

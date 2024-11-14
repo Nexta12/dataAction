@@ -1,16 +1,14 @@
-import PublicPageContainer from '@components/container/PublicPageContainer';
 import Header from './components/Header';
+import OurStories from './components/OurStories';
+import VisionAndMission from './components/VisionAndMission';
 
 const AboutUs = () => {
   return (
-    <PublicPageContainer
-      className="py-[60px]"
-      gradientDirection="45deg"
-      gradientColors={['#c7e8f2', '#EDE7F4', '#EDE7F4']}
-      gradientPositions={['0%', '60%', '100%']}
-    >
+    <div>
       <Header />
-    </PublicPageContainer>
+      <OurStories />
+      <VisionAndMission />
+    </div>
   );
 };
 
