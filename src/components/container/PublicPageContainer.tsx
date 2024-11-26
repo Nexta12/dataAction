@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, ReactNode } from "react";
 
 interface PublicPageContainerProps extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   gradientDirection?: string;
   gradientColors?: string[];
@@ -26,11 +26,11 @@ const PublicPageContainer: React.FC<PublicPageContainerProps> = ({
 
   return (
     <div
-      className={`py-[10px] px-[40px] md:px-[60px] bg-gray w-full ${className}`}
+      className={`py-[50px] px-[30px] lg:px-[100px] ${className}`}
       style={{ background }}
       {...props}
     >
-      <div className="max-w-screen-xl mx-auto">{children}</div>
+      {children}
     </div>
   );
 };

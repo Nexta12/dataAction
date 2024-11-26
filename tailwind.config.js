@@ -10,7 +10,9 @@ export default {
         DeepBlue: "#230081",
         LightBlue: "#1e7bc4",
         dark: "#20104B",
-        black: "#202020"
+        black: "#202020",
+        danger: '#ff0000',
+        transparentWhite: '#FFFFFF80'
       },
       screens: {
         xxs: "448px",
@@ -36,8 +38,8 @@ export default {
         "2xs": "0.688rem", // 11px
       },
       fontFamily: {
-        Lexend: ['Lexend', 'sans-serif'],
-        Poppins: ['Poppins', 'sans-serif'],
+        Lexend: ["Lexend", "sans-serif"],
+        Poppins: ["Poppins", "sans-serif"],
       },
       animation: {
         "spin-fast": "spin 0.5s linear infinite",

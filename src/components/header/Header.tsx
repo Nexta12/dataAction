@@ -12,8 +12,8 @@ const menuItems: MenuItem[] = [
   { title: menuTitles.Home, link: paths.Index },
   { title: menuTitles.About, link: paths.About },
   { title: menuTitles.Training, link: paths.Training },
-  { title: menuTitles.Consultation, link: paths.Consultation },
-  { title: menuTitles.Marketplace, link: paths.Marketplace },
+  // { title: menuTitles.Consultation, link: paths.Consultation },
+  // { title: menuTitles.Marketplace, link: paths.Marketplace },
   { title: menuTitles.Contact, link: paths.Contact },
 ];
 
@@ -24,7 +24,8 @@ const Header = () => {
   const pathname = location.pathname;
 
   return (
-    <header className="bg-gray flex items-center justify-between px-[20px] py-[30px] xs:px-[40px] md:px-[30px] mlg:px-[40px] z-50 relative">
+    <header className="bg-gray flex items-center justify-between py-[30px] px-[30px] lg:px-[80px] z-50 relative">
+
       <Link to={paths.Index}>
         <div className="flex items-center gap-1 font-bold  text-lg">
           <img
@@ -52,7 +53,7 @@ const Header = () => {
         })}
       </div>
 
-      <div className="hidden md:flex w-40 md:w-20">
+      <div className="hidden md:flex w-28 xmd:w-36 ">
         <ButtonLink to={paths.Register} label="Register" className="w-full" />
       </div>
 
@@ -62,7 +63,7 @@ const Header = () => {
       />
       {/* Sidepanel */}
       <div
-        className={`bg-lightgray absolute w-[100vw] top-0 right-0 h-screen px-[40px] py-[30px] transition-all duration-300 ${!sidepanel && "-translate-x-full xl:translate-x-0"} md:hidden `}
+        className={`bg-lightgray absolute w-[100vw] top-0 right-0 h-screen px-[30px] py-[30px] xs:px-[40px] md:px-[30px] transition-all duration-300 ${!sidepanel && "-translate-x-full xl:translate-x-0"} md:hidden `}
       >
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-1 font-bold  text-lg">

@@ -7,4 +7,5 @@ export const paths = {
   Consultation: "/consultation",
   Marketplace: "/marketplace",
   Contact: "/contact",
+  courseDetails: '/course'
 };

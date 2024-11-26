@@ -1,7 +1,15 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: Lexend;
+  src: url(/fonts/Lexend-Regular.ttf/);
+}
+@font-face {
+  font-family: Poppins;
+  src: url(/fonts/Poppins-Regular.ttf);
+}
 
 @layer base {
   html {
@@ -14,10 +22,18 @@
     color: inherit;
   }
 
+  body{
+    overflow-x: hidden;
+  }
+
   img {
     width: auto;
     height: auto;
     display: block;
   }
  
+}
+
+.slick-slide>div{
+  margin: 0 10px;
 }

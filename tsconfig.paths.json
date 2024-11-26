@@ -9,7 +9,8 @@
       "@utils/*": ["./utils/*"],
       "@customTypes/*": ["./customTypes/*"],
       "@routes/*": ["./routes/*"],
-      "@store/*": ["./store/*"]
+      "@store/*": ["./store/*"],
+      "@dummyData/*": ["./dummyData/*"]
     }
   }
 }

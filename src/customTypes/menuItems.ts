@@ -7,7 +7,7 @@ export const menuTitles = {
   Home: "Home",
   About: "About Us",
   Training: "Training",
-  Consultation: "Consultation",
-  Marketplace: "Marketplace",
+  // Consultation: "Consultation",
+  // Marketplace: "Marketplace",
   Contact: "Contact Us",
 };

@@ -8,6 +8,7 @@ import Consultation from "@pages/publicPages/consultation/Consultation";
 import Marketplace from "@pages/publicPages/marketplace/Marketplace";
 import ContactUs from "@pages/publicPages/contactUs/ContactUs";
 import NotFound from "@pages/errors/NotFound";
+import SingleCourseDetail from "@pages/publicPages/courseDetailPage/SingleCourseDetail";
 
 export const AppRoutes: React.FC = () => (
   <Routes>
@@ -18,6 +19,7 @@ export const AppRoutes: React.FC = () => (
       <Route path={paths.Consultation} element={<Consultation />} />
       <Route path={paths.Marketplace} element={<Marketplace />} />
       <Route path={paths.Contact} element={<ContactUs />} />
+      <Route path={`${paths.courseDetails}/:slug`} element={<SingleCourseDetail />} />
     </Route>
 
     <Route path="*" element={<NotFound />} />
