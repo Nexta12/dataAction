@@ -1,4 +1,5 @@
-import ExpertsSection from "../homePage/components/ExpertsSection";
+import PublicPageContainer from "@components/container/PublicPageContainer";
+import TeamSection from "../aboutUs/components/TeamSection";
 import Testimonials from "../homePage/components/Testimonials";
 import CoursesGallery from "./components/CoursesGallery";
 import { CTA, CTARequestScholarship } from "./components/CTA";
@@ -12,13 +13,17 @@ const Training = () => {
     <>
       <TrainingHero />
       <HowItWorksSection />
+      <CoursesGallery />
       <TrainingFeeSection />
       <CTA />
-      <CoursesGallery />
-      <ExpertsSection />
-      <CTARequestScholarship/>
-      <Faqs/>
-      <Testimonials/>
+      <TeamSection />
+      <PublicPageContainer>
+        <CTARequestScholarship />
+      </PublicPageContainer>
+      <Faqs />
+      <PublicPageContainer>
+        <Testimonials />
+      </PublicPageContainer>
     </>
   );
 };

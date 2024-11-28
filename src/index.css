@@ -22,7 +22,7 @@
     color: inherit;
   }
 
-  body{
+  body {
     overflow-x: hidden;
   }
 
@@ -31,9 +31,11 @@
     height: auto;
     display: block;
   }
- 
 }
 
-.slick-slide>div{
+.slick-slide > div {
   margin: 0 10px;
 }
+/* .slick-arrow {
+  display: none !important;
+} */

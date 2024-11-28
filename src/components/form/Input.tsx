@@ -29,9 +29,8 @@ const Input: React.FC<FormInputProps> = ({
         type={type}
         onChange={onChange}
         value={value}
-       
         {...props}
-        className={`border px-2 py-2 w-full outline-none hover:outline-none ${ className}`} 
+        className={`border border-gray text-sm px-2 py-2 w-full outline-none hover:outline-none ${className}`}
       />
     </div>
   );

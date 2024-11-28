@@ -22,7 +22,7 @@ const OurStories = () => {
           />
 
           <Paragraph
-            className="mb-[12px] lg:w-[80%] xmd:w-[85%] xmd:text-left text-center"
+            className="mb-[12px] lg:w-[80%] xmd:w-[85%] xmd:text-left text-center text-md"
             text={`DataActions was founded in 2021 with a mission to help family and friends master data
             analytics through Power BI and SQL. What began as informal lessons grew rapidly as we
             saw the transformative impact on those closest to us. This success led us to expand our
@@ -31,7 +31,7 @@ const OurStories = () => {
             at the core.`}
           />
           <Paragraph
-            className="lg:w-[80%] xmd:w-[85%] w-full xmd:text-left text-center"
+            className="lg:w-[80%] xmd:w-[85%] w-full xmd:text-left text-center text-md"
             text="Since then, we've supported over 30 individuals across Nigeria, the USA,
             Canada, and the UK in securing their dream jobs. Our vision is to equip people to thrive
             in the data-driven world, especially empowering Africans to enter the tech workforce. At

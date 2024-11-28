@@ -11,8 +11,8 @@ export default {
         LightBlue: "#1e7bc4",
         dark: "#20104B",
         black: "#202020",
-        danger: '#ff0000',
-        transparentWhite: '#FFFFFF80'
+        danger: "#ff0000",
+        transparentWhite: "#FFFFFF80",
       },
       screens: {
         xxs: "448px",

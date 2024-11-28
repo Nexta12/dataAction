@@ -1,75 +1,97 @@
 import BulletPointDot from "@components/bulletPointDot/BulletPointDot";
 import ButtonLink from "@components/button/ButtonLink";
-import { Carousel } from "@components/carousel/Carousel";
-import PublicPageContainer from "@components/container/PublicPageContainer";
 import Heading from "@components/heading/Heading";
 import Paragraph from "@components/paragraph/Paragraph";
 import SmallTitle from "@components/smallTitle/SmallTitle";
 import SubHeading from "@components/subHeading/SubHeading";
 import { paths } from "@routes/paths";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-export const sliderImages = [
+export const Events = [
   {
     id: 1,
-    image: "/slides/slide1.png",
+    image: "/assets/computer.png",
+    title: "Data Action Taster Sessions - Online",
+    text: "Join us in London, TX. Explore our free classes and meet our team.",
+    link: "/register",
   },
   {
     id: 2,
+    image: "/slides/slide1.png",
+    title: "Live Node.js Training - Online",
+    text: "Join us in London, TX. Explore our free classes and meet our team.",
+    link: "/register",
+  },
+  {
+    id: 3,
     image: "/slides/slide2.png",
+    title: "Data Analytics Interactive session",
+    text: "Join us in London, TX. Explore our free classes and meet our team.",
+    link: "/register",
   },
 ];
 
 const UpcommingEvents = () => {
-  const customSettings = {
+  const settings = {
+    dots: false,
+    infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    dots: false,
-    adaptiveHeight: true,
+    initialSlide: 0,
+    autoplay: true,
+    speed: 5000,
+    autoplaySpeed: 5000,
+    vertical: true,
+    cssEase: "linear",
+    pauseOnHover: true,
+    arrows: false,
   };
+
   return (
-
-
-      <div className="flex flex-col lg:flex-row my-16 justify-between gap-8 lg:gap-28">
-
-        <div className="flex-1 flex flex-col items-center lg:block w-full">
-        
-          <SmallTitle>Live Events</SmallTitle>
-          <Heading>Upcoming Events</Heading>
-          <div className="w-full p-3 flex justify-center lg:block">
-            <div className="w-[530px] rounded-lg flex items-center justify-center">
-              <Carousel
-                images={sliderImages}
-                settings={customSettings}
-                className="w-full"
-                imagesHeight="250px"
-              />
-            </div>
-          </div>
-          <SubHeading>Data Action Taster Sessions - Online</SubHeading>
-          <Paragraph>
-            Join us in London, TX. Explore our free classes and meet our team.
-          </Paragraph>
-          <div className="w-[80%] lg:w-[40%] xl:w-[30%]  my-6 mx-auto lg:ml-0">
-            <ButtonLink
-              to={paths.Register}
-              label="Register"
-              className=" bg-dark hover:bg-LightBlue"
-            />
-          </div>
+    <div className="flex flex-col mlg:flex-row items-start justify-between gap-20 xl:gap-60">
+      <div className="flex-1">
+        <SmallTitle className="">Live Events</SmallTitle>
+        <Heading className="text-center mb-8">Upcoming Events</Heading>
+        <div className=" w-[310px] xs:w-full mlg:w-[410px]  p-3 mx-auto">
+          <Slider {...settings}>
+            {Events.map((event, index) => (
+              <div
+                key={index}
+                className="flex flex-col gap-4 justify-center items-center"
+              >
+                <img
+                  src={event.image}
+                  alt="Image"
+                  className="w-full h-[180px] md:h-[220px] xl:h-[180px] object-cover rounded-2xl"
+                />
+                <SubHeading>{event.title}</SubHeading>
+                <Paragraph>{event.text}</Paragraph>
+                <ButtonLink
+                  to={event.link}
+                  label="Register"
+                  className=" bg-dark hover:bg-LightBlue w-[250px] my-6"
+                />
+              </div>
+            ))}
+          </Slider>
         </div>
+      </div>
 
-        <div className="flex-1 flex flex-col lg:items-center bg-danger ">
-          <div className="w-[80%] block mx-auto">
-    
-          <SmallTitle className="hidden lg:block">Overview</SmallTitle>
-          <Heading className="text-center text-md">
+      <div className="flex-1 flex flex-col lg:items-center">
+        <div className="w-full ml-auto flex flex-col justify-center items-center p-2 ">
+          <div className="w-full block items-center justify-center  ">
+            <SmallTitle className="">Overview</SmallTitle>
+          </div>
+          <Heading className="text-center text-lg font-bold lg:text-2xl">
             Practical Transformative Journey
           </Heading>
           <div className=" block">
-            <SubHeading className="py-5">
+            <SubHeading className="text-md pl-3 mb-6">
               Our training programs come with:
             </SubHeading>
-            <div className="flex flex-col mb-[15px] gap-3">
+            <div className="flex flex-col mb-[15px] gap-6 pl-3  w-full">
               <div className="flex items-center gap-[10px]">
                 <BulletPointDot />
                 <p>Free CV building & review</p>
@@ -95,13 +117,11 @@ const UpcommingEvents = () => {
             </div>
           </div>
           <div className="w-[80%]  xl:w-[50%]  my-6 ">
-            <ButtonLink to={paths.Training} label="Sign Up for Training" />
-          </div>
+            <ButtonLink to={paths.Register} label="Sign Up for Training" />
           </div>
         </div>
-
       </div>
-   
+    </div>
   );
 };
 

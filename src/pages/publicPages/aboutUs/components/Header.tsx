@@ -22,12 +22,12 @@ const Header = () => {
           />
 
           <Paragraph
-            className=" text-[18px] xmd:text-left text-center xmd:mb-[35px] mb-[24px]"
+            className="xmd:text-left text-center xmd:mb-[35px] mb-[24px] text-md"
             text="Your Partner in Tech Success"
           />
 
           <Paragraph
-            className="xmd:text-left text-center lg:w-[80%] xmd:w-[85%] w-full"
+            className="xmd:text-left text-center lg:w-[80%] xmd:w-[85%] w-full text-md"
             text="DataActions provides tech training and consultation for individuals and companies,
             equipping them with skills for real-world success. Our courses cover in-demand areas to
             help individuals land their dream jobs, while our consulting services support you in

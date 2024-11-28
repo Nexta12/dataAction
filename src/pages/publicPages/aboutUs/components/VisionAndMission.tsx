@@ -22,13 +22,13 @@ const VisionAndMission = () => {
             text="Vision and Mission"
           />
 
-          <Paragraph className="mb-[12px]  xmd:text-left text-center">
+          <Paragraph className="mb-[12px]  xmd:text-left text-center text-md">
             <span className="text-DeepBlue">Mission:</span> Our mission is to
             transform lives by providing exceptional training programs for
             individuals and companies to  empower them with the skills toward
             successful careers in tech. 
           </Paragraph>
-          <Paragraph className=" w-full xmd:text-left text-center">
+          <Paragraph className=" w-full xmd:text-left text-center text-md">
             <span className="text-DeepBlue">Vision:</span> Our vision is to
             create an environment where learning drives positive change,
             fostering a culture of growth and opportunity for all. 

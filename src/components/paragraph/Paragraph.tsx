@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from "react";
 
 interface Heading extends HTMLAttributes<HTMLDivElement> {
   text?: ReactNode;
@@ -7,7 +7,10 @@ interface Heading extends HTMLAttributes<HTMLDivElement> {
 }
 const Paragraph = ({ text, className, children, ...props }: Heading) => {
   return (
-    <div className={`text-[14px] leading-6 poppins font-[400] ${className}`} {...props}>
+    <div
+      className={`text-[14px] leading-6 poppins font-[400] ${className}`}
+      {...props}
+    >
       {text ? text : children}
     </div>
   );

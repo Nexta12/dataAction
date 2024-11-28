@@ -23,9 +23,8 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
   return (
     <div className="flex flex-col gap-2">
       {items?.map((item, index) => (
-
-        <div>
-          <div key={index} className="flex items-center justify-between p-4 bg-white">
+        <div key={index}>
+          <div className="flex items-center justify-between p-4 bg-white">
             {/* question */}
             <div className="text-sm">{item.question}</div>
             <button onClick={() => handleAccordion(index)}>
@@ -37,7 +36,11 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
           </div>
           <div
             className={`bg-white overflow-hidden p-4 transition-[max-height] duration-500 ease-in-out ${
-              activeIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0 hidden" }`}>
+              activeIndex === index
+                ? "max-h-96 opacity-100"
+                : "max-h-0 opacity-0 hidden"
+            }`}
+          >
             <div className=" text-sm mb-3">{item.answer}</div>
 
             <div className="flex items-center justify-between bg-lightgray p-4 rounded-lg text-sm">
@@ -61,7 +64,6 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
             </div>
           </div>
         </div>
-
       ))}
     </div>
   );

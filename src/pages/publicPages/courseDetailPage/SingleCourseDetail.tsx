@@ -121,7 +121,7 @@ const SingleCourseDetail = () => {
         </div>
       </div>
       <div className="my-20">
-      <CTARequestScholarship/>
+        <CTARequestScholarship />
       </div>
     </PublicPageContainer>
   );

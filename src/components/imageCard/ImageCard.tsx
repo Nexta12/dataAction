@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 
 interface ArticleCardProps extends HTMLAttributes<HTMLDivElement> {
   image?: string;
-  title?: string; 
+  title?: string;
   publishDate?: string;
   author?: string;
   text?: string;
   link?: string;
   imageClass?: string;
-  textClass?: string
-  clasName?: string
+  textClass?: string;
+  clasName?: string;
 }
 
 interface IconLink {
@@ -24,11 +24,11 @@ interface IconLink {
 interface ExpertsCardProps extends HTMLAttributes<HTMLDivElement> {
   image?: string;
   name?: string;
-  className?: string,
+  className?: string;
   specialty?: string;
   text?: string;
   icons?: IconLink[];
-  imageClass?: string
+  imageClass?: string;
 }
 
 export const ArticleCard: React.FC<ArticleCardProps> = ({
@@ -51,11 +51,13 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
             <img
               src={image}
               alt={title || "Image"}
-              className={`w-full h-[250px] object-cover block ${imageClass}`}
+              className={`w-full object-cover block ${imageClass}`}
             />
           </div>
         )}
-        <SubHeading className="my-4 w-full text-center text-md">{title}</SubHeading>
+        <SubHeading className="my-4 w-full text-center text-md">
+          {title}
+        </SubHeading>
         <div className="w-full flex justify-between items-center gap-4 my-2 text-[10px]">
           <div> {publishDate}</div>
           <div>{author}</div>
@@ -77,7 +79,10 @@ export const ExpertsCards: React.FC<ExpertsCardProps> = ({
   ...props
 }) => {
   return (
-    <div {...props} className={`w-full md:w-[48%] xmd:w-[22%] lg:w-[20%] mb-6 ${className}`}>
+    <div
+      {...props}
+      className={`w-full md:w-[48%] xmd:w-[22%] lg:w-[20%] mb-6 ${className}`}
+    >
       {image && (
         <div className="w-full">
           <img
@@ -95,7 +100,8 @@ export const ExpertsCards: React.FC<ExpertsCardProps> = ({
             <Link
               to={link || "#"}
               key={index}
-              className="w-[30px] h-[30px] rounded-full bg-dark/15 text-dark flex items-center justify-center transition-all duration-200 ease-in-out p-1 hover:text-white hover:bg-dark" target="_blanck"
+              className="w-[30px] h-[30px] rounded-full bg-dark/15 text-dark flex items-center justify-center transition-all duration-200 ease-in-out p-1 hover:text-white hover:bg-dark"
+              target="_blanck"
             >
               <Icon />
             </Link>

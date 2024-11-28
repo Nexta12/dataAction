@@ -11,18 +11,20 @@ import WhyUsSection from "./components/whyUs";
 
 const Homepage = () => {
   return (
-    <PublicPageContainer className='' gradientDirection="45deg">
+    <PublicPageContainer
+      className="flex flex-col gap-14 lg:gap-36"
+      gradientDirection="65deg"
+    >
       <HeroSection />
       <UpcommingEvents />
-      {/* <ServicesSection/>
-      <WhyUsSection/>
-      <VideoSection/>
-      <ArticlesSection/>
-      <ExpertsSection/>
-      <Testimonials/>
-      <Partners/> */}
-     </PublicPageContainer>
-
+      <ServicesSection />
+      <WhyUsSection />
+      <VideoSection />
+      <ArticlesSection />
+      <ExpertsSection />
+      <Testimonials />
+      <Partners />
+    </PublicPageContainer>
   );
 };
 

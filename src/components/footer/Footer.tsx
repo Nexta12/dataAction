@@ -5,16 +5,18 @@ import { FaArrowRight, FaFacebook, FaTiktok, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => (
-  <main className="py-[35px] px-[30px] md:px-[40px] gap-4 bg-dark text-gray flex flex-col md:flex-row  md:justify-between">
+  <main className="py-[35px] px-[30px] md:px-[40px] lg:px-[80px] gap-4 bg-dark text-gray flex flex-col md:flex-row  md:justify-between">
     <div className="flex-1 flex flex-col gap-3 text-sm">
-      <div className="flex items-center gap-1 font-bold  text-lg">
-        <img
-          src="/logo.png"
-          alt="Logo"
-          className="w-[45px] md:w-[32px] h-[46px] md:h-[36px] bg-gray"
-        />
-        <span>DataActions</span>
-      </div>
+      <Link to="/">
+        <div className="flex items-center gap-1 font-bold  text-lg">
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="w-[45px] md:w-[32px] h-[46px] md:h-[36px] bg-gray"
+          />
+          <span>DataActions</span>
+        </div>
+      </Link>
       <span>dataction@gmail.com</span>
       <span>+1234567890</span>
       <div className="flex items-center gap-4 mt-2 text-sm">

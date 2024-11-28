@@ -9,6 +9,7 @@ import Marketplace from "@pages/publicPages/marketplace/Marketplace";
 import ContactUs from "@pages/publicPages/contactUs/ContactUs";
 import NotFound from "@pages/errors/NotFound";
 import SingleCourseDetail from "@pages/publicPages/courseDetailPage/SingleCourseDetail";
+import Register from "@pages/publicPages/register/Register";
 
 export const AppRoutes: React.FC = () => (
   <Routes>
@@ -16,10 +17,14 @@ export const AppRoutes: React.FC = () => (
       <Route path={paths.Index} element={<Homepage />} />
       <Route path={paths.About} element={<AboutUs />} />
       <Route path={paths.Training} element={<Training />} />
+      <Route path={paths.Register} element={<Register />} />
       <Route path={paths.Consultation} element={<Consultation />} />
       <Route path={paths.Marketplace} element={<Marketplace />} />
       <Route path={paths.Contact} element={<ContactUs />} />
-      <Route path={`${paths.courseDetails}/:slug`} element={<SingleCourseDetail />} />
+      <Route
+        path={`${paths.courseDetails}/:slug`}
+        element={<SingleCourseDetail />}
+      />
     </Route>
 
     <Route path="*" element={<NotFound />} />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MenuItem, menuTitles } from "@customTypes/menuItems";
 import { paths } from "@routes/paths";
 import { BiMenuAltRight } from "react-icons/bi";
@@ -23,9 +23,25 @@ const Header = () => {
   const location = useLocation();
   const pathname = location.pathname;
 
-  return (
-    <header className="bg-gray flex items-center justify-between py-[30px] px-[30px] lg:px-[80px] z-50 relative">
+  const [sticky, setIsSticky] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 150) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <header
+      className={`header-sticky bg-gray flex items-center justify-between py-[20px] px-[30px] lg:px-[80px] z-50  ${sticky ? "sticky top-0 shadow-sm bg-white text-dark" : "relative"}`}
+    >
       <Link to={paths.Index}>
         <div className="flex items-center gap-1 font-bold  text-lg">
           <img
@@ -37,7 +53,7 @@ const Header = () => {
         </div>
       </Link>
 
-      <div className=" hidden md:flex items-center gap-4 font-Lexend md:text-xs mlg:text-sm lg:text-lg">
+      <div className=" hidden md:flex items-center gap-8 font-Lexend text-md font-extralight">
         {menuItems.map((item) => {
           const isActive = pathname === item.link;
 
@@ -63,7 +79,7 @@ const Header = () => {
       />
       {/* Sidepanel */}
       <div
-        className={`bg-lightgray absolute w-[100vw] top-0 right-0 h-screen px-[30px] py-[30px] xs:px-[40px] md:px-[30px] transition-all duration-300 ${!sidepanel && "-translate-x-full xl:translate-x-0"} md:hidden `}
+        className={`bg-lightgray absolute w-[100vw] top-0 right-0 h-screen px-[30px] py-[20px] xs:px-[40px] md:px-[30px] transition-all duration-300 ${!sidepanel && "-translate-x-full xl:translate-x-0"} md:hidden `}
       >
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-1 font-bold  text-lg">

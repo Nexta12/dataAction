@@ -4,21 +4,23 @@ import Input from "@components/form/Input";
 import Select from "@components/form/Select";
 import SimpleTextArea from "@components/form/SimpleTextArea";
 import Heading from "@components/heading/Heading";
+import { countries } from "../../../../dummyData/countries";
 
-const Consultation = () => {
-  const consultTationType = [
-    { label: "Option 1", value: "1" },
-    { label: "Option 2", value: "2" },
-    { label: "Option 3", value: "3" },
+const Register = () => {
+  const countriesData = countries;
+  const consultationData = [
+    { label: "Short Consultation", value: "Short Consultation" },
+    { label: "Long Consultation", value: "Long Consultation" },
+    { label: "Private Consultion", value: "Private Consultion" },
   ];
-
   const handleChange = () => {
     console.log("ello");
   };
+
   return (
     <PublicPageContainer gradientDirection="45deg">
       <div className="w-full xl:w-[80%] p-5 bg-white mx-auto">
-        <Heading className="text-center">Schedule a Consultation</Heading>
+        <Heading className="text-center">Register for Training</Heading>
 
         <form action="" method="post" className="flex flex-col gap-4">
           <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">
@@ -28,20 +30,21 @@ const Consultation = () => {
 
           <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">
             <Input type="text" label="Phone Number" placeholder="Phone No" />
-            <Input type="text" label="Location" placeholder="Location" />
+            <Select
+              options={countriesData}
+              selectLabel="Country of Residence"
+              onChange={handleChange}
+            />
           </div>
 
           <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">
             <Select
-              options={consultTationType}
+              options={consultationData}
               selectLabel="Consultation Type"
               onChange={handleChange}
             />
 
-            <div className="w-full flex  items-center justify-between gap-3">
-              <Input type="date" label="Schedule" />
-              <Input type="time" label="Time" />
-            </div>
+            <Input type="date" label="Preffered Start Date" />
           </div>
 
           <SimpleTextArea label="Comment" placeholder="Your comment here" />
@@ -55,4 +58,4 @@ const Consultation = () => {
   );
 };
 
-export default Consultation;
+export default Register;
