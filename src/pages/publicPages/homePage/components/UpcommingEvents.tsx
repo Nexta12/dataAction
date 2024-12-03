@@ -43,10 +43,10 @@ const UpcommingEvents = () => {
     autoplay: true,
     speed: 5000,
     autoplaySpeed: 5000,
-    vertical: true,
+   // vertical: true,
     cssEase: "linear",
     pauseOnHover: true,
-    arrows: false,
+    // arrows: false,
   };
 
   return (

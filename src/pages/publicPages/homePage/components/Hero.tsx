@@ -5,9 +5,9 @@ import { paths } from "@routes/paths";
 
 const HeroSection = () => {
   return (
-    <div className="w-full flex flex-col-reverse md:flex-row gap-4 justify-between items-start text-center lg:text-left">
-      <div className="flex-1">
-        <SmallTitle className="">Through Expert Online Training</SmallTitle>
+    <div className="w-full flex flex-col-reverse md:flex-row gap-4 justify-between ">
+      <div className="flex-1 flex flex-col gap-2">
+        <SmallTitle className=" lg:!ml-0">Through Expert Online Training</SmallTitle>
 
         <p className="font-Lexend text-[28px] font-[400] lg:text-[40px] xl:text-[68px] leading-[1] lg:tracking-[-4px] text-DeepBlue xxs:my-4 sm:my-2 md:text-left">
           Journey With Us & Accelerate
@@ -24,11 +24,12 @@ const HeroSection = () => {
           <ButtonLink to={paths.Consultation} label="Book a consultation" />
         </div>
       </div>
+
       <div className="flex-1 flex ">
         <img
           src="/assets/Right.png"
           alt="heroImage"
-          className="w-[400px] h-auto block ml-auto "
+          className="w-[500px] h-auto block ml-auto "
         />
       </div>
     </div>

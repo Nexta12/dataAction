@@ -17,7 +17,7 @@ const Footer: React.FC = () => (
           <span>DataActions</span>
         </div>
       </Link>
-      <span>dataction@gmail.com</span>
+      <span>data-ction@gmail.com</span>
       <span>+1234567890</span>
       <div className="flex items-center gap-4 mt-2 text-sm">
         <FaFacebook />

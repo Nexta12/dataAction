@@ -29,7 +29,7 @@ const ServiceCards = ({
           <img
             src={image}
             alt="image"
-            className="w-full h-full object-cover block rounded-lg"
+            className="w-full  object-cover block rounded-lg h-64"
           />
         )}{" "}
       </div>

@@ -13,18 +13,16 @@ const TrainingHero = () => {
   ];
 
   return (
-    <PublicPageContainer
-      className=""
-      gradientColors={["#EDE7F4", "#EDE7F4", "#EDE7F4"]}
-    >
-      <div className="flex flex-col lg:flex-row items-start">
-        <div className="left flex-1 w-full ">
+
+
+      <div className="flex flex-col lg:flex-row items-start bg-[#EDE7F4]">
+        <div className="left flex-1 w-full">
           <Heading
             className="xmd:text-[35px] md:text-[20px] lg:text-md xmd:text-left text-center"
             text="Empowering Your Skills"
           />
           <div className="w-full flex items-center">
-            <div className="h-36 bg-[#706363] w-full hidden xl:block"></div>
+            <div className="h-36 bg-[#706363] w-full hidden xl:block ml-[-250px]"></div>
             <img
               src="/assets/trainingImage.png"
               alt="training"
@@ -81,7 +79,8 @@ const TrainingHero = () => {
           </div>
         </div>
       </div>
-    </PublicPageContainer>
+
+ 
   );
 };
 
