@@ -84,7 +84,7 @@ const Header = () => {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-1 font-bold  text-lg">
             <img src="/logo.png" alt="Logo" className="w-[32px] h-[36px]" />
-            <span>DataActions</span>
+            <span>DataActions22</span>
           </div>
           <IoMdClose className="text-3xl" onClick={handleSidepanel} />
         </div>
