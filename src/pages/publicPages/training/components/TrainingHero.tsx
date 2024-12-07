@@ -1,27 +1,34 @@
 import { SubmitButton } from "@components/button/SubmitButton";
 import Input from "@components/form/Input";
 import Select from "@components/form/Select";
+import SimpleTextArea from "@components/form/SimpleTextArea";
 import Heading from "@components/heading/Heading";
 import Marquee from "react-fast-marquee";
 
 const TrainingHero = () => {
   const options = [
-    { label: "Option 1", value: "1" },
-    { label: "Option 2", value: "2" },
-    { label: "Option 3", value: "3" },
+    { label: "Data Analytics", value: "Data Analytics" },
+    { label: "Power Apps Training", value: "Power Apps Training" },
+    { label: "Power Automate", value: "Power Automate" },
+    { label: "Power Virtual Assitant", value: "Power Virtual Assitant" },
+    { label: "Microsoft Excel", value: "Microsoft Excel" },
+    { label: "Power BI Training", value: "Power BI Training" },
+    { label: "UI/UX Training", value: "UI/UX Training" },
+    { label: "Excel Crash Course", value: "Excel Crash Course" },
+    { label: "Business Analysis", value: "Business Analysis" },
   ];
 
   return (
 
 
-      <div className="flex flex-col lg:flex-row items-start bg-[#EDE7F4]">
+      <div className="flex flex-col lg:flex-row items-start  bg-[linear-gradient(to_right,_#c7e8f2,_#EDE7F4_20%,_#c7e8f2)] px-4 md:px-0">
         <div className="left flex-1 w-full">
           <Heading
-            className="xmd:text-[35px] md:text-[20px] lg:text-md xmd:text-left text-center"
+            className="xmd:text-[35px] md:text-[20px] lg:text-md  text-center"
             text="Empowering Your Skills"
           />
           <div className="w-full flex items-center">
-            <div className="h-36 bg-[#706363] w-full hidden xl:block ml-[-250px]"></div>
+            <div className="h-48 bg-[#706363] w-full hidden xl:block ml-[-250px]"></div>
             <img
               src="/assets/trainingImage.png"
               alt="training"
@@ -61,13 +68,14 @@ const TrainingHero = () => {
                 <Input className="bg-[#EDE7F4]" placeholder="Email" />
               </div>
               <div className="flex flex-col md:flex-row gap-4 w-full justify-between">
+                <Input className="bg-[#EDE7F4]" placeholder="Phone" />
                 <Select
                   options={options}
                   className="bg-[#EDE7F4] text-sm"
-                  placeholder="Select Project Area"
+                  placeholder="Preferred Course"
                 />
-                <Input className="bg-[#EDE7F4]" placeholder="Email" />
               </div>
+              <SimpleTextArea className="bg-[#EDE7F4] h-20" placeholder="Comment"/>
               <div className="my-4">
                 <SubmitButton
                   label="submit"

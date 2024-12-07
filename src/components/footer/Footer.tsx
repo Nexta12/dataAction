@@ -50,7 +50,7 @@ const Footer: React.FC = () => (
         <Link to={paths.Index}>Book a consultation</Link>
         <Link to={paths.Index}>Apply for Scholarship</Link>
         <Link to={paths.Training}>Request a project</Link>
-        <Link to={paths.Index}>Payment</Link>
+        <Link to={paths.payment}>Payment</Link>
       </div>
     </div>
 

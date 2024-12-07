@@ -4,14 +4,18 @@ import Input from "@components/form/Input";
 import Select from "@components/form/Select";
 import SimpleTextArea from "@components/form/SimpleTextArea";
 import Heading from "@components/heading/Heading";
-import { countries } from "../../../../dummyData/countries";
 
 const Register = () => {
-  const countriesData = countries;
   const consultationData = [
-    { label: "Short Consultation", value: "Short Consultation" },
-    { label: "Long Consultation", value: "Long Consultation" },
-    { label: "Private Consultion", value: "Private Consultion" },
+    { label: "Data Analytics", value: "Data Analytics" },
+    { label: "Power Apps Training", value: "Power Apps Training" },
+    { label: "Power Automate", value: "Power Automate" },
+    { label: "Power Virtual Assitant", value: "Power Virtual Assitant" },
+    { label: "Microsoft Excel", value: "Microsoft Excel" },
+    { label: "Power BI Training", value: "Power BI Training" },
+    { label: "UI/UX Training", value: "UI/UX Training" },
+    { label: "Excel Crash Course", value: "Excel Crash Course" },
+    { label: "Business Analysis", value: "Business Analysis" },
   ];
   const handleChange = () => {
     console.log("ello");
@@ -31,25 +35,19 @@ const Register = () => {
           <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">
             <Input type="text" label="Phone Number" placeholder="Phone No" />
             <Select
-              options={countriesData}
-              selectLabel="Country of Residence"
+              options={consultationData}
+              selectLabel="Training Type"
               onChange={handleChange}
             />
           </div>
 
           <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">
-            <Select
-              options={consultationData}
-              selectLabel="Consultation Type"
-              onChange={handleChange}
-            />
-
             <Input type="date" label="Preffered Start Date" />
           </div>
 
           <SimpleTextArea label="Comment" placeholder="Your comment here" />
           <SubmitButton
-            label="Submit and Make Payment"
+            label="Submit"
             className="text-white !rounded-md"
           />
         </form>

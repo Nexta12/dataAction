@@ -8,11 +8,12 @@ import { IoMdClose } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
 import ButtonLink from "@components/button/ButtonLink";
 
+
 const menuItems: MenuItem[] = [
   { title: menuTitles.Home, link: paths.Index },
   { title: menuTitles.About, link: paths.About },
   { title: menuTitles.Training, link: paths.Training },
-  // { title: menuTitles.Consultation, link: paths.Consultation },
+  { title: menuTitles.Consultation, link: paths.ConsultationPage },
   // { title: menuTitles.Marketplace, link: paths.Marketplace },
   { title: menuTitles.Contact, link: paths.Contact },
 ];
@@ -53,7 +54,7 @@ const Header = () => {
         </div>
       </Link>
 
-      <div className=" hidden md:flex items-center gap-8 font-Lexend text-md font-extralight">
+      <div className=" hidden md:flex items-center gap-8 font-Lexend text-lg font-extralight">
         {menuItems.map((item) => {
           const isActive = pathname === item.link;
 
@@ -119,6 +120,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+     
     </header>
   );
 };

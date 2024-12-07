@@ -32,6 +32,7 @@ const HeroSection = () => {
           className="w-[500px] h-auto block ml-auto "
         />
       </div>
+     
     </div>
   );
 };

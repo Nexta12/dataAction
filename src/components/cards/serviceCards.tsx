@@ -24,7 +24,8 @@ const ServiceCards = ({
 }: ConsultCardProps) => {
   return (
     <div className="bg-transparentWhite p-4 rounded-lg w-full text-center flex flex-col gap-3 justify-between">
-      <div className="w-full h-32 bg-white rounded-lg">
+
+      <div className="w-full h-44 bg-white rounded-lg">
         {image && (
           <img
             src={image}
@@ -33,8 +34,11 @@ const ServiceCards = ({
           />
         )}{" "}
       </div>
-      <SubHeading className="text-[22px]">{title}</SubHeading>
+
+      <SubHeading className="text-[24px]">{title}</SubHeading>
+
       <Paragraph>{text || children}</Paragraph>
+
       <Link to={url || "#"} className={btnClass}>
         {linkText}
       </Link>

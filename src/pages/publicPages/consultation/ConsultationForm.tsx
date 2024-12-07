@@ -7,9 +7,19 @@ import Heading from "@components/heading/Heading";
 
 const Consultation = () => {
   const consultTationType = [
-    { label: "Option 1", value: "1" },
-    { label: "Option 2", value: "2" },
-    { label: "Option 3", value: "3" },
+    { label: "Training & Development", value: "Training & Development" },
+    { label: "CV Building", value: "CV Building" },
+    { label: "Interview Prep", value: "Interview Prep" },
+    { label: "Dashboard Development", value: "Dashboard Development" },
+    { label: "Internship", value: "Internship" },
+    { label: "Career Advice", value: "Career Advice" },
+    { label: "Power App Development", value: "Power App Development" },
+    { label: "Process Automation", value: "Process Automation" },
+    {
+      label: "Work Portfolio Development",
+      value: "Work Portfolio Development",
+    },
+    { label: "Others", value: "Others" },
   ];
 
   const handleChange = () => {
@@ -27,28 +37,17 @@ const Consultation = () => {
           </div>
 
           <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">
-            <Input type="text" label="Phone Number" placeholder="Phone No" />
-            <Input type="text" label="Location" placeholder="Location" />
-          </div>
-
-          <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">
             <Select
               options={consultTationType}
-              selectLabel="Consultation Type"
+              selectLabel="Preferred Consultation Type"
               onChange={handleChange}
             />
 
-            <div className="w-full flex  items-center justify-between gap-3">
-              <Input type="date" label="Schedule" />
-              <Input type="time" label="Time" />
-            </div>
+            <Input type="date" label="Preferred Date" />
           </div>
 
           <SimpleTextArea label="Comment" placeholder="Your comment here" />
-          <SubmitButton
-            label="Submit and Make Payment"
-            className="text-white !rounded-md"
-          />
+          <SubmitButton label="Submit" className="text-white !rounded-md" />
         </form>
       </div>
     </PublicPageContainer>

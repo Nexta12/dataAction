@@ -7,6 +7,7 @@ export default {
         skyBlue: "#B6E1EB",
         gray: "#EDE7F4",
         lightgray: "#F8F8F8",
+        admingray: "#FAFBFC",
         DeepBlue: "#230081",
         LightBlue: "#1e7bc4",
         dark: "#20104B",
@@ -43,11 +44,16 @@ export default {
       },
       animation: {
         "spin-fast": "spin 0.5s linear infinite",
+        pulse: 'pulse 2s infinite',
       },
       keyframes: {
         spin: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
+        },
+        pulse: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.1)' },
         },
       },
     },
