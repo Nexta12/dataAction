@@ -36,7 +36,7 @@ const Payment = () => {
       <div className="right flex-1 ">
          <form action="">
             <Heading text="Payment"/>
-            <Select options={options} placeholder="Payment For"/>
+            <Select options={options} placeholder="Payment For:"/>
             <Input placeholder="0000 0000 0000 0000"/>
             <div className="flex items-center justify-between gap-4">
             <Input placeholder="23 / 04" label="Expiring Date:"/>
