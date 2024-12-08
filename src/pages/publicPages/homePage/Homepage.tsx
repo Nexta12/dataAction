@@ -9,6 +9,7 @@ import UpcommingEvents from "./components/UpcommingEvents";
 import VideoSection from "./components/VideoSection";
 import WhyUsSection from "./components/whyUs";
 import CallToAction from "@components/callToAction/callToAction";
+import CoursesGallery from "../training/components/CoursesGallery";
 
 
 const Homepage = () => {
@@ -18,6 +19,7 @@ const Homepage = () => {
       gradientDirection="65deg"
     >
       <HeroSection />
+      <CoursesGallery />
       <UpcommingEvents />
       <ServicesSection />
       <WhyUsSection />
