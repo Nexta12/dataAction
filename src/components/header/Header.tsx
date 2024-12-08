@@ -80,7 +80,7 @@ const Header = () => {
       />
       {/* Sidepanel */}
       <div
-        className={`bg-lightgray absolute w-[70vw] top-0 right-0 h-fit px-[30px] py-[20px] xs:px-[40px] md:px-[30px] ${!sidepanel ? "opacity-0" : "opacity-100"} md:hidden `}
+        className={`bg-lightgray absolute w-[70vw] top-0 right-0 h-fit px-[30px] py-[20px] xs:px-[40px] md:px-[30px] ${!sidepanel ? "opacity-0 hidden" : "opacity-100 block"} md:hidden `}
       >
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-1 font-bold  text-lg">
