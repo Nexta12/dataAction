@@ -52,8 +52,8 @@ const ContactUs = () => {
               </div>
             </div>
 
-            <div className="right flex-[1.5] bg-white/75 shadow-sm rounded-lg w-full p-5">
-              <Heading className="text-center">Book a meeting</Heading>
+            <div className="right flex-[1.5] bg-white/75 md:shadow-sm rounded-lg w-full md:p-5">
+              <Heading className="text-center">Send a Message</Heading>
               <form
                 action=""
                 method="post"

@@ -8,7 +8,6 @@ import { IoMdClose } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
 import ButtonLink from "@components/button/ButtonLink";
 
-
 const menuItems: MenuItem[] = [
   { title: menuTitles.Home, link: paths.Index },
   { title: menuTitles.About, link: paths.About },
@@ -41,7 +40,8 @@ const Header = () => {
 
   return (
     <header
-      className={`header-sticky bg-gray flex items-center justify-between py-[20px] px-[30px] lg:px-[80px] z-50  ${sticky ? "sticky top-0 shadow-sm bg-white text-dark" : "relative"}`}
+      className={`header-sticky bg-gray flex items-center
+         justify-between py-[20px] px-[30px] lg:px-[40px] xl:px-[80px] z-50  ${sticky ? "sticky top-0 shadow-sm bg-white text-dark" : "relative"}`}
     >
       <Link to={paths.Index}>
         <div className="flex items-center gap-1 font-bold  text-lg">
@@ -80,7 +80,7 @@ const Header = () => {
       />
       {/* Sidepanel */}
       <div
-        className={`bg-lightgray absolute w-[100vw] top-0 right-0 h-screen px-[30px] py-[20px] xs:px-[40px] md:px-[30px] transition-all duration-300 ${!sidepanel && "-translate-x-full xl:translate-x-0"} md:hidden `}
+        className={`bg-lightgray absolute w-[70vw] top-0 right-0 h-fit px-[30px] py-[20px] xs:px-[40px] md:px-[30px] ${!sidepanel ? "opacity-0" : "opacity-100"} md:hidden `}
       >
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-1 font-bold  text-lg">
@@ -94,19 +94,24 @@ const Header = () => {
           {menuItems.map((item) => {
             const isActive = pathname === item.link;
             return (
-              <div
-                key={item.title}
-                className={`flex items-center justify-between py-[10px] px-[12px] rounded-sm fz-[14px] font-light tracking-wide ${isActive ? "bg-dark text-white" : ""}`}
-              >
-                <Link to={item.link} onClick={handleSidepanel}>
+              <Link to={item.link} onClick={handleSidepanel}>
+                <div
+                  key={item.title}
+                  className={`flex items-center justify-between py-[10px] px-[12px] rounded-sm fz-[14px] font-light tracking-wide ${isActive ? "bg-dark text-white" : ""}`}
+                >
                   {item.title}
-                </Link>
-                <FaAngleRight className="text-gray" />
-              </div>
+
+                  <FaAngleRight className="text-gray" />
+                </div>
+              </Link>
             );
           })}
         </div>
-        <ButtonLink to={paths.Register} label="Register" className="w-full" />
+        <ButtonLink
+          to={paths.Register}
+          label="Register"
+          className="w-full my-16"
+        />
 
         <div className="mt-2 flex flex-col gap-4 items-center">
           <span>Email@email.com</span>
@@ -120,7 +125,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-     
     </header>
   );
 };

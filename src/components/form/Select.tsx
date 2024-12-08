@@ -26,14 +26,14 @@ const Select: React.FC<SelectProps> = ({
   ...props
 }) => {
   return (
-    <div className="w-full">
+    <div className="w-full mb-2">
       <div className="text-sm font-bold font-Lexend">{selectLabel}</div>
       <select
         name={name}
         onChange={onChange}
         value={value || ""}
         {...props}
-        className={`border border-gray px-2 py-2 w-full outline-none hover:outline-none ${className}`}
+        className={`border border-gray px-2 py-2 h-14 w-full outline-none hover:outline-none ${className}`}
       >
         {placeholder && (
           <option value="" disabled>
