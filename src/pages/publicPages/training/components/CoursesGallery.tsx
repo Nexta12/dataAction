@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const CoursesGallery = () => {
   return (
-    <PublicPageContainer>
+
       <div className="flex flex-col lg:flex-row gap-4 my-6">
         {/* Category Left */}
         <div className="left flex-1">
@@ -365,7 +365,7 @@ const CoursesGallery = () => {
           </div>
         </div>
       </div>
-    </PublicPageContainer>
+  
   );
 };
 

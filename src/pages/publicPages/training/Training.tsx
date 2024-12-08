@@ -13,7 +13,10 @@ const Training = () => {
     <>
       <TrainingHero />
       <HowItWorksSection />
-      <CoursesGallery />
+      <PublicPageContainer>
+        <CoursesGallery />
+      </PublicPageContainer>
+
       <TrainingFeeSection />
       <CTA />
       <TeamSection />
