@@ -5,7 +5,6 @@ import SimpleTextArea from "@components/form/SimpleTextArea";
 import Heading from "@components/heading/Heading";
 import Paragraph from "@components/paragraph/Paragraph";
 import SubHeading from "@components/subHeading/SubHeading";
-import WhatsAppButton from "@components/whatsappChat/Whatsapp";
 import { IoMdCall, IoMdSend } from "react-icons/io";
 
 const ContactUs = () => {
