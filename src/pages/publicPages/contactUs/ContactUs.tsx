@@ -5,6 +5,7 @@ import SimpleTextArea from "@components/form/SimpleTextArea";
 import Heading from "@components/heading/Heading";
 import Paragraph from "@components/paragraph/Paragraph";
 import SubHeading from "@components/subHeading/SubHeading";
+import WhatsAppButton from "@components/whatsappChat/Whatsapp";
 import { IoMdCall, IoMdSend } from "react-icons/io";
 
 const ContactUs = () => {
@@ -16,7 +17,7 @@ const ContactUs = () => {
       <div className="bg-[url('/assets/students.png')] bg-cover bg-center w-full lg:h-[500px] px-3 ">
         <div className="w-full xl:w-[50%] flex flex-col gap-0 mx-auto py-5">
           <Heading
-            className="xmd:text-[35px] text-xlg  text-center text-white  font-Lexend"
+            className=" text-center text-white  font-Lexend"
             text="Contact Us"
           />
           <Paragraph
@@ -35,7 +36,7 @@ const ContactUs = () => {
                 <SubmitButton
                   label="Call Us Directly"
                   icon={IoMdCall}
-                  className="w-[180px] mt-2 text-sm text-white !rounded-lg"
+                  className="w-[180px] mt-2 text-white !rounded-lg mx-auto md:ml-0"
                 />
               </div>
               <div className="bottom bg-white p-5 shadow-sm rounded-lg flex flex-col gap-2 ">
@@ -45,9 +46,9 @@ const ContactUs = () => {
                   Monday to Friday whatever your time zone.
                 </Paragraph>
                 <SubmitButton
-                  label="Chat Us on WhatsApp"
+                  label="Chat on WhatsApp"
                   icon={IoMdSend}
-                  className="w-[180px] mt-2 text-xs text-white !rounded-lg !px-2"
+                  className="w-[180px] mt-2 text-white !rounded-lg !px-2 mx-auto"
                 />
               </div>
             </div>
@@ -77,7 +78,7 @@ const ContactUs = () => {
                 />
                 <SubmitButton
                   label="Submit"
-                  className="w-[180px] text-white !rounded-lg mt-4"
+                  className="w-[180px] text-white !rounded-lg mt-4 mx-auto"
                 />
               </form>
             </div>

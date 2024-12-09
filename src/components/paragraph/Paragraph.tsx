@@ -8,7 +8,7 @@ interface Heading extends HTMLAttributes<HTMLDivElement> {
 const Paragraph = ({ text, className, children, ...props }: Heading) => {
   return (
     <div
-      className={`text-[14px] leading-6 poppins font-[400] ${className}`}
+      className={`text-md leading-6 poppins font-[400] ${className}`}
       {...props}
     >
       {text ? text : children}

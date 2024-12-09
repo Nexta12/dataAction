@@ -41,19 +41,19 @@ const OurStories: React.FC<OurStoriesProps> = ({
         <div className="flex-1 order-2 md:order-1">
           {/* Title */}
           <Heading
-            className="xmd:text-[35px] text-xlg xmd:text-left text-center"
+            className="xmd:text-left text-center"
             text={title}
           />
 
           {/* Paragraph 1 */}
           <Paragraph
-            className="mb-[12px] lg:w-[80%] xmd:w-[85%] xmd:text-left text-center text-md"
+            className="mb-[12px] lg:w-[80%] xmd:w-[85%] xmd:text-left text-center"
             text={text1}
           />
 
           {/* Paragraph 2 */}
           <Paragraph
-            className="lg:w-[80%] xmd:w-[85%] w-full xmd:text-left text-center text-md"
+            className="lg:w-[80%] xmd:w-[85%] w-full xmd:text-left text-center"
             text={text2}
           />
         </div>

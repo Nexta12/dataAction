@@ -17,17 +17,17 @@ const Header = () => {
 
         <div className="flex-1 order-2 md:order-1">
           <Heading
-            className="xmd:text-[39px] text-xlg xmd:text-left text-center"
+            className="xmd:text-left text-center"
             text="About DataAction"
           />
 
           <Paragraph
-            className="xmd:text-left text-center xmd:mb-[35px] mb-[24px] text-md"
+            className="xmd:text-left text-center xmd:mb-[35px] mb-[24px]"
             text="Your Partner in Tech Success"
           />
 
           <Paragraph
-            className="xmd:text-left text-center lg:w-[80%] xmd:w-[85%] w-full text-md"
+            className="xmd:text-left text-center lg:w-[80%] xmd:w-[85%] w-full"
             text="DataActions provides tech training and consultation for individuals and companies,
             equipping them with skills for real-world success. Our courses cover in-demand areas to
             help individuals land their dream jobs, while our consulting services support you in

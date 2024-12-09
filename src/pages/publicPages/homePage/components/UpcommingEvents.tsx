@@ -84,11 +84,11 @@ const UpcommingEvents = () => {
           <div className="w-full block items-center justify-center  ">
             <SmallTitle className="">Overview</SmallTitle>
           </div>
-          <Heading className="text-center text-lg font-bold lg:text-2xl">
+          <Heading className="text-center font-bold">
             Practical Transformative Journey
           </Heading>
           <div className=" block">
-            <SubHeading className="text-md pl-3 mb-6">
+            <SubHeading className="pl-3">
               Our training programs come with:
             </SubHeading>
             <div className="flex flex-col mb-[15px] gap-6 pl-3  w-full">

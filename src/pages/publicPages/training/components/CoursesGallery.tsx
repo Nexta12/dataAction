@@ -2,6 +2,8 @@
 import { BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import CourseCard from "./CourseCard";
+import SubHeading from "@components/subHeading/SubHeading";
+import Paragraph from "@components/paragraph/Paragraph";
 
 const CoursesGallery = () => {
   return (
@@ -16,7 +18,7 @@ const CoursesGallery = () => {
             className="flex whitespace-nowrap items-center lg:items-start gap-4 overflow-x-auto overflow-y-hidden lg:flex-col"
             style={{ scrollbarWidth: "none" }}
           >
-            <span className="font-bold">All Courses</span>
+            <SubHeading>All Courses</SubHeading>
 
             <Link to="/">Data Analytics</Link>
             <Link to="/">Power Platform</Link>
@@ -40,10 +42,8 @@ const CoursesGallery = () => {
         {/* Profucts right */}
         <div className="right flex-[4]">
           <div className="w-full mb-4 font-bold flex flex-col-reverse md:flex-row gap-4 py-4 md:py-0 items-center justify-between ">
-            <h1 className="hidden lg:block text-sm font-semibold">
-              30 Products Listed
-            </h1>
-
+            <Paragraph className="hidden lg:block"> 30 Products Listed</Paragraph>
+            
             <div className=" flex items-center pl-2 text-xs border rounded-sm py-2 w-full md:w-52">
               <BsSearch className="text-md mr-1" />
               <input

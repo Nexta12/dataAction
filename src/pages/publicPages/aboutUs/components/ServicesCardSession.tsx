@@ -11,11 +11,11 @@ const ServicesCardSession = () => {
       gradientColors={["#c7e8f2", "#EDE7F4", "#EDE7F4"]}
     >
       <Heading
-        className="xmd:text-[39px] text-xlg xmd:text-left text-center"
+        className=" xmd:text-left text-center"
         text="Services Overview"
       />
       <Paragraph
-        className=" text-[18px] xmd:text-left text-center xmd:mb-[35px] mb-[24px]"
+        className="xmd:text-left text-center xmd:mb-[35px] mb-[24px]"
         text="At DataActions, we offer a comprehensive range of training and consultancy services designed to empower individuals and organizations in the tech industry."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 justify-between">

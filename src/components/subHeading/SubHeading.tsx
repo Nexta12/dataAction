@@ -13,7 +13,7 @@ const SubHeading = ({
 }: SubHeadingProps) => {
   return (
     <div
-      className={`text-sm my-[5px] text-DeepBlue font-bold ${className}`}
+      className={`text-[20px] my-[5px] text-DeepBlue font-[500] ${className}`}
       {...props}
     >
       {text || children}

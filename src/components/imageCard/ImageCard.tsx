@@ -45,7 +45,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
 }) => {
   return (
     <Link to={link || "#"} className={`w-full  ${clasName}`}>
-      <div {...props}>
+      <div {...props} className="bg-white/75 shadow-sm p-3 rounded-md">
         {image && (
           <div className="w-full">
             <img
@@ -63,7 +63,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
           <div>{author}</div>
         </div>
 
-        <SubHeading className={`${textClass}`}>{text}</SubHeading>
+        <Paragraph className={`${textClass}`}>{text}</Paragraph>
       </div>
     </Link>
   );

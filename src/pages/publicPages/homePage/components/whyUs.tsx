@@ -31,7 +31,7 @@ const WhyUsSection = () => {
       </div>
 
       <div className="flex-[2.5]">
-        <SmallTitle className="mt-[-1px]">Why Us</SmallTitle>
+        <SmallTitle className="mt-[-1px] mx-auto md:ml-0">Why Us</SmallTitle>
 
         <div className=" block">
           <Heading>What sets us apart:</Heading>

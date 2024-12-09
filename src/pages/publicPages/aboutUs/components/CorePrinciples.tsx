@@ -1,4 +1,5 @@
 import BulletPointDot from "@components/bulletPointDot/BulletPointDot";
+import Paragraph from "@components/paragraph/Paragraph";
 
 const CorePrinciples = () => {
   return (
@@ -6,24 +7,24 @@ const CorePrinciples = () => {
       <div className="left">
         <div className="flex items-center gap-[10px] mb-4">
           <BulletPointDot />
-          <p>Integrity</p>
+          <Paragraph>Integrity</Paragraph>
         </div>
 
         <div className="flex items-center gap-[10px] mb-4">
           <BulletPointDot />
-          <p>Collaborative Learning</p>
+          <Paragraph>Collaborative Learning</Paragraph>
         </div>
       </div>
 
       <div className="right">
         <div className="flex items-center gap-[10px] mb-4">
           <BulletPointDot />
-          <p>Excellence</p>
+          <Paragraph>Excellence</Paragraph>
         </div>
 
         <div className="flex items-center gap-[10px] mb-4 ">
           <BulletPointDot />
-          <p>Innovation</p>
+          <Paragraph>Innovation</Paragraph>
         </div>
       </div>
     </div>

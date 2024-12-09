@@ -16,7 +16,7 @@ const TrainingFeeSection = () => {
 
         <div className="flex-1">
           <div className=" block">
-            <Heading className="text-xl xmd:text-[35px] text-xlg xmd:text-left text-center">
+            <Heading className=" text-xlg xmd:text-left text-center">
               Each training comes with free:
             </Heading>
             <div className="flex flex-col mb-[15px] gap-6">

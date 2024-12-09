@@ -6,7 +6,7 @@ import { BiArrowBack } from "react-icons/bi";
 const HowItWorksSection = () => {
   return (
     <PublicPageContainer gradientDirection="60deg">
-      <Heading className="xmd:text-[35px] text-xlg xmd:text-left text-center">
+      <Heading className=" xmd:text-left text-center">
         How It Works
       </Heading>
 

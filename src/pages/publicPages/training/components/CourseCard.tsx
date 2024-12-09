@@ -1,5 +1,8 @@
 import ButtonLink from "@components/button/ButtonLink"
+import Paragraph from "@components/paragraph/Paragraph"
+import SubHeading from "@components/subHeading/SubHeading"
 import { paths } from "@routes/paths"
+import { Link } from "react-router-dom"
 
 
 const CourseCard = () => {
@@ -14,15 +17,13 @@ const CourseCard = () => {
     </div>
 
     <div className="text-sm flex flex-col gap-3">
-      <span className="font-bold capitalize text-dark">
-        Power BI powerful
-      </span>
-      <span className="text-xs">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Eveniet ad numquam quibusdam exercitationem facere{" "}
-      </span>
+      <SubHeading className="capitalize"> Power BI powerful</SubHeading>
+      <Paragraph>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Eveniet ad numquam quibusdam exercitationem facere
+      </Paragraph>
       <div className="flex items-center justify-between">
-        <span className="text-LightBlue font-semibold">$200</span>
+        <Paragraph className="text-LightBlue">$200</Paragraph>
         <span className="text-2xs text-light">
           Payable upto 2 Instalments
         </span>
@@ -52,7 +53,8 @@ const CourseCard = () => {
         className="bg-dark py-2 px-3 text-white hover:bg-green transition-all duration-300 ease-in-out hover:bg-LightBlue"
       ></ButtonLink>
     </div>
-    <div className=" text-2xs my-3">Download Course outline</div>
+    <Link to={"/"} className="text-blue-500 my-3">Download Course outline</Link>
+
   </div>
   )
 }

@@ -25,7 +25,7 @@ const Payment = () => {
     >
       <div className="left flex-1 ">
         <Heading
-          className="xmd:text-[39px] text-xlg xmd:text-left text-center font-semibold"
+          className=" xmd:text-left text-center font-semibold"
           text="Consultation service Payment"
         />
         <div className="flex justify-center items-center">

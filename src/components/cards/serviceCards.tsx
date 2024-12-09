@@ -30,16 +30,16 @@ const ServiceCards = ({
           <img
             src={image}
             alt="image"
-            className="w-full  object-cover block rounded-lg h-64"
+            className="w-full  object-cover block rounded-xl h-full"
           />
         )}{" "}
       </div>
 
-      <SubHeading className="text-[24px]">{title}</SubHeading>
+      <SubHeading>{title}</SubHeading>
 
       <Paragraph>{text || children}</Paragraph>
 
-      <Link to={url || "#"} className={btnClass}>
+      <Link to={url || "#"} className={`text-LightBlue ${btnClass}`}>
         {linkText}
       </Link>
     </div>

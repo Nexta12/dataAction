@@ -25,7 +25,7 @@ const TrainingHero = () => {
       <div className="flex flex-col lg:flex-row items-start  bg-[linear-gradient(to_right,_#c7e8f2,_#EDE7F4_20%,_#c7e8f2)] px-4 md:px-0">
         <div className="left flex-1 w-full">
           <Heading
-            className="xmd:text-[35px] md:text-[20px] lg:text-md  text-center"
+            className="text-center"
             text="Empowering Your Skills"
           />
           <div className="w-full flex items-center">
@@ -60,7 +60,7 @@ const TrainingHero = () => {
           </div>
           <div className="formBox mx-auto w-full md:w-[80%] mt-10">
             <Heading
-              className=" text-sm xmd:text-[25px] text-xlg xmd:text-left text-center font-light font-Lexend text-white/75"
+              className=" xmd:text-left text-center font-light font-Lexend text-white/75"
               text="Register for one of our tech courses today!"
             />
             <form action="" className="flex flex-col gap-4">

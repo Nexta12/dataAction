@@ -18,7 +18,7 @@ const TestimonialCards = ({
 }: TestimonialCardProps) => {
   return (
     <div className="bg-transparentWhite p-4 w-[340px] rounded-xl" {...props}>
-      <Paragraph className="text-sm">{text}</Paragraph>
+      <Paragraph>{text}</Paragraph>
       <div className="mt-3 flex items-center gap-4">
         <img
           src={image || "/assets/p1.png"}

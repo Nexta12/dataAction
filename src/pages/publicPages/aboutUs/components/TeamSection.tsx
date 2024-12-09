@@ -47,11 +47,11 @@ const TeamSection = () => {
       gradientColors={["#c7e8f2", "#EDE7F4", "#EDE7F4"]}
     >
       <Heading
-        className="xmd:text-[39px] text-xlg xmd:text-left text-center"
+        className=" xmd:text-left text-center"
         text="Team Introduction"
       />
       <Paragraph
-        className=" text-[18px] xmd:text-left text-center xmd:mb-[35px] mb-[24px]"
+        className=" xmd:text-left text-center xmd:mb-[35px] mb-[24px]"
         text="Meet the team behind DataActions — a group of dedicated professionals passionate about empowering individuals and organizations through technology."
       />
       <div className="w-full items-center justify-between">

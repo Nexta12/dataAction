@@ -29,7 +29,7 @@ const Faqs = () => {
     <PublicPageContainer gradientDirection="60deg" className="py-[60px]">
       <div className="flex flex-col md:flex-row items-start gap-4">
         <div className="left flex-1">
-          <Heading className="text-md xmd:text-[35px] text-xlg xmd:text-left text-center">
+          <Heading className=" xmd:text-left text-center">
             Frequently Asked Questions
           </Heading>
           <Paragraph

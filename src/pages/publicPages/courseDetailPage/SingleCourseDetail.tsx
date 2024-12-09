@@ -15,7 +15,7 @@ const SingleCourseDetail = () => {
 
       <div className="flex-1 order-2 md:order-1">
         <Heading
-          className="xmd:text-[35px] text-xlg xmd:text-left text-center my-6"
+          className=" xmd:text-left text-center my-6"
           text="Data Analytics & BI"
         />
 
@@ -62,7 +62,7 @@ const SingleCourseDetail = () => {
 
       <div className="my-10">
         <Heading
-          className="xmd:text-[35px] text-xlg xmd:text-left text-center my-6"
+          className=" xmd:text-left text-center my-6"
           text="What you’ll Learn"
         />
         <div className="flex flex-col md:flex-row text-xs md:text-sm justify-between gap-4">

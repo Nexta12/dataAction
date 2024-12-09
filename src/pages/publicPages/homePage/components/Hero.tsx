@@ -7,13 +7,13 @@ const HeroSection = () => {
   return (
     <div className="w-full flex flex-col-reverse md:flex-row gap-4 justify-between ">
       <div className="flex-1 flex flex-col gap-2">
-        <SmallTitle className=" lg:!ml-0">Through Expert Online Training</SmallTitle>
+        <SmallTitle>Through Expert Online Training</SmallTitle>
 
-        <p className="font-Lexend text-[28px] font-[400] lg:text-[40px] xl:text-[68px] leading-[1] lg:tracking-[-4px] text-DeepBlue xxs:my-4 sm:my-2 md:text-left">
-          Journey With Us & Accelerate
+        <p className="font-Lexend text-[22px] font-bold lg:text-[40px] xl:text-[68px] leading-[1] lg:tracking-[-4px] text-DeepBlue xxs:my-4 sm:my-2 text-center md:text-left">
+          Journey With Us & Scale Up
         </p>
 
-        <Paragraph className="my-3 text-wrap text-black xxs:text-justify lg:text-left text-md">
+        <Paragraph className="my-3 text-wrap text-black xxs:text-justify text-center lg:text-left">
           Welcome to <span className="font-semibold">Data Actions</span> – Your
           pathway to Data Mastery. Our wide range of services is designed to
           transform your learning experience, offering customized solutions for

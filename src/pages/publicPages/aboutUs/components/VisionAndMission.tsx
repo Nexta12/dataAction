@@ -18,24 +18,24 @@ const VisionAndMission = () => {
 
         <div className="flex-[1] order-2 md:order-1">
           <Heading
-            className="xmd:text-[35px] text-xlg xmd:text-left text-center"
+            className=" xmd:text-left text-center"
             text="Vision and Mission"
           />
 
-          <Paragraph className="mb-[12px]  xmd:text-left text-center text-md">
+          <Paragraph className="mb-[12px]  xmd:text-left text-center ">
             <span className="text-DeepBlue">Mission:</span> Our mission is to
             transform lives by providing exceptional training programs for
             individuals and companies to  empower them with the skills toward
             successful careers in tech. 
           </Paragraph>
-          <Paragraph className=" w-full xmd:text-left text-center text-md">
+          <Paragraph className=" w-full xmd:text-left text-center ">
             <span className="text-DeepBlue">Vision:</span> Our vision is to
             create an environment where learning drives positive change,
             fostering a culture of growth and opportunity for all. 
           </Paragraph>
 
           <Heading
-            className="xmd:text-[35px] text-xlg xmd:text-left text-center mt-[30px]"
+            className=" xmd:text-left text-center mt-[30px]"
             text="Core Principles"
           />
 

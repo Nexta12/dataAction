@@ -41,7 +41,7 @@ const Header = () => {
   return (
     <header
       className={`header-sticky bg-gray flex items-center
-         justify-between py-[20px] px-[30px] lg:px-[40px] xl:px-[80px] z-50  ${sticky ? "sticky top-0 shadow-sm bg-white text-dark" : "relative"}`}
+         justify-between py-[20px] px-[30px] lg:px-[40px] xl:px-[80px] z-50 text-DeepBlue  ${sticky ? "sticky top-0 shadow-sm bg-white " : "relative"}`}
     >
       <Link to={paths.Index}>
         <div className="flex items-center gap-1 font-bold  text-lg">
