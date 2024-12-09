@@ -1,6 +1,4 @@
-import ButtonLink from "@components/button/ButtonLink";
-import PublicPageContainer from "@components/container/PublicPageContainer";
-import { paths } from "@routes/paths";
+
 import { BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import CourseCard from "./CourseCard";
