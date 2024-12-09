@@ -23,10 +23,10 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
   return (
     <div className="flex flex-col gap-2">
       {items?.map((item, index) => (
-        <div key={index}>
+        <div key={index} onClick={() => handleAccordion(index)}>
           <div className="flex items-center justify-between p-4 bg-white">
             {/* question */}
-            <div className="text-sm">{item.question}</div>
+            <div className="text-md font-semibold">{item.question}</div>
             <button onClick={() => handleAccordion(index)}>
               <div className=" w-8 h-8 rounded-sm flex items-center justify-center bg-lightgray cursor-pointer">
                 {activeIndex === index ? <IoMdClose /> : <BiPlus />}

@@ -33,7 +33,7 @@ const Select: React.FC<SelectProps> = ({
         onChange={onChange}
         value={value || ""}
         {...props}
-        className={`border border-gray px-2 py-2 h-14 w-full outline-none hover:outline-none ${className}`}
+        className={`border border-gray px-2 py-2 h-12 w-full outline-none hover:outline-none ${className}`}
       >
         {placeholder && (
           <option value="" disabled>

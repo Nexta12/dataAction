@@ -21,7 +21,7 @@ const HeroSection = () => {
           leverage data to fuel success, innovation and growth.
         </Paragraph>
         <div className="w-[80%] lg:w-[40%] xl:w-[30%]  my-6 mx-auto lg:ml-0">
-          <ButtonLink to={paths.Consultation} label="Book a consultation" />
+          <ButtonLink to={paths.Consultation} label="Book a consultation" className="rounded-xl" />
         </div>
       </div>
 

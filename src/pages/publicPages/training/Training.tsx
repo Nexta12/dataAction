@@ -17,8 +17,8 @@ const Training = () => {
         <CoursesGallery />
       </PublicPageContainer>
 
-      <TrainingFeeSection />
-      <CTA />
+      {/* <TrainingFeeSection /> */}
+      {/* <CTA /> */}
       <TeamSection />
       <PublicPageContainer>
         <CTARequestScholarship />

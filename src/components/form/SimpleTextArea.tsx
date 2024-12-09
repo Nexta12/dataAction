@@ -31,7 +31,7 @@ const SimpleTextArea: React.FC<FormTextAreaProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         value={value}
-        className={`border px-2 py-2 h-28 w-full outline-none hover:outline-none ${className}`}
+        className={`border px-2 py-2 h-16 w-full outline-none hover:outline-none ${className}`}
         {...props}
       ></textarea>
     </div>

@@ -23,9 +23,9 @@ const ServiceCards = ({
   linkText,
 }: ConsultCardProps) => {
   return (
-    <div className="bg-transparentWhite p-4 rounded-lg w-full text-center flex flex-col gap-3 justify-between">
+    <div className="bg-transparentWhite p-4 rounded-xl w-full text-center flex flex-col gap-3 justify-between border-2 border-white">
 
-      <div className="w-full h-44 bg-white rounded-lg">
+      <div className="w-full h-44 bg-white rounded-xl">
         {image && (
           <img
             src={image}

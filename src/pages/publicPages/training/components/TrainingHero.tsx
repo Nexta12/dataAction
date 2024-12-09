@@ -16,6 +16,7 @@ const TrainingHero = () => {
     { label: "UI/UX Training", value: "UI/UX Training" },
     { label: "Excel Crash Course", value: "Excel Crash Course" },
     { label: "Business Analysis", value: "Business Analysis" },
+    { label: "SQL", value: "SQL" },
   ];
 
   return (
@@ -76,10 +77,10 @@ const TrainingHero = () => {
                 />
               </div>
               <SimpleTextArea className="bg-[#EDE7F4] h-20" placeholder="Comment"/>
-              <div className="my-4">
+              <div className="mb-2">
                 <SubmitButton
                   label="submit"
-                  className="px-6 rounded text-white"
+                  className="px-6 text-white w-[200px] rounded-lg "
                 />
               </div>
             </form>

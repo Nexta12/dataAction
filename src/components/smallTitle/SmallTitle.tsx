@@ -13,7 +13,7 @@ const SmallTitle = ({
 }: SmallTitleProps) => {
   return (
     <div
-      className={`bg-[#674CEF26] rounded-full text-2xs my-4 px-3 py-2  flex items-center justify-center text-LightBlue font-semibold w-[280px] mx-auto  ${className}`}
+      className={`bg-[#674CEF26] rounded-full text-2xs my-4 px-3 py-2  flex items-center justify-center text-LightBlue font-semibold w-[280px]   ${className}`}
     >
       {text || children}
     </div>

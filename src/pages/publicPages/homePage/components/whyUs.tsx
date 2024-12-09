@@ -5,36 +5,37 @@ import WhyUsBoxes from "./WhyUsBoxes";
 
 const WhyUsSection = () => {
   return (
-    <div className="flex flex-col md:flex-row items-start justify-between gap-20 xl:gap-60">
-      <div className="flex-1 grid grid-cols-2 gap-4 w-full mx-auto">
+    <div className="flex flex-col md:flex-row items-start justify-between gap-20 xl:gap-64 ">
+
+      <div className="flex-[1.5] grid grid-cols-2 gap-4 w-full mx-auto">
         <WhyUsBoxes
-          textClassName="text-md"
+          textClassName="text-sm"
           count="35+"
           text="Elevate your business our courses"
         />
         <WhyUsBoxes
-          textClassName="text-md"
+          textClassName="text-sm"
           count="987+"
           text="Elevate your business our courses"
         />
         <WhyUsBoxes
-          textClassName="text-md"
+          textClassName="text-sm"
           count="890+"
           text="Elevate your business our courses"
         />
         <WhyUsBoxes
-          textClassName="text-md"
+          textClassName="text-sm"
           count="77+"
           text="Elevate your business our courses"
         />
       </div>
 
-      <div className="flex-1">
+      <div className="flex-[2.5]">
         <SmallTitle className="mt-[-1px]">Why Us</SmallTitle>
 
         <div className=" block">
           <Heading>What sets us apart:</Heading>
-          <div className="flex flex-col mb-[15px] gap-8">
+          <div className="flex flex-col mb-[15px] gap-5">
             <div className="flex items-center gap-[10px]">
               <BulletPointDot />
               <p>

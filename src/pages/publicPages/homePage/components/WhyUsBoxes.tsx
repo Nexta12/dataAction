@@ -16,7 +16,7 @@ const WhyUsBoxes = ({
   textClassName,
 }: WhyUsBoxesProps) => {
   return (
-    <div className="bg-transparentWhite p-6 rounded-lg flex flex-col justify-center items-center text-center aspect-square ">
+    <div className="bg-transparentWhite p-6 rounded-3xl flex flex-col justify-center items-center text-center aspect-square w-40 h-40 ">
       <Heading className={countClassName}>{count}</Heading>
       <Paragraph className={textClassName}>{text}</Paragraph>
     </div>
