@@ -80,7 +80,7 @@ const TrainingHero = () => {
               <div className="mb-2">
                 <SubmitButton
                   label="submit"
-                  className="px-6 text-white w-[200px] rounded-lg "
+                  className="px-6 text-white w-[200px] rounded-lg  mx-auto lg:ml-0"
                 />
               </div>
             </form>
