@@ -27,11 +27,11 @@ const Modal = () => {
           "modalData",
           JSON.stringify({ count: count + 1, timestamp })
         );
-      }, 1000); 
+      }, 5000); 
 
       const closeTimer = setTimeout(() => {
         setOpen(false);
-      }, 12000); 
+      }, 25000); 
 
       return () => {
         clearTimeout(timer);
