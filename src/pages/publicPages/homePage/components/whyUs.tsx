@@ -10,22 +10,22 @@ const WhyUsSection = () => {
       <div className="flex-[1.5] grid grid-cols-2 gap-4 w-full mx-auto">
         <WhyUsBoxes
           textClassName="text-sm"
-          count="35+"
+          count="35"
           text="Elevate your business our courses"
         />
         <WhyUsBoxes
           textClassName="text-sm"
-          count="987+"
+          count="987"
           text="Elevate your business our courses"
         />
         <WhyUsBoxes
           textClassName="text-sm"
-          count="890+"
+          count="890"
           text="Elevate your business our courses"
         />
         <WhyUsBoxes
           textClassName="text-sm"
-          count="77+"
+          count="77"
           text="Elevate your business our courses"
         />
       </div>
