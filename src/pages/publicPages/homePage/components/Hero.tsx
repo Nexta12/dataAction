@@ -1,16 +1,21 @@
+import AnimatedText from "@components/animatedText/AnimatedText";
 import ButtonLink from "@components/button/ButtonLink";
 import Paragraph from "@components/paragraph/Paragraph";
 import SmallTitle from "@components/smallTitle/SmallTitle";
 import { paths } from "@routes/paths";
 
+
 const HeroSection = () => {
+
+
+
   return (
-    <div className="w-full flex flex-col-reverse md:flex-row gap-4 justify-between ">
+    <div className="w-full flex flex-col-reverse md:flex-row gap-4 justify-between items-start ">
       <div className="flex-1 flex flex-col gap-2">
         <SmallTitle>Through Expert Online Training</SmallTitle>
 
-        <p className="font-Lexend text-[22px] font-bold lg:text-[40px] xl:text-[68px] leading-[1] lg:tracking-[-4px] text-DeepBlue xxs:my-4 sm:my-2 text-center md:text-left">
-          Journey With Us & Scale Up
+        <p className="font-Lexend text-[22px] font-bold lg:text-[40px] xl:text-[68px] leading-[1] lg:tracking-[-4px] text-DeepBlue xxs:my-4 sm:my-2 text-center md:text-left h-12 lg:h-32">
+        Journey With Us <AnimatedText/>
         </p>
 
         <Paragraph className="my-3 text-wrap text-black xxs:text-justify text-center lg:text-left">
@@ -25,7 +30,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="flex-1 flex ">
+      <div className="flex-1 flex animate-zoomIn">
         <img
           src="/assets/Right.png"
           alt="heroImage"

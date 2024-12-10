@@ -45,6 +45,7 @@ export default {
       animation: {
         "spin-fast": "spin 0.5s linear infinite",
         pulse: 'pulse 2s infinite',
+        zoomIn: 'zoomIn 1.5s ease-out forwards',
       },
       keyframes: {
         spin: {
@@ -54,6 +55,10 @@ export default {
         pulse: {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.1)' },
+        },
+        zoomIn: {
+          '0%': { transform: 'scale(0)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
         },
       },
     },

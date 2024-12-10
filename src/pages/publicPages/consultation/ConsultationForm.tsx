@@ -47,7 +47,7 @@ const Consultation = () => {
   };
 
   return (
-    <PublicPageContainer gradientDirection="45deg">
+    <PublicPageContainer gradientDirection="45deg" className="h-screen">
       <div className="w-full xl:w-[80%] p-5 bg-white mx-auto">
         {successMessage && (
           <div className="w-full text-center text-md text-green-500">
@@ -55,7 +55,7 @@ const Consultation = () => {
           </div>
         )}
 
-        <Heading className="text-center">Schedule a Consultation</Heading>
+        <Heading className="text-center mb-4">Schedule a Consultation</Heading>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">
@@ -102,7 +102,7 @@ const Consultation = () => {
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
-          <SubmitButton label="Submit" className="text-white !rounded-md" />
+          <SubmitButton label="Submit" className="text-white !rounded-md w-[180px] mx-auto" />
         </form>
       </div>
     </PublicPageContainer>

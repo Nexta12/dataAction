@@ -40,7 +40,7 @@ const TrainingHero = () => {
 
         <div className=" flex-[1.5] w-full bg-dark p-3 ">
           <div className=" hidden mx-auto  xl:flex items-center justify-center gap-4 text-white/75 bg-dark/25  text-sm">
-            <Marquee className="py-3" pauseOnHover>
+            <Marquee className="py-3" pauseOnHover >
               <span className=" px-3 py-1 cursor-pointer hover:bg-slate-600">
                 Data Analytics
               </span>

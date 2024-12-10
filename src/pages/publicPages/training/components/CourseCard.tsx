@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 
 const CourseCard = () => {
   return (
-    <div className="bg-transparentWhite p-2 mb-6 rounded-md w-full  flex flex-col justify-between ">
+    <div className="bg-transparentWhite p-2 mb-6 rounded-md w-full  flex flex-col justify-between">
     <div className="w-full h-[200px] flex items-center justify-center overflow-hidden">
       <img
         src={"/assets/rectangle.png"}

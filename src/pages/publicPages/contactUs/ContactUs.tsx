@@ -11,7 +11,7 @@ const ContactUs = () => {
   return (
     <PublicPageContainer
       gradientDirection="45deg"
-      className="pt-0  !px-0 lg:pb-[550px] xl:pb-72"
+      className="pt-0  !px-0 h-screen"
     >
       <div className="bg-[url('/assets/students.png')] bg-cover bg-center w-full lg:h-[500px] px-3 ">
         <div className="w-full xl:w-[50%] flex flex-col gap-0 mx-auto py-5">
