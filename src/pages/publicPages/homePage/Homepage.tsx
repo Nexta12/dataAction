@@ -13,6 +13,7 @@ import CourseCard from "../training/components/CourseCard";
 import { Link } from "react-router-dom";
 import Paragraph from "@components/paragraph/Paragraph";
 import Heading from "@components/heading/Heading";
+import Modal from "./components/Modal";
 
 const Homepage = () => {
   const [showMarquee, setShowMarquee] = useState(true);
@@ -39,7 +40,7 @@ const Homepage = () => {
         </Marquee>
       )}
       <PublicPageContainer
-        className="flex flex-col gap-14 lg:gap-36"
+        className="flex flex-col gap-14 lg:gap-36 overflow-x-hidden"
         gradientDirection="65deg"
       >
         <HeroSection />
@@ -58,7 +59,7 @@ const Homepage = () => {
           <Link to="/training" className="text-blue-600">View More</Link>
         </div>
         </div>
-
+          <Modal/>
         <CallToAction
           text="Unsure which course suits you? Connect with our professionals for a Career Alignment Test and get personalized guidance on the best path for your goals"
           linkText="Take A step Further"
