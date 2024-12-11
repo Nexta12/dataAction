@@ -46,9 +46,10 @@ export default {
         "spin-fast": "spin 0.5s linear infinite",
         pulse: 'pulse 2s infinite',
         zoomIn: 'zoomIn 1.5s ease-out forwards',
+        spinOnce: 'spinOnce 0.5s linear',
       },
       keyframes: {
-        spin: {
+        spinOnce: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
@@ -60,6 +61,7 @@ export default {
           '0%': { transform: 'scale(0)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
+      
       },
     },
   },
