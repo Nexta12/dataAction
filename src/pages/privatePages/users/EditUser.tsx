@@ -54,7 +54,7 @@ const EditUser = () => {
     };
     setLoading(true);
     try {
-      console.log('Hello')
+      console.log(userDetails)
       // await apiClient.put(`${endpoints.updateUser}/${id}`, userDetails);
 
       setMessage({
