@@ -1,4 +1,5 @@
 import AdminContainer from "@components/adminContainer/AdminContainer";
+import Spinner from "@components/spinner/Spinner";
 import { paths } from "@routes/paths";
 import useAuthStore from "@store/authStore";
 import { useEffect, useState } from "react";
@@ -31,7 +32,7 @@ const PrivatePageLayout = () => {
   }, [user, isAuthenticated, navigate]);
 
   if (authLoading) {
-    return <div>Loading...</div>;
+    return <Spinner/>;
   }
 
   if (isAuthenticated) {
@@ -41,7 +42,7 @@ const PrivatePageLayout = () => {
       </AdminContainer>
     );
   }else{
-    return null
+    return <Spinner/>;
   }
 };
 

@@ -16,6 +16,8 @@ import ConsultationPage from "@pages/publicPages/consultation/ConsultationPage";
 import Payment from "@pages/publicPages/payment/Payment";
 import Login from "@pages/publicPages/login/Login";
 import Users from "@pages/privatePages/users/Users";
+import AddUser from "@pages/privatePages/users/AddUser";
+import EditUser from "@pages/privatePages/users/editUser";
 
 export const AppRoutes: React.FC = () => (
   <Routes>
@@ -38,6 +40,8 @@ export const AppRoutes: React.FC = () => (
     <Route path={paths.adminIndex} element={<PrivatePageLayout />}>
         <Route path={`${paths.adminIndex}/dashboard`} element={<Dashboard />} />
         <Route path={paths.users} element={<Users />} />
+        <Route path={paths.addNewAdmin} element={<AddUser />} />
+        <Route path={`${paths.editAdmin}/:id`} element={<EditUser />} />
     </Route>
 
 

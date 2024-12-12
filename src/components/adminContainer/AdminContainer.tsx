@@ -73,9 +73,6 @@ const AdminContainer = ({ children }: AdminContent) => {
 
   const location = useLocation();
   const pathname = location.pathname;
-
-  console.log(pathname)
-
   const { logout } = useAuthStore();
 
   const handleSidepanel = () => setSidepanel(!sidepanel);
@@ -142,7 +139,7 @@ const AdminContainer = ({ children }: AdminContent) => {
         <div className="sidebar hidden md:block flex-1 shadow bg-white border-r-2 border-LightBlue xl:pl-3 pt-4 h-[80vh] text-md text-dark">
           <ul className="m-0 p-0 flex flex-col gap-2">
             {DashBoardMenu.map((item, index) => {
-                 const isActive = pathname === item.link;
+                 const isActive = pathname === item.link || pathname.includes(item.link);
 
               if (item.title === "Logout") {
                 return (

@@ -5,4 +5,8 @@ export const endpoints = {
     applyForTraining: '/api/training/apply',
     sendContactMessage: '/api/contact/create',
     validateAuth: '/api/secure/validate',
+    getAllUsers: '/api/user/getAll',
+    addNewStaff: '/api/secure/addUser',
+    getUser: '/api/user/getOne',
+    updateUser: '/api/user/update'
 }

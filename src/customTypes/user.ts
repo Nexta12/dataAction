@@ -4,7 +4,7 @@ export enum UserRole {
   }
 
 export interface AdminProfile{
-    userId: string;
+    _id: string;
     firstName: string;
     lastName: string;
     email: string;
@@ -12,4 +12,5 @@ export interface AdminProfile{
     role: UserRole
     createdAt: Date | string;
     updatedAt: Date | string;
+    actions: string
 }

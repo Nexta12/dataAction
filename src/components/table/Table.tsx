@@ -49,7 +49,7 @@ export interface Column<T> {
             {data.map((row, rowIndex) => (
               <tr key={keyExtractor(row)}  className={rowIndex % 2 === 0 ? "bg-white" : "bg-white"} >
                 {columns.map((column) => (
-                  <td key={`${keyExtractor(row)}-${String(column.key)}`} className="px-4 py-2 text-sm text-gray-600 border border-gray-300" >
+                  <td key={`${keyExtractor(row)}-${String(column.key)}`} className=" p-4 text-sm text-gray-600 border border-gray-300 text-center" >
                     {column.render
                       ? column.render(row[column.key] as T[keyof T], row)
                       : renderCellValue(row[column.key])}

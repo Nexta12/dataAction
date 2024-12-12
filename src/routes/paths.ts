@@ -13,5 +13,7 @@ export const paths = {
   // Admin Section
   adminIndex: "/admin",
   adminDashboard: "/admin/dashboard",
-  users: '/admin/users'
+  users: '/admin/users',
+  addNewAdmin: '/admin/users/addNew',
+  editAdmin: '/admin/users/edit'
 };
