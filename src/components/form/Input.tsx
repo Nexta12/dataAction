@@ -32,6 +32,7 @@ const Input: React.FC<FormInputProps> = ({
         onChange={onChange}
         value={value}
         {...props}
+        autoComplete={name}
         className={`border border-gray text-[18px] px-2 py-2 h-12 w-full outline-none hover:outline-none ${className}`}
       />
     </div>

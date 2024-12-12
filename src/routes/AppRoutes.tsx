@@ -14,6 +14,8 @@ import Dashboard from "@pages/privatePages/dashboard/Dashboard";
 import PrivatePageLayout from "@pages/privatePages/PrivatePageLayout";
 import ConsultationPage from "@pages/publicPages/consultation/ConsultationPage";
 import Payment from "@pages/publicPages/payment/Payment";
+import Login from "@pages/publicPages/login/Login";
+import Users from "@pages/privatePages/users/Users";
 
 export const AppRoutes: React.FC = () => (
   <Routes>
@@ -22,6 +24,7 @@ export const AppRoutes: React.FC = () => (
       <Route path={paths.About} element={<AboutUs />} />
       <Route path={paths.Training} element={<Training />} />
       <Route path={paths.Register} element={<Register />} />
+      <Route path={paths.Login} element={<Login />} />
       <Route path={paths.Consultation} element={<Consultation />} />
       <Route path={paths.ConsultationPage} element={<ConsultationPage />} />
       <Route path={paths.Marketplace} element={<Marketplace />} />
@@ -34,6 +37,7 @@ export const AppRoutes: React.FC = () => (
     </Route>
     <Route path={paths.adminIndex} element={<PrivatePageLayout />}>
         <Route path={`${paths.adminIndex}/dashboard`} element={<Dashboard />} />
+        <Route path={paths.users} element={<Users />} />
     </Route>
 
 

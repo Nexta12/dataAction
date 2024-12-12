@@ -2,6 +2,7 @@ import { SubmitButton } from "@components/button/SubmitButton";
 import { paths } from "@routes/paths";
 import { BsInstagram, BsLinkedin } from "react-icons/bs";
 import { FaArrowRight, FaFacebook, FaTiktok, FaTwitter } from "react-icons/fa";
+import { GiPadlock } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => (
@@ -34,7 +35,7 @@ const Footer: React.FC = () => (
         <Link to={paths.Index}>Home</Link>
         <Link to={paths.About}>About us</Link>
         <Link to={paths.Training}>Services</Link>
-        <Link to={paths.Index}>Blog</Link>
+        <Link to={paths.Login} className="flex gap-1 items-center">Admin Login<GiPadlock title="Secured by Nexta digital Securities" className="text-yellow-300"/> </Link>
       </div>
 
       <div className="flex flex-col gap-2">

@@ -19,7 +19,7 @@ const Payment = () => {
   ];
   return (
     <PublicPageContainer
-      className=" flex flex-col md:flex-row justify-between gap-12"
+      className=" flex flex-col md:flex-row items-start justify-between gap-12 lg:h-[100vh]"
       gradientDirection="45deg"
       gradientColors={["#c7e8f2", "#EDE7F4", "#EDE7F4"]}
     >
@@ -33,16 +33,16 @@ const Payment = () => {
         </div>
       </div>
 
-      <div className="right flex-1 ">
-         <form action="">
-            <Heading text="Payment"/>
+      <div className="right flex-1 bg-transparentWhite p-2 lg:p-10 rounded-sm ">
+         <form action="" className="flex flex-col gap-4">
+            <Heading text="Payment" className="text-center"/>
             <Select options={options} placeholder="Payment For:"/>
             <Input placeholder="0000 0000 0000 0000"/>
             <div className="flex items-center justify-between gap-4">
             <Input placeholder="23 / 04" label="Expiring Date:"/>
             <Input placeholder="23 / 04" label="CVV:"/>
             </div>
-            <SubmitButton>Pay $10</SubmitButton>
+            <SubmitButton className="w-full text-white">Pay $10</SubmitButton>
          </form>
       </div>
 

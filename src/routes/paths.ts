@@ -12,5 +12,6 @@ export const paths = {
   payment: '/payments',
   // Admin Section
   adminIndex: "/admin",
-  adminDashboard: "/dashboard"
+  adminDashboard: "/admin/dashboard",
+  users: '/admin/users'
 };

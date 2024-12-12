@@ -45,7 +45,7 @@ const SimpleChart = () => {
   ];
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width="100%" height="100%" className="h-full">
       <BarChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
