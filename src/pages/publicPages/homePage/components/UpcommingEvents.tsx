@@ -5,6 +5,7 @@ import SubHeading from "@components/subHeading/SubHeading";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { scrollUP } from "@components/footer/Footer";
 
 export const Events = [
   {
@@ -68,6 +69,7 @@ const UpcommingEvents = () => {
                   to={event.link}
                   label="Register"
                   className=" bg-dark hover:bg-LightBlue w-[250px] my-6"
+                  onClick={scrollUP}
                 />
               </div>
             ))}

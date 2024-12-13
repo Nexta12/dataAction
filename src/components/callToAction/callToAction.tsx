@@ -1,3 +1,4 @@
+import { scrollUP } from "@components/footer/Footer";
 import Paragraph from "@components/paragraph/Paragraph";
 import { Link } from "react-router-dom";
 
@@ -26,6 +27,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
           <Link
             to={link || "#"}
             className="bg-LightBlue text-white py-2 px-3 text-sm rounded text-center hover:bg-DeepBlue block ml-auto"
+            onClick={scrollUP}
           >
             {linkText}
           </Link>

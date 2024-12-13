@@ -1,4 +1,5 @@
 import ButtonLink from "@components/button/ButtonLink";
+import { scrollUP } from "@components/footer/Footer";
 import Paragraph from "@components/paragraph/Paragraph";
 import SubHeading from "@components/subHeading/SubHeading";
 import { paths } from "@routes/paths";
@@ -42,11 +43,13 @@ const CourseCard = () => {
           to="/register"
           label="Register Now"
           className="hover:bg-dark"
+          onClick={scrollUP}
         ></ButtonLink>
 
         <ButtonLink
           to={`${paths.courseDetails}/sdhhsjsksk`}
           label="View Details"
+          onClick={scrollUP}
           className="bg-dark py-2 px-3 text-white hover:bg-green transition-all duration-300 ease-in-out hover:bg-LightBlue"
         ></ButtonLink>
       </div>
