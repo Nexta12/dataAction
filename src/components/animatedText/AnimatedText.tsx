@@ -12,8 +12,8 @@ const AnimatedText: React.FC = () => {
           "Into New Realities",
           "and Unlock New Horizons",
         ],
-        typeSpeed: 100, 
-        backSpeed: 50, 
+        typeSpeed: 100,
+        backSpeed: 50,
         backDelay: 1500, // Time to wait before starting to delete
         startDelay: 500, // Delay before typing starts
         loop: true,

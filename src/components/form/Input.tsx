@@ -8,7 +8,7 @@ interface FormInputProps extends HTMLAttributes<HTMLInputElement> {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
   className?: string;
-  required?: boolean
+  required?: boolean;
 }
 
 const Input: React.FC<FormInputProps> = ({

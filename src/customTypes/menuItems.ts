@@ -11,5 +11,3 @@ export const menuTitles = {
   // Marketplace: "Marketplace",
   Contact: "Contact Us",
 };
-
-

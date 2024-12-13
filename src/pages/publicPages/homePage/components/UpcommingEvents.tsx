@@ -1,4 +1,3 @@
-
 import ButtonLink from "@components/button/ButtonLink";
 import Heading from "@components/heading/Heading";
 import Paragraph from "@components/paragraph/Paragraph";
@@ -6,8 +5,6 @@ import SubHeading from "@components/subHeading/SubHeading";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-
 
 export const Events = [
   {
@@ -43,7 +40,7 @@ const UpcommingEvents = () => {
     // autoplay: true,
     speed: 500,
     autoplaySpeed: 5000,
-   // vertical: true,
+    // vertical: true,
     cssEase: "linear",
     pauseOnHover: true,
     // arrows: false,

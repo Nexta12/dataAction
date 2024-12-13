@@ -5,10 +5,17 @@ import { FaArrowRight, FaFacebook, FaTiktok, FaTwitter } from "react-icons/fa";
 import { GiPadlock } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
+export const scrollUP = () => {
+  return window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
 const Footer: React.FC = () => (
   <main className="py-[35px] px-[30px] md:px-[40px] lg:px-[80px] gap-4 bg-dark text-gray flex flex-col md:flex-row  md:justify-between">
     <div className="flex-1 flex flex-col gap-3 text-sm">
-      <Link to="/">
+      <Link to="/" onClick={scrollUP}>
         <div className="flex items-center gap-1 font-bold  text-lg">
           <img
             src="/logo.png"
@@ -32,26 +39,54 @@ const Footer: React.FC = () => (
     <div className=" flex-[2] flex items-center justify-around text-xs md:text-sm">
       <div className="flex flex-col gap-2">
         <h1 className="font-bold capitalize">Company</h1>
-        <Link to={paths.Index}>Home</Link>
-        <Link to={paths.About}>About us</Link>
-        <Link to={paths.Training}>Services</Link>
-        <Link to={paths.Login} className="flex gap-1 items-center">Admin Login<GiPadlock title="Secured by Nexta digital Securities" className="text-yellow-300"/> </Link>
+        <Link to={paths.Index} onClick={scrollUP}>
+          Home
+        </Link>
+        <Link to={paths.About} onClick={scrollUP}>
+          About us
+        </Link>
+        <Link to={paths.Training} onClick={scrollUP}>
+          Services
+        </Link>
+        <Link
+          to={paths.Login}
+          className="flex gap-1 items-center"
+          onClick={scrollUP}
+        >
+          Admin Login
+          <GiPadlock
+            title="Secured by Nexta digital Securities"
+            className="text-yellow-300"
+          />{" "}
+        </Link>
       </div>
 
       <div className="flex flex-col gap-2">
         <h1 className="font-bold capitalize">Services</h1>
-        <Link to={paths.Training}>Training</Link>
-        <Link to={paths.Consultation}>Consultation</Link>
+        <Link to={paths.Training} onClick={scrollUP}>
+          Training
+        </Link>
+        <Link to={paths.Consultation} onClick={scrollUP}>
+          Consultation
+        </Link>
         <Link to={paths.Marketplace}>Marketplace</Link>
         <Link to={paths.Index}>Student Portfolio</Link>
       </div>
 
       <div className="flex flex-col gap-2">
         <h1 className="font-bold capitalize">Discover</h1>
-        <Link to={paths.Index}>Book a consultation</Link>
-        <Link to={paths.Index}>Apply for Scholarship</Link>
-        <Link to={paths.Training}>Request a project</Link>
-        <Link to={paths.payment}>Payment</Link>
+        <Link to={paths.Index} onClick={scrollUP}>
+          Book a consultation
+        </Link>
+        <Link to={paths.Index} onClick={scrollUP}>
+          Apply for Scholarship
+        </Link>
+        <Link to={paths.Training} onClick={scrollUP}>
+          Request a project
+        </Link>
+        <Link to={paths.payment} onClick={scrollUP}>
+          Payment
+        </Link>
       </div>
     </div>
 

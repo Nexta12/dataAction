@@ -92,10 +92,7 @@ const TestimonialSection = () => {
       gradientDirection="45deg"
       gradientColors={["#c7e8f2", "#EDE7F4", "#EDE7F4"]}
     >
-      <Heading
-        className=" xmd:text-left text-center"
-        text="Testimonials"
-      />
+      <Heading className=" xmd:text-left text-center" text="Testimonials" />
       <Paragraph
         className=" xmd:text-left text-center xmd:mb-[35px] mb-[24px]"
         text="See what our clients say about us. Genuine testimonials from satisified clients."

@@ -34,9 +34,13 @@ const Homepage = () => {
         >
           <Paragraph className="mx-6">Free CV building & review</Paragraph>
           <Paragraph className="mx-6">Interview Preparation</Paragraph>
-          <Paragraph className="mx-6">1 Month Post Training Placement</Paragraph>
+          <Paragraph className="mx-6">
+            1 Month Post Training Placement
+          </Paragraph>
           <Paragraph className="mx-6">Job Referral</Paragraph>
-          <Paragraph className="mx-6">Up to 5 standard free project requests, review and feedbacks</Paragraph>
+          <Paragraph className="mx-6">
+            Up to 5 standard free project requests, review and feedbacks
+          </Paragraph>
         </Marquee>
       )}
       <PublicPageContainer
@@ -44,22 +48,24 @@ const Homepage = () => {
         gradientDirection="65deg"
       >
         <HeroSection />
-         <div className="">
-        <div className="flex flex-col md:flex-row items-center text-md justify-between my-3">
-          <Heading>Top Trending Courses</Heading>
-          <span></span>
+        <div className="">
+          <div className="flex flex-col md:flex-row items-center text-md justify-between my-3">
+            <Heading>Top Trending Courses</Heading>
+            <span></span>
+          </div>
+          <div className="productCards grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <CourseCard />
+            <CourseCard />
+            <CourseCard />
+          </div>
+          <div className="flex items-center text-md justify-between my-3">
+            <span></span>
+            <Link to="/training" className="text-blue-600">
+              View More
+            </Link>
+          </div>
         </div>
-        <div className="productCards grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-        </div>
-        <div className="flex items-center text-md justify-between my-3">
-           <span></span>
-          <Link to="/training" className="text-blue-600">View More</Link>
-        </div>
-        </div>
-          <Modal/>
+        <Modal />
         <CallToAction
           text="Unsure which course suits you? Connect with our professionals for a Career Alignment Test and get personalized guidance on the best path for your goals"
           linkText="Take A step Further"
@@ -70,7 +76,7 @@ const Homepage = () => {
         {/* <UpcommingEvents /> */}
         <ServicesSection />
         <WhyUsSection />
-       
+
         {/* <VideoSection /> */}
         <ArticlesSection />
         <ExpertsSection />

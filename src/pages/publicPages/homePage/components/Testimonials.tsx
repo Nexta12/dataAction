@@ -64,9 +64,7 @@ const Testimonials = () => {
           <Heading>What our customers are saying</Heading>
         </div>
         <div className=" inline-flex place-items-center">
-          <Paragraph>
-            We are trusted to deliver our promises.
-          </Paragraph>
+          <Paragraph>We are trusted to deliver our promises.</Paragraph>
         </div>
       </div>
 

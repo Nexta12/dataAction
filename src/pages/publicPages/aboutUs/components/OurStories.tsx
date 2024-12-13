@@ -40,10 +40,7 @@ const OurStories: React.FC<OurStoriesProps> = ({
         {/* Text Section */}
         <div className="flex-1 order-2 md:order-1">
           {/* Title */}
-          <Heading
-            className="xmd:text-left text-center"
-            text={title}
-          />
+          <Heading className="xmd:text-left text-center" text={title} />
 
           {/* Paragraph 1 */}
           <Paragraph

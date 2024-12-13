@@ -9,11 +9,14 @@ export const paths = {
   Marketplace: "/marketplace",
   Contact: "/contact",
   courseDetails: "/course",
-  payment: '/payments',
+  payment: "/payments",
   // Admin Section
   adminIndex: "/admin",
   adminDashboard: "/admin/dashboard",
-  users: '/admin/users',
-  addNewAdmin: '/admin/users/addNew',
-  editAdmin: '/admin/users/edit'
+  users: "/admin/users",
+  addNewAdmin: "/admin/users/addNew",
+  editAdmin: "/admin/users/edit",
+  services: "/admin/services",
+  addNewService: "/admin/services/addNew",
+  editService: "/admin/services/edit",
 };

@@ -6,9 +6,7 @@ import { BiArrowBack } from "react-icons/bi";
 const HowItWorksSection = () => {
   return (
     <PublicPageContainer gradientDirection="60deg">
-      <Heading className=" xmd:text-left text-center">
-        How It Works
-      </Heading>
+      <Heading className=" xmd:text-left text-center">How It Works</Heading>
 
       <div className="flex flex-col lg:flex-row items-center gap-4">
         <ArticleCard

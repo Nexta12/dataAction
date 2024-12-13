@@ -6,7 +6,6 @@ import WhyUsBoxes from "./WhyUsBoxes";
 const WhyUsSection = () => {
   return (
     <div className="flex flex-col md:flex-row items-start justify-between gap-20 xl:gap-64 ">
-
       <div className="flex-[1.5] grid grid-cols-2 gap-4 w-full mx-auto">
         <WhyUsBoxes
           textClassName="text-sm"

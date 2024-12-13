@@ -55,7 +55,7 @@ const SimpleChart = () => {
         <Bar
           dataKey="Sales"
           fill="#F9A205"
-          activeBar={<Rectangle fill="pink"/>}
+          activeBar={<Rectangle fill="pink" />}
           barSize={10}
           stroke="none"
         />

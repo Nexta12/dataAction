@@ -1,5 +1,6 @@
 import AdminContainer from "@components/adminContainer/AdminContainer";
 import Spinner from "@components/spinner/Spinner";
+import { UserRole } from "@customTypes/user";
 import { paths } from "@routes/paths";
 import useAuthStore from "@store/authStore";
 import { useEffect, useState } from "react";
@@ -31,8 +32,25 @@ const PrivatePageLayout = () => {
     }
   }, [user, isAuthenticated, navigate]);
 
+  // Screen Roles
+
+  useEffect(() => {
+    switch (user?.role) {
+      case UserRole.admin:
+      case UserRole.staff:
+      case UserRole.superAdmin:
+      case UserRole.editor:
+        // User has a valid role, no action needed
+        break;
+      default:
+        // Redirect to the index page if the role is invalid
+        navigate(paths.Index);
+        break;
+    }
+  }, [user]);
+
   if (authLoading) {
-    return <Spinner/>;
+    return <Spinner />;
   }
 
   if (isAuthenticated) {
@@ -41,8 +59,8 @@ const PrivatePageLayout = () => {
         <Outlet />
       </AdminContainer>
     );
-  }else{
-    return <Spinner/>;
+  } else {
+    return <Spinner />;
   }
 };
 

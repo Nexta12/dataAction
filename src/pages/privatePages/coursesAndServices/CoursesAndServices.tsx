@@ -4,7 +4,8 @@ import ButtonLink from "@components/button/ButtonLink";
 import DeleteModal from "@components/deleteConfirmation/DeleteModal";
 import SubHeading from "@components/subHeading/SubHeading";
 import Table, { Column } from "@components/table/Table";
-import { AdminProfile, UserRole } from "@customTypes/user";
+import { ServicesDetail } from "@customTypes/Services";
+import { UserRole } from "@customTypes/user";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { paths } from "@routes/paths";
@@ -14,15 +15,31 @@ import { BiPlus } from "react-icons/bi";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-const Users = () => {
+const CoursesAndServices = () => {
   const { user } = useAuthStore();
   const [visiblePopup, setVisiblePopup] = useState<string | null>(null);
-  const [data, setData] = useState<AdminProfile[]>([]);
+  const [data, setData] = useState<ServicesDetail[]>([]);
   const popupRef = useRef<HTMLDivElement | null>(null);
   const [message, setMessage] = useState<ErrorMessageProps>({
     errorMessage: null,
     successMessage: null,
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await apiClient.get(endpoints.getAllServices);
+        setData(response.data);
+      } catch (err) {
+        setMessage({
+          errorMessage: ErrorFormatter(err),
+          successMessage: null,
+        });
+      }
+    };
+
+    fetchData();
+  }, []);
 
   // Delete User
   const [openModal, setOpenModal] = useState(false);
@@ -37,10 +54,10 @@ const Users = () => {
     if (itemToDelete) {
       try {
         // Make an API call to delete the item
-        await apiClient.delete(`${endpoints.deleteUser}/${itemToDelete}`);
+        await apiClient.delete(`${endpoints.deleteService}/${itemToDelete}`);
 
         // Remove the item from the list
-        setData((prev) => prev.filter((user) => user._id !== itemToDelete));
+        setData((prev) => prev.filter((item) => item._id !== itemToDelete));
 
         setOpenModal(false); // Close the modal
         setItemToDelete(null); // Reset the item to delete
@@ -54,21 +71,6 @@ const Users = () => {
       }
     }
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await apiClient.get<AdminProfile[]>(
-          endpoints.getAllUsers,
-        );
-        setData(response.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const togglePopup = (_id: string) => {
     setVisiblePopup((prev) => (prev === _id ? null : _id));
@@ -90,11 +92,10 @@ const Users = () => {
     };
   }, []);
 
-  const columns: Column<AdminProfile>[] = [
-    { key: "firstName", header: "First Name" },
-    { key: "lastName", header: "Last Name" },
-    { key: "email", header: "Email" },
-    { key: "role", header: "Role" },
+  const columns: Column<ServicesDetail>[] = [
+    { key: "title", header: "Title" },
+    { key: "price", header: "Price  (£)" },
+    { key: "category", header: "Classification" },
     {
       key: "actions",
       header: "Actions",
@@ -111,27 +112,19 @@ const Users = () => {
               className="absolute bg-white border rounded shadow p-2 top-[-4] right-0 z-10 flex items-center gap-3"
             >
               <Link
-                to="#"
+                to={`${paths.editService}/${row._id}`}
                 className="block mb-2"
-                onClick={() => alert("Comming Soon !")}
               >
-                View
+                Edit
               </Link>
-              {(user?.role === UserRole.superAdmin || user?.id === row._id) && (
-                <>
-                  <Link
-                    to={`${paths.editAdmin}/${row._id}`}
-                    className="block mb-2"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    onClick={() => handleDelete(row._id)}
-                    className="text-red-500"
-                  >
-                    Delete
-                  </button>
-                </>
+              {(user?.role === UserRole.superAdmin ||
+                user?.role === UserRole.admin) && (
+                <button
+                  onClick={() => handleDelete(row._id)}
+                  className="text-red-500"
+                >
+                  Delete
+                </button>
               )}
             </div>
           )}
@@ -139,7 +132,7 @@ const Users = () => {
       ),
     },
   ];
-  const keyExtractor = (row: AdminProfile) => row._id;
+  const keyExtractor = (row: ServicesDetail) => row._id;
 
   return (
     <div className="">
@@ -152,13 +145,15 @@ const Users = () => {
       />
       <div className=" flex flex-col-reverse md:flex-row items-center justify-between mb-8">
         <div className="flex-1">
-          <SubHeading className="hidden lg:block">All Admin Users</SubHeading>
+          <SubHeading className="hidden lg:block">
+            All Courses And Services
+          </SubHeading>
         </div>
         <div className="flex-1">
           <div className="w-[220px] ml-auto">
             <ButtonLink
-              to={paths.addNewAdmin}
-              label="Add User"
+              to={paths.addNewService}
+              label="Add New"
               className="ml-auto bg-dark"
               icon={BiPlus}
             />
@@ -171,4 +166,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default CoursesAndServices;

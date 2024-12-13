@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Heading from "@components/heading/Heading";
 import Paragraph from "@components/paragraph/Paragraph";
 import { HtmlHTMLAttributes } from "react";
@@ -31,7 +31,7 @@ const WhyUsBoxes = ({
           }
         });
       }, 10); // Adjust the speed of counting (milliseconds)
-      
+
       return () => clearInterval(interval); // Cleanup the interval on component unmount
     }
   }, [currentCount, targetCount]);

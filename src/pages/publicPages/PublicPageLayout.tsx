@@ -10,7 +10,7 @@ const PublicPageLayout = () => {
       <Outlet />
       <WhatsAppButton
         phoneNumber={import.meta.env.WhatsappLine}
-        message="Hello! I'd like to chat with you." 
+        message="Hello! I'd like to chat with you."
       />
       <Footer />
     </div>

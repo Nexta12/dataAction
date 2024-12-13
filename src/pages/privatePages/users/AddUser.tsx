@@ -8,12 +8,31 @@ import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import apiClient from "@api/apiClient";
 import { endpoints } from "@api/endpoints";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+import useAuthStore from "@store/authStore";
 
 const AddUser = () => {
+  const { user } = useAuthStore();
   const StatffRoles = [
-    { label: UserRole.admin, value: UserRole.admin },
-    { label: "Staff", value: UserRole.regularUser },
+    { label: UserRole.staff, value: UserRole.staff },
+    { label: UserRole.accounts, value: UserRole.accounts },
+    { label: UserRole.editor, value: UserRole.editor },
   ];
+
+  // Add admin and superAdmin roles if the current user is a superAdmin
+  if (user?.role === UserRole.superAdmin) {
+    StatffRoles.push(
+      { label: UserRole.admin, value: UserRole.admin },
+      { label: UserRole.superAdmin, value: UserRole.superAdmin },
+    );
+  }
+
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -60,6 +79,10 @@ const AddUser = () => {
   return (
     <div className="flex">
       <div className="bg-white w-full md:w-[90%] lg:w-[80%] m-auto p-4 lg:p-10 shadow-lg rounded-lg">
+        <FaArrowLeftLong
+          onClick={() => handleGoBack()}
+          className="cursor-pointer text-2xl text-dark"
+        />
         <AlertMessage alert={message} />
         <div className="w-full flex items-center justify-center mb-4">
           <SubHeading className="">Add New Staff</SubHeading>

@@ -2,7 +2,7 @@ import PublicPageContainer from "@components/container/PublicPageContainer";
 import TeamSection from "../aboutUs/components/TeamSection";
 import Testimonials from "../homePage/components/Testimonials";
 import CoursesGallery from "./components/CoursesGallery";
-import {CTARequestScholarship } from "./components/CTA";
+import { CTARequestScholarship } from "./components/CTA";
 import Faqs from "./components/Faqs";
 import HowItWorksSection from "./components/HowItWorksSection";
 import TrainingHero from "./components/TrainingHero";

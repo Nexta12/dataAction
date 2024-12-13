@@ -42,7 +42,8 @@ const Consultation = () => {
 
       setMessage({
         errorMessage: null,
-        successMessage: "Schedule booked successfully, We will revert as soon as possible",
+        successMessage:
+          "Schedule booked successfully, We will revert as soon as possible",
       });
 
       setApplicantName("");

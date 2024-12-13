@@ -4,7 +4,6 @@ import Input from "@components/form/Input";
 import Select from "@components/form/Select";
 import Heading from "@components/heading/Heading";
 
-
 const Payment = () => {
   const options = [
     { label: "Data Analytics", value: "Data Analytics" },
@@ -29,23 +28,22 @@ const Payment = () => {
           text="Consultation service Payment"
         />
         <div className="flex justify-center items-center">
-        <img src="/assets/card.png" alt="about data action" />
+          <img src="/assets/card.png" alt="about data action" />
         </div>
       </div>
 
       <div className="right flex-1 bg-transparentWhite p-2 lg:p-10 rounded-sm ">
-         <form action="" className="flex flex-col gap-4">
-            <Heading text="Payment" className="text-center"/>
-            <Select options={options} placeholder="Payment For:"/>
-            <Input placeholder="0000 0000 0000 0000"/>
-            <div className="flex items-center justify-between gap-4">
-            <Input placeholder="23 / 04" label="Expiring Date:"/>
-            <Input placeholder="23 / 04" label="CVV:"/>
-            </div>
-            <SubmitButton className="w-full text-white">Pay $10</SubmitButton>
-         </form>
+        <form action="" className="flex flex-col gap-4">
+          <Heading text="Payment" className="text-center" />
+          <Select options={options} placeholder="Payment For:" />
+          <Input placeholder="0000 0000 0000 0000" />
+          <div className="flex items-center justify-between gap-4">
+            <Input placeholder="23 / 04" label="Expiring Date:" />
+            <Input placeholder="23 / 04" label="CVV:" />
+          </div>
+          <SubmitButton className="w-full text-white">Pay $10</SubmitButton>
+        </form>
       </div>
-
     </PublicPageContainer>
   );
 };

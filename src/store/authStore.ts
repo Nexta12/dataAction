@@ -15,7 +15,7 @@ import { create, StoreApi } from "zustand";
 
 export type LoggedInUser = Pick<
   AdminProfile,
-  "userId" | "email" | "firstName" | "lastName" | "password" | "role"
+  "_id" | "id" | "email" | "firstName" | "lastName" | "password" | "role"
 >;
 
 type LoginResponse = {
@@ -39,39 +39,46 @@ interface AuthStore {
 }
 
 export const getLoggedInUserPath = (user: LoggedInUser) => {
-  return user.role === UserRole.admin || user.role === UserRole.regularUser
+  return user.role === UserRole.admin ||
+    user.role === UserRole.staff ||
+    user.role === UserRole.superAdmin ||
+    user.role === UserRole.editor
     ? paths.adminDashboard
     : paths.Index;
 };
-
 
 const handleLogin = async (
   loginDetails: LoginDetails,
   navigateFn: NavigateFunction,
   set: StoreApi<AuthStore>["setState"],
 ) => {
+  try {
+    set({ isLoading: true });
 
-    try {
-        set({isLoading: true})
+    const { data: responseData } = await apiClient.post<LoginResponse>(
+      endpoints.login,
+      loginDetails,
+    );
 
-        const  { data: responseData } = await apiClient.post<LoginResponse>(endpoints.login, loginDetails)
-
-        setLocalStorageItem('accessToken', responseData.accessToken);
-        setLocalStorageItem('user', JSON.stringify(responseData.data));
-        const currentUser = responseData.data;
-        set({ user: currentUser, isAuthenticated: true, isLoading: false, error: null });
-        navigateFn(getLoggedInUserPath(currentUser))
-    } catch (error) {
-      set({ error: ErrorFormatter(error), isLoading: false });
-    }
+    setLocalStorageItem("accessToken", responseData.accessToken);
+    setLocalStorageItem("user", JSON.stringify(responseData.data));
+    const currentUser = responseData.data;
+    set({
+      user: currentUser,
+      isAuthenticated: true,
+      isLoading: false,
+      error: null,
+    });
+    navigateFn(getLoggedInUserPath(currentUser));
+  } catch (error) {
+    console.log(error);
+    set({ error: ErrorFormatter(error), isLoading: false });
+  }
 };
 
 const localStorageUser = getLocalStorageItem("user");
 
-
-
 const useAuthStore = create<AuthStore>((set, get) => ({
-
   isAuthenticated: false,
   user: localStorageUser ? JSON.parse(localStorageUser) : null,
   error: null,
@@ -79,32 +86,35 @@ const useAuthStore = create<AuthStore>((set, get) => ({
   isLoading: false,
   login: async (loginDetails, navigateFn) =>
     handleLogin(loginDetails, navigateFn, set),
-    logout: () => {
+  logout: () => {
+    removeLocalStorageItem("accessToken");
+    removeLocalStorageItem("user");
+    set({ user: null, isAuthenticated: false });
+  },
+  updateUser: (data) => {
+    const { user } = get();
+    const updatedUser = { ...user, ...data } as LoggedInUser;
+    setLocalStorageItem("user", JSON.stringify(updatedUser));
+    set({ user: updatedUser || null });
+  },
+
+  validateAuth: async () => {
+    const token = getLocalStorageItem("accessToken");
+    if (!token) {
+      set({ isAuthenticated: false });
+      return;
+    }
+    try {
+      const response = await apiClient.get<SuccessResponse<LoggedInUser>>(
+        endpoints.validateAuth,
+      );
+      set({ isAuthenticated: true, user: response.data.data });
+    } catch {
+      set({ isAuthenticated: false });
       removeLocalStorageItem("accessToken");
       removeLocalStorageItem("user");
-      set({ user: null, isAuthenticated: false });
-    },
-    updateUser: (data) => {
-      const { user } = get();
-      const updatedUser = { ...user, ...data } as LoggedInUser;
-      setLocalStorageItem('user', JSON.stringify(updatedUser));
-      set({ user: updatedUser || null });
-    },
- 
-    validateAuth: async () => {
-      const token = getLocalStorageItem('accessToken');
-      if (!token ) {
-        set({ isAuthenticated: false });
-        return;
-      }
-      try {
-        const response = await apiClient.get<SuccessResponse<LoggedInUser>>(endpoints.validateAuth);
-        set({ isAuthenticated: true, user: response.data.data });
-      } catch {
-        set({ isAuthenticated: false });
-      }
     }
-
+  },
 }));
 
 export default useAuthStore;

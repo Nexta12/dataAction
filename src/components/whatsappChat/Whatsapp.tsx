@@ -1,11 +1,12 @@
-
-
 interface WhatsAppButtonProps {
   phoneNumber: string;
   message?: string;
 }
 
-const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message }) => {
+const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
+  phoneNumber,
+  message,
+}) => {
   const encodedMessage = message ? encodeURIComponent(message) : "";
 
   return (
@@ -15,7 +16,11 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message })
       rel="noopener noreferrer"
       className="flex items-center px-4 py-2 rounded-lg  fixed top-[80vh] right-0 z-50"
     >
-     <img src="/assets/whatsappicon.png" alt="whatsapp" className="w-14 lg:w-20 transition-all duration-300 ease-in-out hover:scale-105 animate-pulse  " />
+      <img
+        src="/assets/whatsappicon.png"
+        alt="whatsapp"
+        className="w-14 lg:w-20 transition-all duration-300 ease-in-out hover:scale-105 animate-pulse  "
+      />
     </a>
   );
 };

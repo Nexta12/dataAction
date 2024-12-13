@@ -16,7 +16,8 @@ export default defineConfig({
       "@routes": path.resolve(__dirname, "src/routes"),
       "@store": path.resolve(__dirname, "src/store"),
     },
-  }, preview: {
-    port: 3004
-  }
+  },
+  preview: {
+    port: 3004,
+  },
 });

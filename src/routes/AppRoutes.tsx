@@ -17,7 +17,10 @@ import Payment from "@pages/publicPages/payment/Payment";
 import Login from "@pages/publicPages/login/Login";
 import Users from "@pages/privatePages/users/Users";
 import AddUser from "@pages/privatePages/users/AddUser";
-import EditUser from "@pages/privatePages/users/editUser";
+import CoursesAndServices from "@pages/privatePages/coursesAndServices/CoursesAndServices";
+import EditUser from "@pages/privatePages/users/EditUser";
+import AddNewService from "@pages/privatePages/coursesAndServices/AddNew";
+import EditService from "@pages/privatePages/coursesAndServices/EditService";
 
 export const AppRoutes: React.FC = () => (
   <Routes>
@@ -38,12 +41,14 @@ export const AppRoutes: React.FC = () => (
       />
     </Route>
     <Route path={paths.adminIndex} element={<PrivatePageLayout />}>
-        <Route path={`${paths.adminIndex}/dashboard`} element={<Dashboard />} />
-        <Route path={paths.users} element={<Users />} />
-        <Route path={paths.addNewAdmin} element={<AddUser />} />
-        <Route path={`${paths.editAdmin}/:id`} element={<EditUser />} />
+      <Route path={`${paths.adminIndex}/dashboard`} element={<Dashboard />} />
+      <Route path={paths.users} element={<Users />} />
+      <Route path={paths.addNewAdmin} element={<AddUser />} />
+      <Route path={`${paths.editAdmin}/:id`} element={<EditUser />} />
+      <Route path={paths.services} element={<CoursesAndServices />} />
+      <Route path={paths.addNewService} element={<AddNewService />} />
+      <Route path={`${paths.editService}/:id`} element={<EditService />} />
     </Route>
-
 
     <Route path="*" element={<NotFound />} />
   </Routes>

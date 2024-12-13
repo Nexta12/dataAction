@@ -44,9 +44,9 @@ export default {
       },
       animation: {
         "spin-fast": "spin 0.5s linear infinite",
-        pulse: 'pulse 2s infinite',
-        zoomIn: 'zoomIn 1.5s ease-out forwards',
-        spinOnce: 'spinOnce 0.5s linear',
+        pulse: "pulse 2s infinite",
+        zoomIn: "zoomIn 1.5s ease-out forwards",
+        spinOnce: "spinOnce 0.5s linear",
       },
       keyframes: {
         spinOnce: {
@@ -54,14 +54,13 @@ export default {
           "100%": { transform: "rotate(360deg)" },
         },
         pulse: {
-          '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.1)' },
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.1)" },
         },
         zoomIn: {
-          '0%': { transform: 'scale(0)', opacity: '0' },
-          '100%': { transform: 'scale(1)', opacity: '1' },
+          "0%": { transform: "scale(0)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
         },
-      
       },
     },
   },

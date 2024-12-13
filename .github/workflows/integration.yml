@@ -2,9 +2,9 @@ name: Integration Workflow
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
-    branches: ['main']
+    branches: ["main"]
 
 jobs:
   build:
@@ -91,5 +91,3 @@ jobs:
               exit 1
             fi
             echo "Deployment successful"
-
-

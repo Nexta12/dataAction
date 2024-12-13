@@ -37,8 +37,8 @@ const DashBoardMenu = [
     icon: FaThList,
   },
   {
-    title: "Blogs",
-    link: "#",
+    title: "Courses & Services",
+    link: paths.services,
     icon: FaList,
   },
   {
@@ -139,7 +139,8 @@ const AdminContainer = ({ children }: AdminContent) => {
         <div className="sidebar hidden md:block flex-1 shadow bg-white border-r-2 border-LightBlue xl:pl-3 pt-4 h-[80vh] text-md text-dark">
           <ul className="m-0 p-0 flex flex-col gap-2">
             {DashBoardMenu.map((item, index) => {
-                 const isActive = pathname === item.link || pathname.includes(item.link);
+              const isActive =
+                pathname === item.link || pathname.includes(item.link);
 
               if (item.title === "Logout") {
                 return (
@@ -157,7 +158,8 @@ const AdminContainer = ({ children }: AdminContent) => {
                 <li
                   key={index}
                   className={`flex items-center gap-3 cursor-pointer p-3 hover:bg-dark hover:text-white
-                   ${isActive ? "bg-dark text-white" : ''}`}>
+                   ${isActive ? "bg-dark text-white" : ""}`}
+                >
                   <item.icon className="" />{" "}
                   <a href={item.link}>{item.title}</a>
                 </li>

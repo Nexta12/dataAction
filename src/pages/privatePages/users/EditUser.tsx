@@ -8,21 +8,32 @@ import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import apiClient from "@api/apiClient";
 import { endpoints } from "@api/endpoints";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import useAuthStore from "@store/authStore";
 
 const EditUser = () => {
+  const { user: activeUser } = useAuthStore();
   const { id } = useParams();
+  const navigate = useNavigate();
   const StatffRoles = [
     { label: UserRole.admin, value: UserRole.admin },
-    { label: "Staff", value: UserRole.regularUser },
+    { label: UserRole.staff, value: UserRole.staff },
+    { label: UserRole.accounts, value: UserRole.accounts },
+    { label: UserRole.superAdmin, value: UserRole.superAdmin },
+    { label: UserRole.editor, value: UserRole.editor },
   ];
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
     email: "",
     role: "",
-    password: "",
   });
+  const [password, setPassword] = useState("");
+
+  const handleGoBack = () => {
+    return navigate(-1);
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -40,7 +51,6 @@ const EditUser = () => {
     if (id) fetchUser();
   }, [id]);
 
-
   const [message, setMessage] = useState<ErrorMessageProps>({
     errorMessage: null,
     successMessage: null,
@@ -50,18 +60,17 @@ const EditUser = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const userDetails = {
-      ...user, // Spread all user details to submit
+      ...user,
+      password, // Spread all user details to submit
     };
     setLoading(true);
     try {
-      console.log(userDetails)
-      // await apiClient.put(`${endpoints.updateUser}/${id}`, userDetails);
+      await apiClient.put(`${endpoints.updateUser}/${id}`, userDetails);
 
       setMessage({
         errorMessage: null,
         successMessage: "Updated successfully",
       });
-
     } catch (error) {
       setMessage({ errorMessage: ErrorFormatter(error), successMessage: null });
     } finally {
@@ -72,6 +81,10 @@ const EditUser = () => {
   return (
     <div className="flex">
       <div className="bg-white w-full md:w-[90%] lg:w-[80%] m-auto p-4 lg:p-10 shadow-lg rounded-lg">
+        <FaArrowLeftLong
+          onClick={() => handleGoBack()}
+          className="cursor-pointer text-2xl text-dark"
+        />
         <AlertMessage alert={message} />
         <div className="w-full flex items-center justify-center mb-4">
           <SubHeading className="">Edit Staff Account</SubHeading>
@@ -107,16 +120,18 @@ const EditUser = () => {
               type="password"
               name="password"
               label="Password"
-              value={user.password}
-              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <Select
-            options={StatffRoles}
-            selectLabel="Set User Role"
-            value={user.role}
-            onChange={(e) => setUser({ ...user, role: e.target.value })}
-          />
+          {activeUser?.role === UserRole.superAdmin && (
+            <Select
+              options={StatffRoles}
+              selectLabel="Set User Role"
+              value={user.role}
+              onChange={(e) => setUser({ ...user, role: e.target.value })}
+            />
+          )}
 
           <SubmitButton
             isLoading={loading}

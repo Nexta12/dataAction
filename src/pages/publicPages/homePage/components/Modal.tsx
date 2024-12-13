@@ -25,13 +25,13 @@ const Modal = () => {
         // Increment count and store updated data
         localStorage.setItem(
           "modalData",
-          JSON.stringify({ count: count + 1, timestamp })
+          JSON.stringify({ count: count + 1, timestamp }),
         );
-      }, 5000); 
+      }, 5000);
 
       const closeTimer = setTimeout(() => {
         setOpen(false);
-      }, 25000); 
+      }, 25000);
 
       return () => {
         clearTimeout(timer);
@@ -39,17 +39,19 @@ const Modal = () => {
       };
     }
   }, []);
-    const handleClose = () =>{
-        setOpen(false)
-    }
-
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <>
       {open && (
         <div className="w-screen h-screen fixed left-0 top-0 bg-dark bg-opacity-60 z-50 flex items-center justify-center">
           <div className="w-[95%] md:w-[80%] lg:w-[60%] xl:w-[40%] bg-[#c7e8f2] p-6 rounded-xl z-50 relative">
-            <IoClose className="text-2xl absolute top-5 right-5 cursor-pointer hover:animate-spinOnce " onClick={handleClose} />
+            <IoClose
+              className="text-2xl absolute top-5 right-5 cursor-pointer hover:animate-spinOnce "
+              onClick={handleClose}
+            />
             <UpcommingEvents />
           </div>
         </div>

@@ -1,14 +1,13 @@
-import OurStories from "../aboutUs/components/OurStories"
-import VisionAndMission from "../aboutUs/components/VisionAndMission"
-
+import OurStories from "../aboutUs/components/OurStories";
+import VisionAndMission from "../aboutUs/components/VisionAndMission";
 
 const ConsultationPage = () => {
   return (
     <div>
       <OurStories title="Consultation" />
       <VisionAndMission />
-      </div>
-  )
-}
+    </div>
+  );
+};
 
-export default ConsultationPage
+export default ConsultationPage;
