@@ -176,15 +176,34 @@ const AdminContainer = ({ children }: AdminContent) => {
         className={`drawer h-[90vh] bg-white transition-all duration-300 absolute top-[80px] md:hidden w-full ${!sidepanel && "-translate-x-full xl:translate-x-0"} `}
       >
         <ul className="m-0 pl-3 flex flex-col gap-2 w-full text-md text-dark pt-6">
-          {DashBoardMenu.map((item, index) => (
-            <li
-              key={index}
-              className="flex items-center gap-3 cursor-pointer  p-3  hover:bg-dark hover:text-white"
-              onClick={handleSidepanel}
-            >
-              <item.icon className="" /> <a href={item.link}>{item.title}</a>
-            </li>
-          ))}
+          {DashBoardMenu.map((item, index) => {
+            const isActive =
+              pathname === item.link || pathname.includes(item.link);
+
+            if (item.title === "Logout") {
+              return (
+                <li
+                  onClick={handleLogout}
+                  key={index}
+                  className="flex items-center gap-3 cursor-pointer p-3 hover:bg-dark hover:text-white"
+                >
+                  <item.icon className="" />{" "}
+                  <a href={item.link}>{item.title}</a>
+                </li>
+              );
+            }
+
+            return (
+              <li
+                key={index}
+                className={`flex items-center gap-3 cursor-pointer p-3 hover:bg-dark hover:text-white
+                 ${isActive ? "bg-dark text-white" : ""}`}
+              >
+                <item.icon className="" />{" "}
+                <a href={item.link}>{item.title}</a>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

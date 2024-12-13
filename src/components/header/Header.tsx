@@ -94,6 +94,7 @@ const Header = () => {
           {menuItems.map((item) => {
             const isActive = pathname === item.link;
             return (
+              <div  key={item.title}>
               <Link to={item.link} onClick={handleSidepanel}>
                 <div
                   key={item.title}
@@ -104,6 +105,7 @@ const Header = () => {
                   <FaAngleRight className="text-gray" />
                 </div>
               </Link>
+              </div>
             );
           })}
         </div>
