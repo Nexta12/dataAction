@@ -7,6 +7,7 @@ import { FaAngleRight, FaFacebook, FaTiktok, FaTwitter } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
 import ButtonLink from "@components/button/ButtonLink";
+import { scrollUP } from "@components/footer/Footer";
 
 const menuItems: MenuItem[] = [
   { title: menuTitles.Home, link: paths.Index },
@@ -37,6 +38,11 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleClick = () =>{
+    handleSidepanel();
+    scrollUP();
+  }
 
   return (
     <header
@@ -95,7 +101,7 @@ const Header = () => {
             const isActive = pathname === item.link;
             return (
               <div  key={item.title}>
-              <Link to={item.link} onClick={handleSidepanel}>
+              <Link to={item.link} onClick={handleClick}>
                 <div
                   key={item.title}
                   className={`flex items-center justify-between py-[10px] px-[12px] rounded-sm fz-[14px] font-light tracking-wide ${isActive ? "bg-dark text-white" : ""}`}
