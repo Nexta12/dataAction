@@ -5,10 +5,10 @@ import Input from "@components/form/Input";
 import Select from "@components/form/Select";
 import SimpleTextArea from "@components/form/SimpleTextArea";
 import Heading from "@components/heading/Heading";
-import { trainingData } from "@customTypes/trainingData";
+import { ServicesDetail } from "@customTypes/Services";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
 const TrainingHero = () => {
@@ -23,6 +23,21 @@ const TrainingHero = () => {
     errorMessage: null,
     successMessage: null,
   });
+
+
+   const [services, setServices] = useState<ServicesDetail[]>([]);
+
+   useEffect(()=>{
+    const fetchServices = async() =>{
+     try {
+        const response = await apiClient.get(endpoints.getOnlyCourses)
+        setServices(response.data)
+     } catch (error) {
+       setMessage({errorMessage: ErrorFormatter(error), successMessage: null})
+     }
+    }
+    fetchServices()
+   },[])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -140,7 +155,7 @@ const TrainingHero = () => {
               />
 
               <Select
-                options={trainingData}
+                options={services}
                 className="bg-[#EDE7F4] text-sm"
                 name="trainingType"
                 value={trainingType}

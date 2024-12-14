@@ -14,19 +14,20 @@ import useAuthStore from "@store/authStore";
 
 const AddUser = () => {
   const { user } = useAuthStore();
+  
   const StatffRoles = [
-    { label: UserRole.staff, value: UserRole.staff },
-    { label: UserRole.accounts, value: UserRole.accounts },
-    { label: UserRole.editor, value: UserRole.editor },
+    { title: UserRole.staff, _id: "staff" },
+    { title: UserRole.accounts, _id: "accounts" },
+    { title: UserRole.editor, _id: "editor" },
   ];
-
-  // Add admin and superAdmin roles if the current user is a superAdmin
+  
   if (user?.role === UserRole.superAdmin) {
     StatffRoles.push(
-      { label: UserRole.admin, value: UserRole.admin },
-      { label: UserRole.superAdmin, value: UserRole.superAdmin },
+      { title: UserRole.admin, _id: "admin" },
+      { title: UserRole.superAdmin, _id: "superAdmin" }
     );
   }
+  
 
   const navigate = useNavigate();
 

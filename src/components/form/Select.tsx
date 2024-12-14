@@ -1,7 +1,11 @@
-import { ServicesDetail } from "@customTypes/Services";
+
 import React, { HTMLAttributes } from "react";
 
-export type SelectOption = Pick<ServicesDetail, 'title' | 'price' | '_id'> 
+export type SelectOption = {
+  title: string;
+  price?: number | string;
+  _id: string;
+};
 
 
 interface SelectProps extends HTMLAttributes<HTMLSelectElement> {

@@ -2,14 +2,15 @@ import apiClient from "@api/apiClient";
 import { endpoints } from "@api/endpoints";
 import { SubmitButton } from "@components/button/SubmitButton";
 import PublicPageContainer from "@components/container/PublicPageContainer";
+import { scrollUP } from "@components/footer/Footer";
 import Input from "@components/form/Input";
 import Select from "@components/form/Select";
 import SimpleTextArea from "@components/form/SimpleTextArea";
 import Heading from "@components/heading/Heading";
-import { trainingData } from "@customTypes/trainingData";
+import { ServicesDetail } from "@customTypes/Services";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Register = () => {
   const [applicantName, setApplicantName] = useState("");
@@ -23,6 +24,34 @@ const Register = () => {
     errorMessage: null,
     successMessage: null,
   });
+
+
+  const [services, setServices] = useState<ServicesDetail[]>([]);
+  // const [serviceCost, setServiceCost] = useState<string | number | undefined>('')
+
+  // useEffect(()=>{
+  //   if(trainingType){
+  //     const choiceService = services.find((item) => item.title === trainingType);
+  //     setServiceCost(choiceService?.price)
+      
+  //   }
+
+  // },[trainingType, services])
+
+
+  // Fetch Services
+  
+  useEffect(()=>{
+   const fetchServices = async() =>{
+    try {
+       const response = await apiClient.get(endpoints.getOnlyCourses)
+       setServices(response.data)
+    } catch (error) {
+      setMessage({errorMessage: ErrorFormatter(error), successMessage: null})
+    }
+   }
+   fetchServices()
+  },[])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,6 +81,7 @@ const Register = () => {
       setChoiceDate("");
       setPhoneNumber("");
       setComment("");
+      scrollUP()
     } catch (error) {
       setMessage({
         errorMessage: ErrorFormatter(error),
@@ -99,7 +129,7 @@ const Register = () => {
             />
 
             <Select
-              options={trainingData}
+              options={services}
               selectLabel="Training Type"
               name="trainingType"
               value={trainingType}
@@ -129,7 +159,7 @@ const Register = () => {
             label="Submit"
             className="text-white !rounded-md w-[180px] mx-auto"
             isLoading={loading}
-            cost="30"
+            // cost={`${serviceCost}`}
           />
         </form>
       </div>

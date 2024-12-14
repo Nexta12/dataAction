@@ -13,6 +13,8 @@ export const endpoints = {
   deleteUser: "/api/user/delete",
   addNewService: "/api/service/create",
   getAllServices: "/api/service/all",
+  getOnlyServices: "/api/service/servicesOnly",
+  getOnlyCourses: "/api/service/coursesOnly",
   getOneServiceById: "/api/service/getOne",
   updateService: "/api/service/update",
   deleteService: "/api/service/delete",

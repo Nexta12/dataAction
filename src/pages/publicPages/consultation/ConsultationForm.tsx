@@ -28,7 +28,7 @@ const Consultation = () => {
   });
 
   const [services, setServices] = useState<ServicesDetail[]>([]);
-  const [serviceCost, setServiceCost] = useState<string | number | undefined>()
+  const [serviceCost, setServiceCost] = useState<string | number | undefined>('')
 
   useEffect(()=>{
     if(consultationType){
@@ -39,13 +39,12 @@ const Consultation = () => {
 
   },[consultationType, services])
 
-
   // Fetch Services
   
   useEffect(()=>{
    const fetchServices = async() =>{
     try {
-       const response = await apiClient.get(endpoints.getAllServices)
+       const response = await apiClient.get(endpoints.getOnlyServices)
        setServices(response.data)
     } catch (error) {
       setMessage({errorMessage: ErrorFormatter(error), successMessage: null})

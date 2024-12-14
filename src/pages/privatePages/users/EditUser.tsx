@@ -17,11 +17,11 @@ const EditUser = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const StatffRoles = [
-    { label: UserRole.admin, value: UserRole.admin },
-    { label: UserRole.staff, value: UserRole.staff },
-    { label: UserRole.accounts, value: UserRole.accounts },
-    { label: UserRole.superAdmin, value: UserRole.superAdmin },
-    { label: UserRole.editor, value: UserRole.editor },
+    { title: UserRole.admin, _id: UserRole.admin },
+    { title: UserRole.staff, _id: UserRole.staff },
+    { title: UserRole.accounts, _id: UserRole.accounts },
+    { title: UserRole.superAdmin, _id: UserRole.superAdmin },
+    { title: UserRole.editor, _id: UserRole.editor },
   ];
   const [user, setUser] = useState({
     firstName: "",
