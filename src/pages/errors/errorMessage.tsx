@@ -24,10 +24,10 @@ export const AlertMessage = ({ alert }: AlertMessageProp) => {
 
   return (
     <div
-      className={`flex items-center p-2 mb-2 rounded-lg border w-fit mx-auto ${
+      className={`flex items-center p-3 mb-2 rounded-lg border w-fit mx-auto ${
         alert.errorMessage
           ? " text-red-500 border-red-700"
-          : "bg-green-500 text-white  border-green-700"
+          : "text-green-500 border-green-500"
       }`}
       role="alert"
     >

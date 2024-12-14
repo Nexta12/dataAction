@@ -150,16 +150,16 @@ const Users = () => {
         onConfirm={confirmDelete}
         message="Are you Sure You want to this this User ?"
       />
-      <div className=" flex flex-col-reverse md:flex-row items-center justify-between mb-8">
+      <div className=" flex  items-center justify-between mb-8">
         <div className="flex-1">
-          <SubHeading className="hidden lg:block">All Admin Users</SubHeading>
+          <SubHeading className="">The Team</SubHeading>
         </div>
         <div className="flex-1">
-          <div className="w-[220px] ml-auto">
+          <div className="w-fit !py-1 lg:w-[220px] ml-auto !text-[12px]">
             <ButtonLink
               to={paths.addNewAdmin}
               label="Add User"
-              className="ml-auto bg-dark"
+              className="ml-auto bg-dark "
               icon={BiPlus}
             />
           </div>

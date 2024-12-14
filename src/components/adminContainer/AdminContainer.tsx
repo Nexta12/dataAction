@@ -22,7 +22,7 @@ const DashBoardMenu = [
     icon: MdDashboard,
   },
   {
-    title: "Course Registration",
+    title: "Training Sign-ups",
     link: "#",
     icon: MdOutlineGroups2,
   },
@@ -32,12 +32,12 @@ const DashBoardMenu = [
     icon: FaObjectGroup,
   },
   {
-    title: "Dashboards",
+    title: "Contact Messages",
     link: "#",
     icon: FaThList,
   },
   {
-    title: "Courses & Services",
+    title: "Services",
     link: paths.services,
     icon: FaList,
   },
@@ -47,13 +47,18 @@ const DashBoardMenu = [
     icon: MdOutlinePayments,
   },
   {
-    title: "Analytics",
+    title: "Courses",
     link: "#",
     icon: BsGraphUp,
   },
   {
-    title: "Users",
+    title: "Our Team",
     link: paths.users,
+    icon: BsPeople,
+  },
+  {
+    title: "Testimonials",
+    link: "#",
     icon: BsPeople,
   },
   {
@@ -136,8 +141,8 @@ const AdminContainer = ({ children }: AdminContent) => {
 
       <div className="mainbody flex items-start gap-8">
         {/* Sidebar */}
-        <div className="sidebar hidden md:block flex-1 shadow bg-white border-r-2 border-LightBlue xl:pl-3 pt-4 h-[80vh] text-md text-dark">
-          <ul className="m-0 p-0 flex flex-col gap-2">
+        <div className="sidebar hidden md:block flex-1 shadow bg-white border-r-2 border-LightBlue xl:pl-3  h-[80vh] text-md text-dark">
+          <ul className="m-0 p-0 flex flex-col gap-1">
             {DashBoardMenu.map((item, index) => {
               const isActive =
                 pathname === item.link || pathname.includes(item.link);
@@ -147,9 +152,9 @@ const AdminContainer = ({ children }: AdminContent) => {
                   <li
                     onClick={handleLogout}
                     key={index}
-                    className="flex items-center gap-3 cursor-pointer p-3 hover:bg-dark hover:text-white"
+                    className="flex items-center gap-2 cursor-pointer p-3 hover:bg-dark hover:text-white"
                   >
-                    <item.icon className="" />{" "}
+                    <item.icon className="text-xl" />{" "}
                     <a href={item.link}>{item.title}</a>
                   </li>
                 );
@@ -157,10 +162,10 @@ const AdminContainer = ({ children }: AdminContent) => {
               return (
                 <li
                   key={index}
-                  className={`flex items-center gap-3 cursor-pointer p-3 hover:bg-dark hover:text-white
+                  className={`flex items-center gap-2 cursor-pointer p-3 hover:bg-dark hover:text-white
                    ${isActive ? "bg-dark text-white" : ""}`}
                 >
-                  <item.icon className="" />{" "}
+                  <item.icon className="text-xl" />{" "}
                   <a href={item.link}>{item.title}</a>
                 </li>
               );
@@ -168,7 +173,7 @@ const AdminContainer = ({ children }: AdminContent) => {
           </ul>
         </div>
 
-        <div className="conntentBody flex-[5] w-full px-4">{children}</div>
+        <div className="conntentBody flex-[4] w-full px-4">{children}</div>
       </div>
 
       {/* Sidepanel */}

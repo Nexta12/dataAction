@@ -15,7 +15,7 @@ import { BiPlus } from "react-icons/bi";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-const CoursesAndServices = () => {
+const Services = () => {
   const { user } = useAuthStore();
   const [visiblePopup, setVisiblePopup] = useState<string | null>(null);
   const [data, setData] = useState<ServicesDetail[]>([]);
@@ -95,7 +95,6 @@ const CoursesAndServices = () => {
   const columns: Column<ServicesDetail>[] = [
     { key: "title", header: "Title" },
     { key: "price", header: "Price  (£)" },
-    { key: "category", header: "Classification" },
     {
       key: "actions",
       header: "Actions",
@@ -141,12 +140,12 @@ const CoursesAndServices = () => {
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
         onConfirm={confirmDelete}
-        message="Are you Sure You want to this this User ?"
+        message="Are you Sure You want to this this Service ? ?"
       />
       <div className=" flex flex-col-reverse md:flex-row items-center justify-between mb-8">
         <div className="flex-1">
           <SubHeading className="hidden lg:block">
-            All Courses And Services
+            All Services
           </SubHeading>
         </div>
         <div className="flex-1">
@@ -166,4 +165,4 @@ const CoursesAndServices = () => {
   );
 };
 
-export default CoursesAndServices;
+export default Services;

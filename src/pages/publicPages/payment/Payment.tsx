@@ -1,21 +1,47 @@
+import apiClient from "@api/apiClient";
+import { endpoints } from "@api/endpoints";
 import { SubmitButton } from "@components/button/SubmitButton";
 import PublicPageContainer from "@components/container/PublicPageContainer";
 import Input from "@components/form/Input";
-import Select from "@components/form/Select";
 import Heading from "@components/heading/Heading";
+import { ErrorFormatter } from "@pages/errors/errorFormatter";
+import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Payment = () => {
-  const options = [
-    { label: "Data Analytics", value: "Data Analytics" },
-    { label: "Power Apps Training", value: "Power Apps Training" },
-    { label: "Power Automate", value: "Power Automate" },
-    { label: "Power Virtual Assitant", value: "Power Virtual Assitant" },
-    { label: "Microsoft Excel", value: "Microsoft Excel" },
-    { label: "Power BI Training", value: "Power BI Training" },
-    { label: "UI/UX Training", value: "UI/UX Training" },
-    { label: "Excel Crash Course", value: "Excel Crash Course" },
-    { label: "Business Analysis", value: "Business Analysis" },
-  ];
+  const { id } = useParams();
+  const [message, setMessage] = useState<ErrorMessageProps>({
+    errorMessage: null,
+    successMessage: null,
+  });
+
+  const [consultType, setConsultType] = useState({
+    title: "",
+    price: "",
+    consultationType: "",
+    applicantName: "",
+    applicantEmail: "",
+    choiceDate: "",
+  });
+
+  useEffect(() => {
+    const fetchConsultationType = async () => {
+      try {
+        const response = await apiClient.get(
+          `${endpoints.getConsultationById}/${id}`,
+        );
+        setConsultType(response.data);
+      } catch (error) {
+        setMessage({
+          errorMessage: ErrorFormatter(error),
+          successMessage: null,
+        });
+      }
+    };
+    if (id) fetchConsultationType();
+  }, [id]);
+
   return (
     <PublicPageContainer
       className=" flex flex-col md:flex-row items-start justify-between gap-12 lg:h-[100vh]"
@@ -33,15 +59,29 @@ const Payment = () => {
       </div>
 
       <div className="right flex-1 bg-transparentWhite p-2 lg:p-10 rounded-sm ">
+        <AlertMessage alert={message} />
         <form action="" className="flex flex-col gap-4">
-          <Heading text="Payment" className="text-center" />
-          <Select options={options} placeholder="Payment For:" />
-          <Input placeholder="0000 0000 0000 0000" />
-          <div className="flex items-center justify-between gap-4">
-            <Input placeholder="23 / 04" label="Expiring Date:" />
-            <Input placeholder="23 / 04" label="CVV:" />
-          </div>
-          <SubmitButton className="w-full text-white">Pay $10</SubmitButton>
+          <Heading text="Verification" className="text-center" />
+          <Input
+            placeholder=""
+            value={`Payment for ${consultType.consultationType}`}
+          />
+          <Input placeholder="" value={consultType.applicantName} />
+          <Input placeholder="" value={consultType.applicantEmail} />
+          <Input
+           label="Start Date"
+            value={
+              consultType.choiceDate
+                ? new Date(consultType.choiceDate).toLocaleDateString()
+                : ""
+            }
+          />
+          <SubmitButton
+            className="w-full text-white"
+            cost={`${consultType.price} with Stripe`}
+          >
+            Checkout With Stripe
+          </SubmitButton>
         </form>
       </div>
     </PublicPageContainer>

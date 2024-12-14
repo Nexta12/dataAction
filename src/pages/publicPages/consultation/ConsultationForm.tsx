@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SubmitButton } from "@components/button/SubmitButton";
 import PublicPageContainer from "@components/container/PublicPageContainer";
 import Input from "@components/form/Input";
 import Select from "@components/form/Select";
 import SimpleTextArea from "@components/form/SimpleTextArea";
 import Heading from "@components/heading/Heading";
-import { consultationTypes } from "@customTypes/consultationTypes";
 import apiClient from "@api/apiClient";
 import { endpoints } from "@api/endpoints";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
+import { ServicesDetail } from "@customTypes/Services";
+import { useNavigate } from "react-router-dom";
+import { paths } from "@routes/paths";
 
 const Consultation = () => {
   // Define state for each input
@@ -19,10 +21,38 @@ const Consultation = () => {
   const [choiceDate, setChoiceDate] = useState("");
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
   const [message, setMessage] = useState<ErrorMessageProps>({
     errorMessage: null,
     successMessage: null,
   });
+
+  const [services, setServices] = useState<ServicesDetail[]>([]);
+  const [serviceCost, setServiceCost] = useState<string | number | undefined>()
+
+  useEffect(()=>{
+    if(consultationType){
+      const choiceService = services.find((item) => item.title === consultationType);
+      setServiceCost(choiceService?.price)
+      
+    }
+
+  },[consultationType, services])
+
+
+  // Fetch Services
+  
+  useEffect(()=>{
+   const fetchServices = async() =>{
+    try {
+       const response = await apiClient.get(endpoints.getAllServices)
+       setServices(response.data)
+    } catch (error) {
+      setMessage({errorMessage: ErrorFormatter(error), successMessage: null})
+    }
+   }
+   fetchServices()
+  },[])
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,15 +65,16 @@ const Consultation = () => {
       consultationType,
       choiceDate,
       comment,
+      price: serviceCost
     };
 
     try {
-      await apiClient.post(endpoints.bookConsultation, formDetails);
+     const response =  await apiClient.post(endpoints.bookConsultation, formDetails);
 
       setMessage({
         errorMessage: null,
         successMessage:
-          "Schedule booked successfully, We will revert as soon as possible",
+          "Schedule booked successfully, Redirecting to payment page",
       });
 
       setApplicantName("");
@@ -51,6 +82,9 @@ const Consultation = () => {
       setConsultationType("");
       setChoiceDate("");
       setComment("");
+      setTimeout(()=>{
+        navigate(`${paths.payment}/${response.data._id}`)
+      },3000)
     } catch (error) {
       setMessage({
         errorMessage: ErrorFormatter(error),
@@ -89,7 +123,7 @@ const Consultation = () => {
 
           <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">
             <Select
-              options={consultationTypes}
+              options={services}
               selectLabel="Preferred Consultation Type*"
               value={consultationType}
               onChange={(e) => setConsultationType(e.target.value)}
@@ -98,6 +132,7 @@ const Consultation = () => {
               type="date"
               label="Preferred Date*"
               name="choiceDate"
+              className="!text-black/55"
               value={choiceDate}
               onChange={(e) => setChoiceDate(e.target.value)}
             />
@@ -114,6 +149,7 @@ const Consultation = () => {
             label="Submit"
             className="text-white !rounded-md w-[180px] mx-auto"
             isLoading={loading}
+            cost={`${serviceCost}`}
           />
         </form>
       </div>

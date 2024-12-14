@@ -134,7 +134,7 @@ const TrainingHero = () => {
               <Input
                 type="date"
                 name="choiceDate"
-                className="bg-[#EDE7F4]"
+                className="bg-[#EDE7F4] !text-black/55"
                 value={choiceDate}
                 onChange={(e) => setChoiceDate(e.target.value)}
               />

@@ -112,6 +112,7 @@ const Register = () => {
               type="date"
               label="Preferred Start Date*"
               name="choiceDate"
+               className="!text-black/55"
               value={choiceDate}
               onChange={(e) => setChoiceDate(e.target.value)}
             />
@@ -128,6 +129,7 @@ const Register = () => {
             label="Submit"
             className="text-white !rounded-md w-[180px] mx-auto"
             isLoading={loading}
+            cost="30"
           />
         </form>
       </div>
