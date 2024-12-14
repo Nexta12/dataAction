@@ -37,7 +37,7 @@ const DashBoardMenu = [
     icon: FaThList,
   },
   {
-    title: "Services",
+    title: "Services/Courses",
     link: paths.services,
     icon: FaList,
   },
