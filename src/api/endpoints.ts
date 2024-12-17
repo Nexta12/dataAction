@@ -22,5 +22,5 @@ export const endpoints = {
   getOneCourseBySlug: "/api/course",
   addNewCourse: "/api/course/create",
   deleteCourse: "/api/course/delete",
-  downloadOutline: "/api/course/download"
+  downloadOutline: "api/course/download"
 };
