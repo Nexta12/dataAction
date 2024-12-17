@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import apiClient from "@api/apiClient";
 import { endpoints } from "@api/endpoints";
+import { scrollUP } from "@components/footer/Footer";
 
 const AddNewCourse = () => {
   const [coverImage, setCoverImage] = useState<File | null>(null);
@@ -44,8 +45,8 @@ const AddNewCourse = () => {
   };
 
   const selectOptions = [
-    { title: "Advanced", _id: "1" },
-    { title: "Intermediate", _id: "2" },
+    { title: "Advanced Learners", _id: "1" },
+    { title: "Intermediate Learners", _id: "2" },
     { title: "Beginners", _id: "3" },
     { title: "Absolute Beginners", _id: "4" },
   ];
@@ -87,7 +88,7 @@ const AddNewCourse = () => {
   ) => {
     const file = event.target.files?.[0];
     if (file) {
-     setCourseOutline(file);
+      setCourseOutline(file);
     }
   };
 
@@ -134,12 +135,13 @@ const AddNewCourse = () => {
       setLevel("");
       setTimeRequirement("");
       setDescription("");
-      setTextareaValue("")
+      setTextareaValue("");
       setStudentLearningPoints([]);
-        // Clear file input
-    if (courseOutlineInputRef.current) {
+      // Clear file input
+      if (courseOutlineInputRef.current) {
         courseOutlineInputRef.current.value = "";
       }
+      scrollUP();
     } catch (error) {
       setMessage({ errorMessage: ErrorFormatter(error), successMessage: null });
     } finally {
@@ -249,7 +251,7 @@ const AddNewCourse = () => {
         </div>
 
         <SimpleTextArea
-          label="What Students would Learn"
+          label="What Students would Learn (8pts Great)"
           placeholder="Each Point should start in a new line"
           className="h-32"
           name="whatYoudLearn"

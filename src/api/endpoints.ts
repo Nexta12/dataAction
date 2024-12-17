@@ -19,6 +19,7 @@ export const endpoints = {
   updateService: "/api/service/update",
   deleteService: "/api/service/delete",
   getAllCourses: "/api/course/getAll",
+  getOneCourseBySlug: "/api/course",
   addNewCourse: "/api/course/create",
   deleteCourse: "/api/course/delete",
   downloadOutline: "/api/course/download"
