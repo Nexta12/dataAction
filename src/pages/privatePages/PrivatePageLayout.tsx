@@ -59,9 +59,7 @@ const PrivatePageLayout = () => {
         <Outlet />
       </AdminContainer>
     );
-  } else {
-    return <Spinner />;
-  }
+  } 
 };
 
 export default PrivatePageLayout;

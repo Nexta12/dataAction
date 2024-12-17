@@ -1,11 +1,12 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { SubmitButton } from "@components/button/SubmitButton";
 import PublicPageContainer from "@components/container/PublicPageContainer";
 import Input from "@components/form/Input";
 import Heading from "@components/heading/Heading";
 import { GiPadlock } from "react-icons/gi";
 import { Link, useNavigate } from "react-router-dom";
-import useAuthStore from "@store/authStore";
+import useAuthStore, { getLoggedInUserPath } from "@store/authStore";
+import Spinner from "@components/spinner/Spinner";
 
 export type LoginDetails = {
   email: string;
@@ -15,7 +16,27 @@ export type LoginDetails = {
 const Login = () => {
   const [values, setValues] = React.useState({ email: "", password: "" });
   const navigate = useNavigate();
-  const { login, error, isLoading, setError } = useAuthStore();
+  const { login, error, isLoading, setError, user, isAuthenticated, validateAuth  } = useAuthStore();
+   const [authLoading, setAuthLoading] = useState(false);
+
+  useEffect(() => {
+    const verifyAuth = async () => {
+      setAuthLoading(true);
+      try {
+        await validateAuth(); // Ensure validateAuth works properly
+      } finally {
+        setAuthLoading(false);
+      }
+    };
+
+    verifyAuth();
+  }, [validateAuth]);
+
+  useEffect(()=>{
+    if(user && isAuthenticated){
+       navigate(getLoggedInUserPath(user))
+    }
+  },[user, isAuthenticated])
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -30,6 +51,10 @@ const Login = () => {
     };
     await login(data, navigate);
   };
+
+  if (authLoading) {
+    return <Spinner />;
+  }
 
   return (
     <PublicPageContainer className="h-[80vh] flex">

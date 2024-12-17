@@ -30,7 +30,7 @@ const Select: React.FC<SelectProps> = ({
 }) => {
   return (
     <div className="w-full mb-2">
-      <div className="text-sm font-bold font-Lexend text-black/60">{selectLabel}</div>
+      <div className="text-sm font-bold font-Lexend text-black/80">{selectLabel}</div>
       <select
         name={name}
         onChange={onChange}

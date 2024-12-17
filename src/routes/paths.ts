@@ -4,7 +4,7 @@ export const paths = {
   Register: "/register",
   About: "/about-us",
   Training: "/training",
-  Consultation: "/consultation-form",
+  Consultation: "/book-consultation",
   ConsultationPage: "/consultation",
   Marketplace: "/marketplace",
   Contact: "/contact",
@@ -19,4 +19,6 @@ export const paths = {
   services: "/admin/services",
   addNewService: "/admin/services/addNew",
   editService: "/admin/services/edit",
+  courses: "/admin/courses",
+  addNewCourse: "/admin/courses/addNew"
 };

@@ -21,6 +21,8 @@ import EditUser from "@pages/privatePages/users/EditUser";
 import AddNewService from "@pages/privatePages/services/AddNew";
 import EditService from "@pages/privatePages/services/EditService";
 import Services from "@pages/privatePages/services/Services";
+import Courses from "@pages/privatePages/courses/Courses";
+import AddNewCourse from "@pages/privatePages/courses/AddNew";
 
 export const AppRoutes: React.FC = () => (
   <Routes>
@@ -48,6 +50,8 @@ export const AppRoutes: React.FC = () => (
       <Route path={paths.services} element={<Services />} />
       <Route path={paths.addNewService} element={<AddNewService />} />
       <Route path={`${paths.editService}/:id`} element={<EditService />} />
+      <Route path={paths.courses} element={<Courses />} />
+      <Route path={paths.addNewCourse} element={<AddNewCourse />} />
     </Route>
 
     <Route path="*" element={<NotFound />} />

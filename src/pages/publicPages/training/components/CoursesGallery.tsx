@@ -3,8 +3,36 @@ import { Link } from "react-router-dom";
 import CourseCard from "./CourseCard";
 import SubHeading from "@components/subHeading/SubHeading";
 import Paragraph from "@components/paragraph/Paragraph";
+import { useEffect, useState } from "react";
+import { CoursesDetail } from "@customTypes/course";
+import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
+import { ErrorFormatter } from "@pages/errors/errorFormatter";
+import apiClient from "@api/apiClient";
+import { endpoints } from "@api/endpoints";
+import { scrollUP } from "@components/footer/Footer";
 
 const CoursesGallery = () => {
+  const [courses, setCourses] = useState<CoursesDetail[]>([]);
+  const [message, setMessage] = useState<ErrorMessageProps>({
+    errorMessage: null,
+    successMessage: null,
+  });
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await apiClient.get(endpoints.getAllCourses);
+        setCourses(response.data);
+      } catch (error) {
+        setMessage({
+          errorMessage: ErrorFormatter(error),
+          successMessage: null,
+        });
+      }
+    };
+    fetchCourses();
+  }, []);
+
   return (
     <div className="flex flex-col lg:flex-row gap-4 my-6">
       {/* Category Left */}
@@ -17,18 +45,14 @@ const CoursesGallery = () => {
           style={{ scrollbarWidth: "none" }}
         >
           <SubHeading>All Courses</SubHeading>
-
-          <Link to="/">Data Analytics</Link>
-          <Link to="/">Power Platform</Link>
-          <Link to="/">Microsoft Excel</Link>
-          <Link to="/">Web Development</Link>
-          <Link to="/">Mobile App Development</Link>
-          <Link to="/">Programming</Link>
-          <Link to="/">UI/UX Design</Link>
+          {courses.map((item)=>(
+             <Link to={`/course/${item._id}`} className="text-wrap">{item.title}</Link>
+          ))}
+         
         </div>
 
         <div className=" hidden lg:flex flex-col gap-4 font-light underline mt-12 text-dark">
-          <Link to="/">Book a consultation</Link>
+          <Link to="/book-consultation" onClick={scrollUP}>Book a consultation</Link>
           {/* <Link to="/">Dashboards</Link> */}
           <Link to="/">Request a project</Link>
           <Link to="/">Speak to someone</Link>
@@ -39,8 +63,9 @@ const CoursesGallery = () => {
 
       {/* Profucts right */}
       <div className="right flex-[4]">
+        <AlertMessage alert={message} />
         <div className="w-full mb-4 font-bold flex flex-col-reverse md:flex-row gap-4 py-4 md:py-0 items-center justify-between ">
-          <Paragraph className="hidden lg:block"> 30 Products Listed</Paragraph>
+          <Paragraph className="hidden lg:block"> {courses.length} Courses Available</Paragraph>
 
           <div className=" flex items-center pl-2 text-xs border rounded-sm py-2 w-full md:w-52">
             <BsSearch className="text-md mr-1" />
@@ -56,12 +81,9 @@ const CoursesGallery = () => {
         {/* Product cards */}
         <div className="bottom">
           <div className="productCards grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
+            {courses.map((item)=>(
+              <CourseCard course={item} key={item._id} />
+            ))}
           </div>
         </div>
       </div>

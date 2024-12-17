@@ -48,7 +48,7 @@ const DashBoardMenu = [
   },
   {
     title: "Courses",
-    link: "#",
+    link: paths.courses,
     icon: BsGraphUp,
   },
   {
