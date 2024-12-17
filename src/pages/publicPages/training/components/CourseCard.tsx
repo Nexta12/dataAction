@@ -21,7 +21,7 @@ const handleDownload = (
   setDownloading(true);
 
   try {
-    const downloadUrl = `${import.meta.env.VITE_API_BASE_URL}/${endpoints.downloadOutline}/${courseId}`;
+    const downloadUrl = `${import.meta.env.VITE_API_BASE_URL}${endpoints.downloadOutline}/${courseId}`;
     window.location.href = downloadUrl;
   } catch (error) {
     setMessage({
