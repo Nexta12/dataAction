@@ -26,7 +26,7 @@ const Input: React.FC<FormInputProps> = ({
 }) => {
   return (
     <div className="w-full mb-2">
-      <div className="text-sm font-bold font-Lexend text-dark mb-2 hidden lg:block">{label}</div>
+      <div className="text-sm font-bold font-Lexend text-dark mb-2">{label}</div>
       <input
         name={name}
         placeholder={placeholder}

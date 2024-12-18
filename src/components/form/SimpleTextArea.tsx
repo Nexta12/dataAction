@@ -21,7 +21,7 @@ const SimpleTextArea: React.FC<FormTextAreaProps> = ({
   return (
     <div className="w-full">
       {label && (
-        <label className="text-sm font-bold font-Lexend text-dark mb-2 hidden lg:block" htmlFor={name}>
+        <label className="text-sm font-bold font-Lexend text-dark mb-2" htmlFor={name}>
           {label}
         </label>
       )}
