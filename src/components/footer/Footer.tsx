@@ -39,9 +39,6 @@ const Footer: React.FC = () => (
     <div className=" flex-[2] flex items-center justify-around text-xs md:text-sm">
       <div className="flex flex-col gap-2">
         <h1 className="font-bold capitalize">Company</h1>
-        <Link to={paths.Index} onClick={scrollUP}>
-          Home
-        </Link>
         <Link to={paths.About} onClick={scrollUP}>
           About us
         </Link>
@@ -69,7 +66,6 @@ const Footer: React.FC = () => (
         <Link to={paths.Consultation} onClick={scrollUP}>
           Consultation
         </Link>
-        <Link to={paths.Marketplace}>Marketplace</Link>
         <Link to={paths.Index}>Student Portfolio</Link>
       </div>
 
@@ -83,9 +79,6 @@ const Footer: React.FC = () => (
         </Link>
         <Link to={paths.Training} onClick={scrollUP}>
           Request a project
-        </Link>
-        <Link to={paths.payment} onClick={scrollUP}>
-          Payment
         </Link>
       </div>
     </div>

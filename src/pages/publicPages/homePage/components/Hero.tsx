@@ -1,5 +1,6 @@
 import AnimatedText from "@components/animatedText/AnimatedText";
 import ButtonLink from "@components/button/ButtonLink";
+import { scrollUP } from "@components/footer/Footer";
 import Paragraph from "@components/paragraph/Paragraph";
 import SmallTitle from "@components/smallTitle/SmallTitle";
 import { paths } from "@routes/paths";
@@ -24,6 +25,7 @@ const HeroSection = () => {
         <div className="w-[80%] lg:w-[40%] xl:w-[30%]  my-6 mx-auto lg:ml-0">
           <ButtonLink
             to={paths.Consultation}
+            onClick={scrollUP}
             label="Book a consultation"
             className="rounded-xl text-sm"
           />

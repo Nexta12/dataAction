@@ -97,6 +97,8 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
       </div>
 
       {/* Download button */}
+
+      { course.courseOutline.length > 0 ? (
       <button
         onClick={() => handleDownload(course._id, setDownloading, setMessage)}
         className={`text-blue-500 my-3 ${
@@ -108,6 +110,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
        {downloading ? "Downloading..." : <><FaDownload /> Download Course Outline</>}
        </span>
       </button>
+      ) : null}
     </div>
   );
 };

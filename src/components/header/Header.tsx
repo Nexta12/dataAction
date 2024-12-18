@@ -88,11 +88,14 @@ const Header = () => {
       <div
         className={`bg-lightgray absolute w-[70vw] top-0 right-0 h-fit px-[30px] py-[20px] xs:px-[40px] md:px-[30px] ${!sidepanel ? "opacity-0 hidden" : "opacity-100 block"} md:hidden `}
       >
+
         <div className="flex items-center justify-between mb-6">
+          <Link to={paths.Index} onClick={handleSidepanel}>
           <div className="flex items-center gap-1 font-bold  text-lg">
             <img src="/logo.png" alt="Logo" className="w-[32px] h-[36px]" />
             <span>DataActions</span>
           </div>
+          </Link>
           <IoMdClose className="text-3xl" onClick={handleSidepanel} />
         </div>
 
@@ -119,6 +122,7 @@ const Header = () => {
           to={paths.Register}
           label="Register"
           className="w-full my-16"
+          onClick={handleSidepanel}
         />
 
         <div className="mt-2 flex flex-col gap-4 items-center">

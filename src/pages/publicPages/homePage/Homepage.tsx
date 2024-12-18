@@ -57,22 +57,22 @@ const Homepage = () => {
     <>
       {showMarquee && (
         <Marquee
-          className="p-3 text-center bg-dark text-white cursor-pointer"
+          className="p-2 text-center bg-dark text-white cursor-pointer"
           pauseOnHover
         >
-          <Paragraph className="mx-6">Free CV building & review</Paragraph>
-          <Paragraph className="mx-6">Interview Preparation</Paragraph>
-          <Paragraph className="mx-6">
+          <Paragraph className="mx-6 text-sm">Free CV building & review</Paragraph>
+          <Paragraph className="mx-6 text-sm">Interview Preparation</Paragraph>
+          <Paragraph className="mx-6 text-sm">
             1 Month Post Training Placement
           </Paragraph>
-          <Paragraph className="mx-6">Job Referral</Paragraph>
-          <Paragraph className="mx-6">
+          <Paragraph className="mx-6 text-sm">Job Referral</Paragraph>
+          <Paragraph className="mx-6 text-sm">
             Up to 5 standard free project requests, review and feedbacks
           </Paragraph>
         </Marquee>
       )}
       <PublicPageContainer
-        className="flex flex-col gap-14 lg:gap-36 overflow-x-hidden"
+        className="flex flex-col gap-14 lg:gap-36 !pt-8 overflow-x-hidden"
         gradientDirection="65deg"
       >
         <HeroSection />

@@ -21,7 +21,7 @@ const SimpleTextArea: React.FC<FormTextAreaProps> = ({
   return (
     <div className="w-full">
       {label && (
-        <label className="text-sm font-bold font-Lexend text-black/80" htmlFor={name}>
+        <label className="text-sm font-bold font-Lexend text-dark mb-2 hidden lg:block" htmlFor={name}>
           {label}
         </label>
       )}
@@ -31,7 +31,7 @@ const SimpleTextArea: React.FC<FormTextAreaProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         value={value}
-        className={` px-2 py-2 h-16 w-full outline-none hover:outline-none rounded border border-gray ${className}`}
+        className={`border rounded-lg bg-admingray border-dark/30 text-[14px] px-2 py-2 h-16 w-full outline-none hover:outline-none ${className}`}
         {...props}
       ></textarea>
     </div>

@@ -5,6 +5,7 @@ import Input from "@components/form/Input";
 import Select from "@components/form/Select";
 import SimpleTextArea from "@components/form/SimpleTextArea";
 import Heading from "@components/heading/Heading";
+import SubHeading from "@components/subHeading/SubHeading";
 import { CoursesDetail } from "@customTypes/course";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
@@ -23,6 +24,15 @@ const TrainingHero = () => {
     errorMessage: null,
     successMessage: null,
   });
+
+  const [currentDate, setCurrentDate] = useState("");
+  useEffect(() => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+    const day = String(today.getDate()).padStart(2, "0");
+    setCurrentDate(`${year}-${month}-${day}`);
+  }, []);
 
 
    const [courses, setCourses] = useState<CoursesDetail[]>([]);
@@ -58,7 +68,7 @@ const TrainingHero = () => {
       setMessage({
         errorMessage: null,
         successMessage:
-          "Schedule booked successfully, We will revert as soon as possible",
+          "Successfull, We will get in touch shortly",
       });
 
       setApplicantName("");
@@ -113,7 +123,7 @@ const TrainingHero = () => {
         </div>
         <div className="formBox mx-auto w-full md:w-[80%] mt-10">
           <AlertMessage alert={message} />
-          <Heading
+          <SubHeading
             className=" xmd:text-left text-center font-light font-Lexend text-white/75"
             text="Register for one of our tech courses today!"
           />
@@ -126,6 +136,7 @@ const TrainingHero = () => {
                 name="applicantName"
                 value={applicantName}
                 onChange={(e) => setApplicantName(e.target.value)}
+                required
               />
               <Input
                 type="email"
@@ -134,6 +145,7 @@ const TrainingHero = () => {
                 name="applicantEmail"
                 value={applicantEmail}
                 onChange={(e) => setApplicantEmail(e.target.value)}
+                required
               />
             </div>
             <div className="flex flex-col md:flex-row gap-4 w-full justify-between">
@@ -151,12 +163,14 @@ const TrainingHero = () => {
                 name="choiceDate"
                 className="bg-[#EDE7F4] !text-black/55"
                 value={choiceDate}
+                min={currentDate}
                 onChange={(e) => setChoiceDate(e.target.value)}
+                required
               />
 
               <Select
                 options={courses}
-                className="bg-[#EDE7F4] text-sm"
+                className="bg-[#EDE7F4] text-sm capitalize"
                 name="trainingType"
                 value={trainingType}
                 onChange={(e) => setTrainingType(e.target.value)}

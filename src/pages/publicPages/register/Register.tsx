@@ -24,7 +24,14 @@ const Register = () => {
     errorMessage: null,
     successMessage: null,
   });
-
+  const [currentDate, setCurrentDate] = useState("");
+  useEffect(() => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+    const day = String(today.getDate()).padStart(2, "0");
+    setCurrentDate(`${year}-${month}-${day}`);
+  }, []);
 
   const [courses, setCourses] = useState<CoursesDetail[]>([]);
 
@@ -59,7 +66,7 @@ const Register = () => {
       setMessage({
         errorMessage: null,
         successMessage:
-          "Schedule booked successfully, We will revert as soon as possible",
+          "Successfull, We will get in touch shortly",
       });
 
       setApplicantName("");
@@ -130,6 +137,7 @@ const Register = () => {
               label="Preferred Start Date*"
               name="choiceDate"
                className="!text-black/55"
+               min={currentDate}
               value={choiceDate}
               onChange={(e) => setChoiceDate(e.target.value)}
             />

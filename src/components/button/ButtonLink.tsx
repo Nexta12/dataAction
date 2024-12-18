@@ -19,7 +19,7 @@ export const ButtonLink: React.FC<ButtonWithLinkProps> = ({
 }) => (
   <Link
     to={to}
-    className={`bg-LightBlue text-white py-[10px]  px-[14px] rounded-lg text-[18px]  flex items-center justify-center w-full transition-all duration-300 ease-in-out hover:bg-DeepBlue ${className}`}
+    className={`bg-LightBlue text-white py-[10px]  px-[14px] rounded-lg text-[14px]  flex items-center justify-center w-full transition-all duration-300 ease-in-out hover:bg-DeepBlue ${className}`}
     {...props}
   >
     {label} {Icon && <Icon />}
