@@ -104,7 +104,7 @@ const Consultation = () => {
   };
 
   return (
-    <div className="relative bg-[url('/images/aboutPage/header.png')] bg-cover bg-center w-full px-3 h-[120vh] lg:h-[100vh]">
+    <div className="relative bg-[url('/images/aboutPage/header.png')] bg-cover bg-center w-full px-3 h-[150vh] lg:h-[100vh]">
     {/* Add an overlay */}
     <div className="absolute inset-0 bg-black/50"></div>
    
