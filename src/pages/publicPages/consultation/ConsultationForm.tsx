@@ -104,13 +104,13 @@ const Consultation = () => {
   };
 
   return (
-    <div className="relative bg-[url('/images/aboutPage/header.png')] bg-cover bg-center w-full px-3 h-[110vh] lg:h-[100vh]">
+    <div className="relative bg-[url('/images/aboutPage/header.png')] bg-cover bg-center w-full px-3 h-[120vh] lg:h-[100vh]">
     {/* Add an overlay */}
     <div className="absolute inset-0 bg-black/50"></div>
    
-    <div className="relative z-10 w-full xl:w-[50%] flex flex-col gap-0 mx-auto py-5">
+    <div className="relative z-10 w-full xl:w-1/2 flex flex-col gap-0 mx-auto py-5">
       <Heading
-        className="text-center text-white font-Lexend"
+        className="text-center text-white font-Lexend !text-[38px] !xl:text-[50px] !font-extrabold"
         text="Schedule a Consultation"
       />
       <Paragraph
@@ -118,7 +118,7 @@ const Consultation = () => {
         text="To inquire about our services or request support, please use the consultation form below, or contact us directly through call or WhatsApp message"
       />
     </div>
-    <div className="relative z-10 w-full xl:w-[60%] p-8 bg-white mx-auto rounded-2xl lg:px-14">
+    <div className="relative z-10 w-full xl:w-[60%] p-8 bg-white mx-auto rounded-sm lg:px-14">
       <AlertMessage alert={message} />
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -154,7 +154,8 @@ const Consultation = () => {
             type="date"
             label="Preferred Date*"
             name="choiceDate"
-            className="!text-black/55"
+            placeholder="preferred Date"
+            className="!text-black/55 !w-full"
             value={choiceDate}
             min={currentDate}
             onChange={(e) => setChoiceDate(e.target.value)}
@@ -167,11 +168,11 @@ const Consultation = () => {
           placeholder="Your comment here"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          className="h-32"
+          className="h-28"
         />
         <SubmitButton
           label="Submit"
-          className="text-white !rounded-md w-[180px] mx-auto"
+          className="text-white !rounded-md w-[180px] mx-auto text-sm"
           isLoading={loading}
           cost={`${serviceCost}`}
         />

@@ -67,7 +67,7 @@ const SingleCourseDetail = () => {
 
   return (
     <PublicPageContainer>
-      <div className="imgContainer w-full lg:w-[90%] xl:w-[80%] mx-auto ">
+      <div className="imgContainer w-full mx-auto ">
         <img
           src={course?.images[0]?.url || "/assets/dash1.png"}
           alt="dashboard"
