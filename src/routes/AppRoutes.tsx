@@ -23,6 +23,9 @@ import EditService from "@pages/privatePages/services/EditService";
 import Services from "@pages/privatePages/services/Services";
 import Courses from "@pages/privatePages/courses/Courses";
 import AddNewCourse from "@pages/privatePages/courses/AddNew";
+import SingleCourseRegister from "@pages/publicPages/training/components/SingleCourseRegister";
+import Success from "@pages/publicPages/payment/Success";
+import Cancelled from "@pages/publicPages/payment/Cancelled";
 
 export const AppRoutes: React.FC = () => (
   <Routes>
@@ -37,9 +40,15 @@ export const AppRoutes: React.FC = () => (
       <Route path={paths.Marketplace} element={<Marketplace />} />
       <Route path={paths.Contact} element={<ContactUs />} />
       <Route path={`${paths.payment}/:id`} element={<Payment />} />
+      <Route path={paths.paymentSuccess} element={<Success />} />
+      <Route path={paths.paymentCancelled} element={<Cancelled />} />
       <Route
         path={`${paths.courseDetails}/:slug`}
         element={<SingleCourseDetail />}
+      />
+      <Route
+        path={`${paths.Register}/:slug`}
+        element={<SingleCourseRegister />}
       />
     </Route>
     <Route path={paths.adminIndex} element={<PrivatePageLayout />}>

@@ -46,7 +46,7 @@ const CoursesGallery = () => {
         >
           <SubHeading>All Courses</SubHeading>
           {courses.map((item)=>(
-             <Link to={`/course/${item._id}`} className="text-wrap">{item.title}</Link>
+             <Link to={`/course/${item.slug}`} className="text-wrap capitalize">{item.title}</Link>
           ))}
          
         </div>
@@ -55,7 +55,7 @@ const CoursesGallery = () => {
           <Link to="/book-consultation" onClick={scrollUP}>Book a consultation</Link>
           {/* <Link to="/">Dashboards</Link> */}
           <Link to="/">Request a project</Link>
-          <Link to="/">Speak to someone</Link>
+          <Link to="/contact">Speak to someone</Link>
           <Link to="/">Apply for scholarship</Link>
           <Link to="/">Submit CV</Link>
         </div>

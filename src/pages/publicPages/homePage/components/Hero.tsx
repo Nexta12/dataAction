@@ -25,7 +25,7 @@ const HeroSection = () => {
           <ButtonLink
             to={paths.Consultation}
             label="Book a consultation"
-            className="rounded-xl"
+            className="rounded-xl text-sm"
           />
         </div>
       </div>

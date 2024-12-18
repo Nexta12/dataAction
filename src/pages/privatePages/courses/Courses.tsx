@@ -113,20 +113,15 @@ const Courses = () => {
               ref={popupRef}
               className="absolute bg-white border rounded shadow p-2 top-[-4] right-0 z-10 flex items-center gap-3"
             >
-              <Link
-                to="#"
-                className="block mb-2"
-              >
-                View
-              </Link>
-              {(user?.role === UserRole.superAdmin || user?.id === row._id) && (
+            
+              {(user?.role === UserRole.superAdmin) && (
                 <>
-                  <Link
+                  {/* <Link
                     to={`${paths.editAdmin}/${row._id}`}
                     className="block mb-2"
                   >
                     Edit
-                  </Link>
+                  </Link> */}
                   <button
                     onClick={() => handleDelete(row._id)}
                     className="text-red-500"
@@ -152,7 +147,7 @@ const Courses = () => {
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
         onConfirm={confirmDelete}
-        message="Are you Sure You want to this this User ?"
+        message="Are you Sure You want to this this Course ?"
       />
     <div className=" flex  items-center justify-between mb-8">
       <div className="flex-1">

@@ -98,7 +98,7 @@ const SingleCourseDetail = () => {
       <div className="text-sm text-light">
         {course?.totalEnrolled} Students enrolled
       </div>
-      <ButtonLink to="/register" label="Buy Now" className="text-sm my-3" />
+      <ButtonLink to={`${paths.Register}/${course.slug}`} label="Buy Now" className="text-sm my-3" />
 
       <div className="bg-transparentWhite p-4 grid grid-cols-2 lg:grid-cols-4 gap-4 my-10">
         <div className="flex flex-col gap-2">

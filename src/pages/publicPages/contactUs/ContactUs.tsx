@@ -73,7 +73,7 @@ const ContactUs = () => {
                 <SubmitButton
                   label="Call Us Directly"
                   icon={IoMdCall}
-                  className="w-[180px] mt-2 text-white !rounded-lg mx-auto md:ml-0"
+                  className="w-[180px] mt-2 text-white !rounded-lg mx-auto md:ml-0 text-sm"
                 />
               </div>
               <div className="bottom bg-white p-5 shadow-sm rounded-lg flex flex-col gap-2 ">
@@ -85,7 +85,7 @@ const ContactUs = () => {
                 <SubmitButton
                   label="Chat on WhatsApp"
                   icon={IoMdSend}
-                  className="w-[180px] mt-2 text-white !rounded-lg !px-2 mx-auto"
+                  className="w-[180px] mt-2 text-white !rounded-lg !px-2 mx-auto text-sm"
                 />
               </div>
             </div>

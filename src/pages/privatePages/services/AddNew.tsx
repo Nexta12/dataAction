@@ -2,7 +2,6 @@ import apiClient from "@api/apiClient";
 import { endpoints } from "@api/endpoints";
 import { SubmitButton } from "@components/button/SubmitButton";
 import Input from "@components/form/Input";
-import Select from "@components/form/Select";
 import SubHeading from "@components/subHeading/SubHeading";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
@@ -11,16 +10,6 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
 const AddNewService = () => {
-  const categoryOptions = [
-    {
-      title: "Course",
-      _id: "1",
-    },
-    {
-      title: "Service",
-      _id: "2",
-    },
-  ];
 
   const [message, setMessage] = useState<ErrorMessageProps>({
     errorMessage: null,
@@ -35,14 +24,12 @@ const AddNewService = () => {
 
   const [title, setTitle] = useState<string>("");
   const [price, setPrice] = useState<number>(0);
-  const [category, setCategory] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const Details = {
       title,
       price,
-      category
     };
     setLoading(true);
     try {
@@ -93,13 +80,6 @@ const AddNewService = () => {
               onChange={(e) => setPrice(Number(e.target.value))}
             />
           </div>
-          <Select
-            options={categoryOptions}
-            value={category}
-            name="category"
-            selectLabel="Choose Classification"
-            onChange={(e) => setCategory(e.target.value)}
-          />
           <SubmitButton
             isLoading={loading}
             label="Submit"

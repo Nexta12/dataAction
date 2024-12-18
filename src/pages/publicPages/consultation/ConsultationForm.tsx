@@ -44,7 +44,7 @@ const Consultation = () => {
   useEffect(()=>{
    const fetchServices = async() =>{
     try {
-       const response = await apiClient.get(endpoints.getOnlyServices)
+       const response = await apiClient.get(endpoints.getAllServices)
        setServices(response.data)
     } catch (error) {
       setMessage({errorMessage: ErrorFormatter(error), successMessage: null})

@@ -13,7 +13,7 @@ import {
   MdOutlineGroups2,
   MdOutlinePayments,
 } from "react-icons/md";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const DashBoardMenu = [
   {
@@ -37,7 +37,7 @@ const DashBoardMenu = [
     icon: FaThList,
   },
   {
-    title: "Services/Courses",
+    title: "Services",
     link: paths.services,
     icon: FaList,
   },
@@ -100,11 +100,12 @@ const AdminContainer = ({ children }: AdminContent) => {
               onClick={handleSidepanel}
             />
           )}
-
+          <Link to={paths.Index} >
           <div className="logo flex items-center gap-2">
             <img src="/logo.png" alt="logo" className="w-9" />
             <span className="font-bold">DataActions</span>
           </div>
+          </Link>
           <div className="hidden xl:flex items-center gap-2 w-[350px]  border border-gray p-2">
             <BiSearch />
             <input

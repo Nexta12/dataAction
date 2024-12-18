@@ -7,7 +7,7 @@ import Input from "@components/form/Input";
 import Select from "@components/form/Select";
 import SimpleTextArea from "@components/form/SimpleTextArea";
 import Heading from "@components/heading/Heading";
-import { ServicesDetail } from "@customTypes/Services";
+import { CoursesDetail } from "@customTypes/course";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { useEffect, useState } from "react";
@@ -26,26 +26,13 @@ const Register = () => {
   });
 
 
-  const [services, setServices] = useState<ServicesDetail[]>([]);
-  // const [serviceCost, setServiceCost] = useState<string | number | undefined>('')
+  const [courses, setCourses] = useState<CoursesDetail[]>([]);
 
-  // useEffect(()=>{
-  //   if(trainingType){
-  //     const choiceService = services.find((item) => item.title === trainingType);
-  //     setServiceCost(choiceService?.price)
-      
-  //   }
-
-  // },[trainingType, services])
-
-
-  // Fetch Services
-  
   useEffect(()=>{
    const fetchServices = async() =>{
     try {
-       const response = await apiClient.get(endpoints.getOnlyCourses)
-       setServices(response.data)
+       const response = await apiClient.get(endpoints.getAllCourses)
+       setCourses(response.data)
     } catch (error) {
       setMessage({errorMessage: ErrorFormatter(error), successMessage: null})
     }
@@ -129,7 +116,7 @@ const Register = () => {
             />
 
             <Select
-              options={services}
+              options={courses}
               selectLabel="Training Type"
               name="trainingType"
               value={trainingType}
@@ -162,6 +149,7 @@ const Register = () => {
             // cost={`${serviceCost}`}
           />
         </form>
+       
       </div>
     </PublicPageContainer>
   );

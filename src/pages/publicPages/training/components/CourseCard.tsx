@@ -8,6 +8,7 @@ import { CoursesDetail } from "@customTypes/course";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { paths } from "@routes/paths";
 import { FaPoundSign } from "react-icons/fa";
+import { FaDownload } from "react-icons/fa6";
 
 interface CourseCardProps {
   course: CoursesDetail;
@@ -21,8 +22,10 @@ const handleDownload = (
   setDownloading(true);
 
   try {
+
     const downloadUrl = `${import.meta.env.VITE_API_BASE_URL}${endpoints.downloadOutline}/${courseId}`;
     window.location.href = downloadUrl;
+
   } catch (error) {
     setMessage({
       successMessage: null,
@@ -42,23 +45,23 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
   });
 
   return (
-    <div className="bg-transparentWhite p-2 mb-6 rounded-md w-full flex flex-col justify-between">
+    <div className="bg-transparentWhite p-5 mb-6 rounded-md w-full flex flex-col justify-between">
       {/* Error or success message */}
       <AlertMessage alert={message} />
 
       {/* Course image */}
-      <div className="w-full h-[200px] flex items-center justify-center overflow-hidden">
+      <div className="w-full h-[220px] flex items-center justify-center">
         <img
           src={course?.images[0]?.url || "/assets/rectangle.png"}
           alt="Images"
-          className="w-full h-full object-cover"
+         className="h-[220px] w-full"
         />
       </div>
 
       {/* Course details */}
       <div className="text-sm flex flex-col gap-3">
-        <SubHeading className="capitalize">{course?.title}</SubHeading>
-        <Paragraph>{course.snippet || "We are glad we are here"}...more</Paragraph>
+        <SubHeading className="capitalize !mt-4">{course?.title}</SubHeading>
+        <Paragraph className="text-sm">{course.snippet || "We are glad we are here"}...more</Paragraph>
         <div className="flex items-center justify-between">
           <Paragraph className="text-LightBlue flex gap-0 items-center font-Lexend text-xl">
             <FaPoundSign className="text-sm" />
@@ -72,15 +75,16 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           </span>
           <span className="text-2xs text-light">{course.weeklyTimeRequirement}</span>
         </div>
-        <div className="text-2xs text-light">{course.totalEnrolled} Students enrolled</div>
+        {Number(course.totalEnrolled) > 2 ? ( <div className="text-2xs text-light">{course.totalEnrolled} Students enrolled</div>) : null }
+       
       </div>
 
       {/* Action buttons */}
       <div className="flex text-xs items-center justify-between gap-4 mt-4">
         <ButtonLink
-          to="/register"
+          to={`${paths.Register}/${course.slug}`}
           label="Register Now"
-          className="hover:bg-dark"
+          className="hover:bg-dark text-sm"
           onClick={scrollUP}
         ></ButtonLink>
 
@@ -88,7 +92,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           to={`${paths.courseDetails}/${course.slug}`}
           label="View Details"
           onClick={scrollUP}
-          className="bg-dark py-2 px-3 text-white hover:bg-green transition-all duration-300 ease-in-out hover:bg-LightBlue"
+          className="bg-dark p-2 text-sm text-white hover:bg-green transition-all duration-300 ease-in-out hover:bg-LightBlue"
         ></ButtonLink>
       </div>
 
@@ -100,7 +104,9 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
         }`}
         disabled={downloading}
       >
-        {downloading ? "Downloading..." : "Download Course Outline"}
+        <span className="flex items-center gap-1">
+       {downloading ? "Downloading..." : <><FaDownload /> Download Course Outline</>}
+       </span>
       </button>
     </div>
   );

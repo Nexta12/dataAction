@@ -5,7 +5,7 @@ import Input from "@components/form/Input";
 import Select from "@components/form/Select";
 import SimpleTextArea from "@components/form/SimpleTextArea";
 import Heading from "@components/heading/Heading";
-import { ServicesDetail } from "@customTypes/Services";
+import { CoursesDetail } from "@customTypes/course";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { useEffect, useState } from "react";
@@ -25,13 +25,13 @@ const TrainingHero = () => {
   });
 
 
-   const [services, setServices] = useState<ServicesDetail[]>([]);
+   const [courses, setCourses] = useState<CoursesDetail[]>([]);
 
    useEffect(()=>{
     const fetchServices = async() =>{
      try {
-        const response = await apiClient.get(endpoints.getOnlyCourses)
-        setServices(response.data)
+        const response = await apiClient.get(endpoints.getAllCourses)
+        setCourses(response.data)
      } catch (error) {
        setMessage({errorMessage: ErrorFormatter(error), successMessage: null})
      }
@@ -155,7 +155,7 @@ const TrainingHero = () => {
               />
 
               <Select
-                options={services}
+                options={courses}
                 className="bg-[#EDE7F4] text-sm"
                 name="trainingType"
                 value={trainingType}

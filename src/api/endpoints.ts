@@ -4,6 +4,7 @@ export const endpoints = {
   bookConsultation: "/api/consultation/book-consultation",
   getConsultationById: "/api/consultation",
   applyForTraining: "/api/training/apply",
+  getSingleTrainingApplication: "/api/training",
   sendContactMessage: "/api/contact/create",
   validateAuth: "/api/secure/validate",
   getAllUsers: "/api/user/getAll",
@@ -13,7 +14,6 @@ export const endpoints = {
   deleteUser: "/api/user/delete",
   addNewService: "/api/service/create",
   getAllServices: "/api/service/all",
-  getOnlyServices: "/api/service/servicesOnly",
   getOnlyCourses: "/api/service/coursesOnly",
   getOneServiceById: "/api/service/getOne",
   updateService: "/api/service/update",
@@ -22,5 +22,8 @@ export const endpoints = {
   getOneCourseBySlug: "/api/course",
   addNewCourse: "/api/course/create",
   deleteCourse: "/api/course/delete",
-  downloadOutline: "api/course/download"
+  downloadOutline: "api/course/download",
+  checkout: "/api/payment/checkout",
+  paymentSuccessVerification: "/api/payment/verifiedSuccess",
+  paymentCancelledVerification: "/api/payment/cancalledTransaction"
 };

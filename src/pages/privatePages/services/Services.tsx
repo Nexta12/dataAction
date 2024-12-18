@@ -95,7 +95,6 @@ const Services = () => {
   const columns: Column<ServicesDetail>[] = [
     { key: "title", header: "Title" },
     { key: "price", header: "Price  (£)" },
-    { key: "category", header: "Classification" },
     {
       key: "actions",
       header: "Actions",
