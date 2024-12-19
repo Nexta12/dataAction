@@ -9,14 +9,12 @@ import { ProjectDetails } from "@customTypes/projects";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { paths } from "@routes/paths";
-import useAuthStore from "@store/authStore";
 import { useEffect, useRef, useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const AllProjects = () => {
-  const { user } = useAuthStore();
   const [visiblePopup, setVisiblePopup] = useState<string | null>(null);
   const [data, setData] = useState<ProjectDetails[]>([]);
   const popupRef = useRef<HTMLDivElement | null>(null);

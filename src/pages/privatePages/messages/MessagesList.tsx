@@ -10,7 +10,7 @@ import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { paths } from "@routes/paths";
 import { useEffect, useRef, useState } from "react";
 import { FaEllipsisVertical } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const MessagesTable = () => {
@@ -21,7 +21,6 @@ const MessagesTable = () => {
     errorMessage: null,
     successMessage: null,
   });
-const navigate = useNavigate()
   // Delete User
   const [openModal, setOpenModal] = useState(false);
   const [itemToDelete, setItemToDelete] = useState<string | null>(null);
