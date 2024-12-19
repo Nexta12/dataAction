@@ -7,6 +7,7 @@ interface FormTextAreaProps extends HTMLAttributes<HTMLTextAreaElement> {
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   value?: string;
   className?: string;
+  disabled?: boolean
 }
 
 const SimpleTextArea: React.FC<FormTextAreaProps> = ({
@@ -16,6 +17,7 @@ const SimpleTextArea: React.FC<FormTextAreaProps> = ({
   value,
   className,
   label,
+  disabled,
   ...props
 }) => {
   return (
@@ -31,6 +33,7 @@ const SimpleTextArea: React.FC<FormTextAreaProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         value={value}
+        disabled={disabled}
         className={`border rounded-lg bg-admingray border-dark/30 text-[14px] px-2 py-2 h-16 w-full outline-none hover:outline-none ${className}`}
         {...props}
       ></textarea>

@@ -26,6 +26,13 @@ import AddNewCourse from "@pages/privatePages/courses/AddNew";
 import SingleCourseRegister from "@pages/publicPages/training/components/SingleCourseRegister";
 import Success from "@pages/publicPages/payment/Success";
 import Cancelled from "@pages/publicPages/payment/Cancelled";
+import TrainingSignUps from "@pages/privatePages/trainingSignUps/TrainingSignUps";
+import ConsultationTable from "@pages/privatePages/consultationRequests/ConsultationTable";
+import MessagesList from "@pages/privatePages/messages/MessagesList";
+import PaymentTable from "@pages/privatePages/paymentsList/PaymentTable";
+import AllProjects from "@pages/privatePages/projects/AllProjects";
+import AddNewProject from "@pages/privatePages/projects/AddNewProject";
+import SingleMessage from "@pages/privatePages/messages/SingleMessage";
 
 export const AppRoutes: React.FC = () => (
   <Routes>
@@ -61,6 +68,16 @@ export const AppRoutes: React.FC = () => (
       <Route path={`${paths.editService}/:id`} element={<EditService />} />
       <Route path={paths.courses} element={<Courses />} />
       <Route path={paths.addNewCourse} element={<AddNewCourse />} />
+      <Route path={paths.traininRequests} element={<TrainingSignUps />} />
+      <Route
+        path={paths.consultationRequests}
+        element={<ConsultationTable />}
+      />
+      <Route path={paths.contactMessages} element={<MessagesList />} />
+      <Route path={`${paths.contactMessages}/:id`} element={<SingleMessage />}/>
+      <Route path={paths.paymentList} element={<PaymentTable />} />
+      <Route path={paths.projectsList} element={<AllProjects />} />
+      <Route path={paths.addNewProduct} element={<AddNewProject />} />
     </Route>
 
     <Route path="*" element={<NotFound />} />

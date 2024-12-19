@@ -23,5 +23,11 @@ export const paths = {
   editService: "/admin/services/edit",
   courses: "/admin/courses",
   addNewCourse: "/admin/courses/addNew",
+  traininRequests:"/admin/training/requests",
+  consultationRequests: "/admin/consultation/table",
+  contactMessages: "/admin/messages",
+  paymentList: "/admin/received/payment/view",
+  projectsList: "/admin/project/chart",
+  addNewProduct: "/admin/project/addNew"
  
 };

@@ -9,7 +9,8 @@ interface FormInputProps extends HTMLAttributes<HTMLInputElement> {
   value?: string;
   className?: string;
   required?: boolean;
-  min?: string; // Add the min prop
+  min?: string;
+  disabled?: boolean
 }
 
 const Input: React.FC<FormInputProps> = ({
@@ -22,6 +23,7 @@ const Input: React.FC<FormInputProps> = ({
   label,
   required,
   min,
+  disabled,
   ...props
 }) => {
   return (
@@ -34,6 +36,7 @@ const Input: React.FC<FormInputProps> = ({
         onChange={onChange}
         value={value}
         required={required}
+        disabled={disabled}
         min={min} 
         {...props}
         autoComplete={name}

@@ -16,6 +16,7 @@ interface SelectProps extends HTMLAttributes<HTMLSelectElement> {
   placeholder?: string;
   className?: string;
   selectLabel?: string;
+  disabled?: boolean
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -26,6 +27,7 @@ const Select: React.FC<SelectProps> = ({
   placeholder = "Select one",
   className,
   selectLabel,
+  disabled,
   ...props
 }) => {
   return (
@@ -35,6 +37,7 @@ const Select: React.FC<SelectProps> = ({
         name={name}
         onChange={onChange}
         value={value || ""}
+        disabled={disabled}
         {...props}
         className={`border rounded-lg bg-admingray border-dark/30 text-[14px] px-2 py-2 h-12 w-full outline-none hover:outline-none ${className}`}
       >

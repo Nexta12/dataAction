@@ -148,7 +148,7 @@ const Users = () => {
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
         onConfirm={confirmDelete}
-        message="Are you Sure You want to this this User ?"
+        message="Are you Sure You want to this User ?"
       />
       <div className=" flex  items-center justify-between mb-8">
         <div className="flex-1">

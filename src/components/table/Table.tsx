@@ -15,13 +15,32 @@ interface TableProps<T> {
 }
 
 // Helper function to handle rendering cell values
+
+
 const renderCellValue = (value: unknown): React.ReactNode => {
   if (React.isValidElement(value)) {
     return value; // If it's a React element, return it directly
   }
 
-  if (typeof value === "string" || typeof value === "number") {
-    return value; // Render strings and numbers as-is
+  if (typeof value === "string") {
+    // Check if the string is an ISO date format
+    const isoDateRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/;
+    if (isoDateRegex.test(value)) {
+      const date = new Date(value);
+      if (!isNaN(date.getTime())) {
+        // Format the date as DD/MM/YY
+        return new Intl.DateTimeFormat("en-GB", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "2-digit",
+        }).format(date);
+      }
+    }
+    return value; // Return the string as-is if it's not a valid date
+  }
+
+  if (typeof value === "number") {
+    return value; // Render numbers as-is
   }
 
   if (value === null || value === undefined) {
@@ -32,12 +51,14 @@ const renderCellValue = (value: unknown): React.ReactNode => {
   return String(value);
 };
 
+
+
 // Reusable Table component
 const Table = <T,>({ data, columns, keyExtractor }: TableProps<T>) => {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full border-collapse table-auto border border-gray-300 ">
-        <thead className="bg-gray-100 text-left">
+        <thead className="bg-dark text-left text-white">
           <tr>
             {columns.map((column) => (
               <th

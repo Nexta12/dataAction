@@ -13,7 +13,7 @@ import {
   MdOutlineGroups2,
   MdOutlinePayments,
 } from "react-icons/md";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const DashBoardMenu = [
   {
@@ -23,17 +23,17 @@ const DashBoardMenu = [
   },
   {
     title: "Training Sign-ups",
-    link: "#",
+    link: paths.traininRequests,
     icon: MdOutlineGroups2,
   },
   {
     title: "Consultations",
-    link: "#",
+    link: paths.consultationRequests,
     icon: FaObjectGroup,
   },
   {
     title: "Contact Messages",
-    link: "#",
+    link: paths.contactMessages,
     icon: FaThList,
   },
   {
@@ -43,7 +43,7 @@ const DashBoardMenu = [
   },
   {
     title: "Payments",
-    link: "#",
+    link: paths.paymentList,
     icon: MdOutlinePayments,
   },
   {
@@ -57,8 +57,8 @@ const DashBoardMenu = [
     icon: BsPeople,
   },
   {
-    title: "Testimonials",
-    link: "#",
+    title: "Projects",
+    link: paths.projectsList,
     icon: BsPeople,
   },
   {
@@ -87,10 +87,12 @@ const AdminContainer = ({ children }: AdminContent) => {
     await apiClient.post(endpoints.logout);
   };
 
+  const navigate = useNavigate()
+
   return (
     <section className="w-full m-0 p-0 bg-admingray relative">
       {/* Header */}
-      <div className="header bg-admingray p-5 md:p-10  xl:px-3 mb-6 shadow flex gap-6 items-center justify-between sticky top-0 z-50 ">
+      <div className="header bg-admingray p-8  xl:px-3 mb-2 shadow flex gap-6 items-center justify-between sticky top-0 z-50 ">
         <div className="left flex items-center  gap-4 md:gap-12">
           {!sidepanel ? (
             <LuMenu className=" md:hidden text-xl" onClick={handleSidepanel} />
@@ -139,10 +141,10 @@ const AdminContainer = ({ children }: AdminContent) => {
           </div>
         </div>
       </div>
-
-      <div className="mainbody flex items-start gap-8">
-        {/* Sidebar */}
-        <div className="sidebar hidden md:block flex-1 shadow bg-white border-r-2 border-LightBlue xl:pl-3  h-[80vh] text-md text-dark">
+       
+      <div className="mainbody flex items-start gap-8 relative">
+        {/* Sidebar  For Desktop*/}
+        <div className="sidebar hidden md:block sticky top-0 flex-1 shadow bg-white border-r-2 border-LightBlue xl:pl-3   text-dark h-[100vh] ">
           <ul className="m-0 p-0 flex flex-col gap-1">
             {DashBoardMenu.map((item, index) => {
               const isActive =
@@ -155,46 +157,46 @@ const AdminContainer = ({ children }: AdminContent) => {
                     key={index}
                     className="flex items-center gap-2 cursor-pointer p-3 hover:bg-dark hover:text-white"
                   >
-                    <item.icon className="text-xl" />{" "}
-                    <a href={item.link}>{item.title}</a>
+                    <item.icon className="" />{" "}
+                    <span>{item.title}</span>
                   </li>
                 );
               }
               return (
                 <li
+                  onClick={()=> navigate(item.link)}
                   key={index}
                   className={`flex items-center gap-2 cursor-pointer p-3 hover:bg-dark hover:text-white
                    ${isActive ? "bg-dark text-white" : ""}`}
                 >
-                  <item.icon className="text-xl" />{" "}
-                  <a href={item.link}>{item.title}</a>
+                  <item.icon className="" />
+                  <span>{item.title}</span>
                 </li>
               );
             })}
           </ul>
         </div>
-
+        
         <div className="conntentBody flex-[4] w-full px-4">{children}</div>
       </div>
 
-      {/* Sidepanel */}
+      {/* Sidepanel For Mobile */}
       <div
         className={`drawer h-[90vh] bg-white transition-all duration-300 absolute top-[80px] md:hidden w-full ${!sidepanel && "-translate-x-full xl:translate-x-0"} `}
       >
-        <ul className="m-0 pl-3 flex flex-col gap-2 w-full text-md text-dark pt-6">
+        <ul className="m-0 flex flex-col gap-2 w-full text-md text-dark pt-6 fixed top-[80px] bg-white ">
           {DashBoardMenu.map((item, index) => {
             const isActive =
               pathname === item.link || pathname.includes(item.link);
-
             if (item.title === "Logout") {
               return (
                 <li
                   onClick={handleLogout}
                   key={index}
-                  className="flex items-center gap-3 cursor-pointer p-3 hover:bg-dark hover:text-white"
+                  className="flex items-center gap-3 cursor-pointer p-2 hover:bg-dark hover:text-white"
                 >
                   <item.icon className="" />{" "}
-                  <a href={item.link}>{item.title}</a>
+                  <span>{item.title}</span>
                 </li>
               );
             }
@@ -202,11 +204,12 @@ const AdminContainer = ({ children }: AdminContent) => {
             return (
               <li
                 key={index}
-                className={`flex items-center gap-3 cursor-pointer p-3 hover:bg-dark hover:text-white
+                onClick={()=> { navigate(item.link), handleSidepanel()}}
+                className={`flex items-center gap-3 cursor-pointer p-2 hover:bg-dark hover:text-white
                  ${isActive ? "bg-dark text-white" : ""}`}
               >
                 <item.icon className="" />{" "}
-                <a href={item.link}>{item.title}</a>
+                <span>{item.title}</span>
               </li>
             );
           })}

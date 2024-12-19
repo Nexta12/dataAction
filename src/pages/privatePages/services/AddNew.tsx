@@ -51,7 +51,7 @@ const AddNewService = () => {
 
   return (
     <div className="flex">
-      <div className="bg-white w-full md:w-[90%] lg:w-[80%] m-auto p-4 lg:p-10 shadow-lg rounded-lg">
+      <div className="bg-white w-full md:w-[90%] lg:w-[80%] m-auto p-4 lg:p-10 shadow rounded-lg">
         <FaArrowLeftLong
           onClick={() => handleGoBack()}
           className="cursor-pointer text-2xl text-dark"

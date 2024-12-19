@@ -61,7 +61,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
       {/* Course details */}
       <div className="text-sm flex flex-col gap-3">
         <SubHeading className="capitalize !mt-4">{course?.title}</SubHeading>
-        <Paragraph className="text-sm">{course.snippet || "We are glad we are here"}...more</Paragraph>
+        <Paragraph className="text-sm">{course.snippet || "We are glad we are here"}.....</Paragraph>
         <div className="flex items-center justify-between">
           <Paragraph className="text-LightBlue flex gap-0 items-center font-Lexend text-xl">
             <FaPoundSign className="text-sm" />

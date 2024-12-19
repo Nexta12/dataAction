@@ -1,4 +1,3 @@
-
 import apiClient from "@api/apiClient";
 import { endpoints } from "@api/endpoints";
 import { SubmitButton } from "@components/button/SubmitButton";
@@ -12,7 +11,7 @@ import { useParams } from "react-router-dom";
 
 const Payment = () => {
   const { id } = useParams();
- 
+
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<ErrorMessageProps>({
     errorMessage: null,
@@ -20,6 +19,7 @@ const Payment = () => {
   });
 
   const [consultType, setConsultType] = useState({
+    _id: "",
     title: "",
     price: "",
     consultationType: "",
@@ -29,6 +29,7 @@ const Payment = () => {
   });
 
   const [trainingType, setTrainingType] = useState({
+    _id: "",
     applicantName: "",
     applicantEmail: "",
     trainingType: "",
@@ -42,7 +43,7 @@ const Payment = () => {
     const fetchConsultationType = async () => {
       try {
         const response = await apiClient.get(
-          `${endpoints.getConsultationById}/${id}`
+          `${endpoints.getConsultationById}/${id}`,
         );
         setConsultType(response.data);
       } catch (error) {
@@ -60,7 +61,7 @@ const Payment = () => {
     const fetchTrainingType = async () => {
       try {
         const response = await apiClient.get(
-          `${endpoints.getSingleTrainingApplication}/${id}`
+          `${endpoints.getSingleTrainingApplication}/${id}`,
         );
         setTrainingType(response.data);
       } catch (error) {
@@ -75,47 +76,48 @@ const Payment = () => {
   }, [id]);
 
   // Determine which data to display
-  const displayType = consultType != undefined
-    ? {
-        applicantName: consultType.applicantName,
-        applicantEmail: consultType.applicantEmail,
-        consultationType: consultType.consultationType,
-        choiceDate: consultType.choiceDate,
-        price: consultType.price,
-      }
-    : {
-        applicantName: trainingType.applicantName,
-        applicantEmail: trainingType.applicantEmail,
-        consultationType: trainingType.trainingType,
-        choiceDate: trainingType.choiceDate,
-        price: trainingType.cost,
-      };
-
-
-      const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) =>{
-        e.preventDefault();
-
-        const paymentDetails = {
-          applicantName: displayType.applicantName,
-          applicantEmail: displayType.applicantEmail,
-          paymentFor: displayType.consultationType,
-          amount: displayType.price
+  const displayType =
+    consultType != undefined
+      ? {
+          paymentPurposeId: consultType._id,
+          applicantName: consultType.applicantName,
+          applicantEmail: consultType.applicantEmail,
+          consultationType: consultType.consultationType,
+          choiceDate: consultType.choiceDate,
+          price: consultType.price,
         }
-         setLoading(true)
-        try {
-         const response = await apiClient.post(endpoints.checkout, paymentDetails)
+      : {
+          paymentPurposeId: trainingType._id,
+          applicantName: trainingType.applicantName,
+          applicantEmail: trainingType.applicantEmail,
+          consultationType: trainingType.trainingType,
+          choiceDate: trainingType.choiceDate,
+          price: trainingType.cost,
+        };
 
-          const paymentUrl = response.data
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-          window.location.href = paymentUrl
-          
-        } catch (error) {
-          console.log(error)
-          setMessage({errorMessage: ErrorFormatter(error)})
-        }finally{
-          setLoading(false)
-        }
-      }
+    const paymentDetails = {
+      applicantName: displayType.applicantName,
+      applicantEmail: displayType.applicantEmail,
+      paymentFor: displayType.consultationType,
+      amount: displayType.price,
+      paymentPurposeId: displayType.paymentPurposeId,
+    };
+    setLoading(true);
+    try {
+      const response = await apiClient.post(endpoints.checkout, paymentDetails);
+
+      const paymentUrl = response.data;
+
+      window.location.href = paymentUrl;
+    } catch (error) {
+      setMessage({ errorMessage: ErrorFormatter(error) });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <PublicPageContainer
@@ -140,27 +142,46 @@ const Payment = () => {
 
           <Input
             placeholder=""
+            className="bg-gray cursor-none"
             value={`Payment for ${displayType.consultationType || ""}`}
+            disabled
           />
-          <Input placeholder="" value={displayType.applicantName || ""} />
-          <Input placeholder="" value={displayType.applicantEmail || ""} />
           <Input
+            className="bg-gray cursor-none"
+            placeholder=""
+            value={displayType.applicantName || ""}
+            disabled
+          />
+          <Input
+            className="bg-gray cursor-none"
+            placeholder=""
+            value={displayType.applicantEmail || ""}
+            disabled
+          />
+          <Input
+            className="bg-gray cursor-none"
             label="Start Date"
             value={
               displayType.choiceDate
                 ? new Date(displayType.choiceDate).toLocaleDateString()
                 : ""
             }
+            disabled
+          />
+          <Input
+            value={displayType.paymentPurposeId || ""}
+            style={{ display: "none" }}
           />
           <SubmitButton
             className="w-full text-white"
             isLoading={loading}
             cost={`${
-              displayType.price ? `${displayType.price} with Stripe` : " Checkout With Stripe"
+              displayType.price
+                ? `${displayType.price} with Stripe`
+                : " Checkout With Stripe"
             }`}
           >
             {loading ? "Please Wait..." : "Checkout With Stripe"}
-            
           </SubmitButton>
         </form>
       </div>
@@ -169,4 +190,3 @@ const Payment = () => {
 };
 
 export default Payment;
-
