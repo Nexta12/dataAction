@@ -5,7 +5,6 @@ import Homepage from "@pages/publicPages/homePage/Homepage";
 import AboutUs from "@pages/publicPages/aboutUs/AboutUs";
 import Training from "@pages/publicPages/training/Training";
 import Consultation from "@pages/publicPages/consultation/ConsultationForm";
-import Marketplace from "@pages/publicPages/projects/Projects";
 import ContactUs from "@pages/publicPages/contactUs/ContactUs";
 import NotFound from "@pages/errors/NotFound";
 import SingleCourseDetail from "@pages/publicPages/courseDetailPage/SingleCourseDetail";
