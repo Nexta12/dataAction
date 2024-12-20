@@ -88,9 +88,9 @@ export const PaymentTable = () => {
 
   const columns: Column<Payments>[] = [
     { key: "invoice", header: "Invoice No" },
-    { key: "customerId", header: "Customer ID" },
+    { key: "customerId", header: "Payment Referrence" },
     { key: "applicantName", header: "Name" },
-    { key: "applicantName", header: "Email" },
+    { key: "applicantEmail", header: "Email" },
     { key: "paymentFor", header: "Payment Purpose" },
     { key: "amount", header: "Amount £" },
     {

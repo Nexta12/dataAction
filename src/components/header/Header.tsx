@@ -13,8 +13,8 @@ const menuItems: MenuItem[] = [
   { title: menuTitles.Home, link: paths.Index },
   { title: menuTitles.About, link: paths.About },
   { title: menuTitles.Training, link: paths.Training },
-  { title: menuTitles.Consultation, link: paths.ConsultationPage },
-  // { title: menuTitles.Marketplace, link: paths.Marketplace },
+  // { title: menuTitles.Consultation, link: paths.ConsultationPage },
+  { title: menuTitles.Marketplace, link: paths.Marketplace },
   { title: menuTitles.Contact, link: paths.Contact },
 ];
 
@@ -86,8 +86,11 @@ const Header = () => {
       />
       {/* Sidepanel */}
       <div
-        className={`bg-lightgray absolute w-[70vw] top-0 right-0 h-fit px-[30px] py-[20px] xs:px-[40px] md:px-[30px] ${!sidepanel ? "opacity-0 hidden" : "opacity-100 block"} md:hidden `}
+        className={`bg-lightgray absolute w-full transition-all duration-300  top-0 right-0 h-fit px-[30px] py-[20px] xs:px-[40px] md:px-[30px] ${!sidepanel && "-translate-x-full xl:translate-x-0"} md:hidden `}
       >
+      {/* <div
+        className={`bg-lightgray absolute w-full transition-all duration-300  top-0 right-0 h-fit px-[30px] py-[20px] xs:px-[40px] md:px-[30px] ${!sidepanel ? "opacity-0 hidden" : "opacity-100 block"} md:hidden `}
+      > */}
 
         <div className="flex items-center justify-between mb-6">
           <Link to={paths.Index} onClick={handleSidepanel}>
@@ -121,7 +124,7 @@ const Header = () => {
         <ButtonLink
           to={paths.Register}
           label="Register"
-          className="w-full my-16"
+          className="w-full my-8"
           onClick={handleSidepanel}
         />
 

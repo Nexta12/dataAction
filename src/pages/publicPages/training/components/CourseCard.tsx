@@ -83,7 +83,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
       <div className="flex text-xs items-center justify-between gap-4 mt-4">
         <ButtonLink
           to={`${paths.Register}/${course.slug}`}
-          label="Register Now"
+          label="Enroll Now"
           className="hover:bg-dark text-sm"
           onClick={scrollUP}
         ></ButtonLink>

@@ -5,7 +5,7 @@ import Homepage from "@pages/publicPages/homePage/Homepage";
 import AboutUs from "@pages/publicPages/aboutUs/AboutUs";
 import Training from "@pages/publicPages/training/Training";
 import Consultation from "@pages/publicPages/consultation/ConsultationForm";
-import Marketplace from "@pages/publicPages/marketplace/Marketplace";
+import Marketplace from "@pages/publicPages/projects/Projects";
 import ContactUs from "@pages/publicPages/contactUs/ContactUs";
 import NotFound from "@pages/errors/NotFound";
 import SingleCourseDetail from "@pages/publicPages/courseDetailPage/SingleCourseDetail";
@@ -33,6 +33,7 @@ import PaymentTable from "@pages/privatePages/paymentsList/PaymentTable";
 import AllProjects from "@pages/privatePages/projects/AllProjects";
 import AddNewProject from "@pages/privatePages/projects/AddNewProject";
 import SingleMessage from "@pages/privatePages/messages/SingleMessage";
+import Projects from "@pages/publicPages/projects/Projects";
 
 export const AppRoutes: React.FC = () => (
   <Routes>
@@ -44,7 +45,7 @@ export const AppRoutes: React.FC = () => (
       <Route path={paths.Login} element={<Login />} />
       <Route path={paths.Consultation} element={<Consultation />} />
       <Route path={paths.ConsultationPage} element={<ConsultationPage />} />
-      <Route path={paths.Marketplace} element={<Marketplace />} />
+      <Route path={paths.Marketplace} element={<Projects />} />
       <Route path={paths.Contact} element={<ContactUs />} />
       <Route path={`${paths.payment}/:id`} element={<Payment />} />
       <Route path={paths.paymentSuccess} element={<Success />} />

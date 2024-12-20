@@ -67,16 +67,17 @@ const SingleCourseDetail = () => {
 
   return (
     <PublicPageContainer>
-      <div className="imgContainer w-full mx-auto ">
+      <div className="imgContainer w-full mx-auto flex items-center justify-center ">
         <img
           src={course?.images[0]?.url || "/assets/dash1.png"}
           alt="dashboard"
+          className="xl:h-[600px] w-full"
         />
       </div>
 
       <div className="flex-1 order-2 md:order-1">
         <Heading
-          className=" xmd:text-left text-center my-6"
+          className=" xmd:text-left text-center my-6 capitalize"
           text={course?.title}
         />
 

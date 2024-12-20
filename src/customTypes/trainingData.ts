@@ -6,6 +6,7 @@ export interface StudentsProfile {
   trainingType: string;
   choiceDate: Date | string;
   cost: number;
+  status: boolean;
   comment: string
   createdAt?: Date | string;
   actions: string;

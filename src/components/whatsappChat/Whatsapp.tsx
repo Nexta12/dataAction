@@ -14,7 +14,7 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
       href={`https://wa.me/${phoneNumber}?text=${encodedMessage}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center px-4 py-2 rounded-lg  fixed top-[80vh] right-0 z-50"
+      className="flex items-center px-4 py-2 rounded-lg  fixed top-[82vh] right-10 z-50"
       >
         <span className="hidden xl:block"> Need Help ? <small className=" mx-2 text-md font-semibold">Chat with us</small></span>
      

@@ -1,4 +1,3 @@
-
 import apiClient from "@api/apiClient";
 import { endpoints } from "@api/endpoints";
 import DeleteModal from "@components/deleteConfirmation/DeleteModal";
@@ -9,7 +8,6 @@ import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { useEffect, useRef, useState } from "react";
 import { FaEllipsisVertical } from "react-icons/fa6";
-
 
 const TrainingSignUps = () => {
   const [visiblePopup, setVisiblePopup] = useState<string | null>(null);
@@ -33,7 +31,9 @@ const TrainingSignUps = () => {
     if (itemToDelete) {
       try {
         // Make an API call to delete the item
-        await apiClient.delete(`${endpoints.deleteTrainingRequest}/${itemToDelete}`);
+        await apiClient.delete(
+          `${endpoints.deleteTrainingRequest}/${itemToDelete}`,
+        );
 
         // Remove the item from the list
         setData((prev) => prev.filter((user) => user._id !== itemToDelete));
@@ -88,11 +88,52 @@ const TrainingSignUps = () => {
 
   const columns: Column<StudentsProfile>[] = [
     { key: "applicantName", header: "Name" },
-    { key: "applicantName", header: "Email" },
+    { key: "applicantEmail", header: "Email" },
     { key: "phoneNumber", header: "Phone" },
     { key: "trainingType", header: "Interest" },
     { key: "choiceDate", header: "Preferred Date" },
     { key: "cost", header: "Amount £" },
+    {
+      key: "status",
+      header: "status",
+      render: (value) => {
+        if (typeof value === "string") {
+          // Determine the styles based on the value
+          let bgClass = "";
+          let textClass = "";
+
+          switch (value) {
+            case "Paid":
+              bgClass = "bg-green-100";
+              textClass = "text-green-800";
+              break;
+            case "Cancelled":
+              bgClass = "bg-red-100";
+              textClass = "text-red-800";
+              break;
+            case "Registration":
+              bgClass = "bg-blue-100";
+              textClass = "text-blue-800";
+              break;
+            default:
+              // Fallback for unexpected values
+              bgClass = "bg-gray-100";
+              textClass = "text-gray-800";
+          }
+
+          return (
+            <span
+              className={`px-2 py-1 rounded text-sm font-medium ${bgClass} ${textClass}`}
+            >
+              {value}
+            </span>
+          );
+        }
+
+        // Fallback for unexpected types
+        return null;
+      },
+    },
     { key: "comment", header: "Comment" },
     {
       key: "actions",
@@ -109,15 +150,12 @@ const TrainingSignUps = () => {
               ref={popupRef}
               className="absolute bg-white border rounded shadow p-2 top-[-4] right-0 z-10 flex items-center gap-3"
             >
-           
-              
-                  <button
-                    onClick={() => handleDelete(row._id)}
-                    className="text-red-500"
-                  >
-                    Delete
-                  </button>
-            
+              <button
+                onClick={() => handleDelete(row._id)}
+                className="text-red-500"
+              >
+                Delete
+              </button>
             </div>
           )}
         </div>
@@ -139,15 +177,11 @@ const TrainingSignUps = () => {
         <div className="flex-1">
           <SubHeading className="">Training Requests({data.length})</SubHeading>
         </div>
-        <div className="flex-1">
-       
-        </div>
+        <div className="flex-1"></div>
       </div>
 
       <Table data={data} columns={columns} keyExtractor={keyExtractor} />
-      <div className="my-24">
-      
-      </div>
+      <div className="my-24"></div>
     </div>
   );
 };

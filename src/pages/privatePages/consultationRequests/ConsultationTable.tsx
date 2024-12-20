@@ -88,7 +88,7 @@ const ConsultationTable = () => {
 
   const columns: Column<Consultations>[] = [
     { key: "applicantName", header: "Name" },
-    { key: "applicantName", header: "Email" },
+    { key: "applicantEmail", header: "Email" },
     { key: "consultationType", header: "Interest" },
     { key: "choiceDate", header: "Preferred Date" },
     { key: "price", header: "Amount £" },

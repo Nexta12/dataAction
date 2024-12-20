@@ -9,12 +9,13 @@ import SubHeading from "@components/subHeading/SubHeading";
 import { CoursesDetail } from "@customTypes/course";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
+import { paths } from "@routes/paths";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const SingleCourseRegister = () => {
     const { slug } = useParams();
-     
+      const navigate = useNavigate()
   const [applicantName, setApplicantName] = useState("");
   const [applicantEmail, setApplicantEmail] = useState("");
 
@@ -88,7 +89,7 @@ const SingleCourseRegister = () => {
     };
 
     try {
-     await apiClient.post(endpoints.applyForTraining, formDetails);
+    const response =  await apiClient.post(endpoints.applyForTraining, formDetails);
 
       setMessage({
         errorMessage: null,
@@ -102,6 +103,7 @@ const SingleCourseRegister = () => {
       setPhoneNumber("");
       setComment("");
       scrollUP()
+      navigate(`${paths.payment}/${response.data._id}`)
     } catch (error) {
       setMessage({
         errorMessage: ErrorFormatter(error),

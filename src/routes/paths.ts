@@ -6,7 +6,7 @@ export const paths = {
   Training: "/training",
   Consultation: "/book-consultation",
   ConsultationPage: "/consultation",
-  Marketplace: "/marketplace",
+  Marketplace: "/projects",
   Contact: "/contact",
   courseDetails: "/course",
   payment: "/payments",
