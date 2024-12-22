@@ -16,6 +16,9 @@ const AddNewProject = () => {
   const [courseOutline, setCourseOutline] = useState<File | null>(null);
   const courseOutlineInputRef = useRef<HTMLInputElement | null>(null);
 
+  const [datasetDocs, setDatasetDocs] = useState<File | null>(null);
+  const datasetDocsInputRef = useRef<HTMLInputElement | null>(null);
+
   const [message, setMessage] = useState<ErrorMessageProps>({
     errorMessage: null,
     successMessage: null,
@@ -40,6 +43,15 @@ const AddNewProject = () => {
   const [keytext, setKeytext] = useState<string>("");
   const [difficultyLevel, setDifficultyLevel] = useState<string>("");
 
+  const handleDatasetDocsChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setDatasetDocs(file);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -53,6 +65,7 @@ const AddNewProject = () => {
     formData.append("purpose", purpose);
     formData.append("difficultyLevel", difficultyLevel);
     if (courseOutline) formData.append("dataset", courseOutline);
+    if (datasetDocs) formData.append("datasetDocs", datasetDocs);
 
     try {
       await apiClient.post(endpoints.addNewProject, formData, {
@@ -73,12 +86,16 @@ const AddNewProject = () => {
       setKeytext("");
       setDifficultyLevel("");
       setCourseOutline(null);
+      setDatasetDocs(null);
       if (courseOutlineInputRef.current) {
         courseOutlineInputRef.current.value = "";
       }
+      if (datasetDocsInputRef.current) {
+        datasetDocsInputRef.current.value = "";
+      }
       scrollUP();
     } catch (error) {
-      console.log(error)
+      console.log(error);
       setMessage({ errorMessage: ErrorFormatter(error), successMessage: null });
     } finally {
       setLoading(false);
@@ -146,32 +163,47 @@ const AddNewProject = () => {
               onChange={(e) => setKeytext(e.target.value)}
             />
           </div>
-          <div className="my-4">
-            <div className="text-sm font-bold font-Lexend text-black/60 mb-2">
-              Upload Dataset (.xlsx, .csv)
-            </div>
-            <input
-              type="file"
-              name="dataset"
-              ref={courseOutlineInputRef}
-              accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                if (file) {
-                  const validExtensions = [".csv", ".xls", ".xlsx"];
-                  const fileExtension = file.name.substring(
-                    file.name.lastIndexOf("."),
-                  );
-                  if (!validExtensions.includes(fileExtension)) {
-                    alert("Please upload a valid .csv, .xls, or .xlsx file.");
-                    return;
+          <div className="flex items-center flex-col md:flex-row justify-between gap-4">
+            <div className="my-4">
+              <div className="text-sm font-bold font-Lexend text-black/60 mb-2">
+                Upload Dataset (.xlsx, .csv)
+              </div>
+              <input
+                type="file"
+                name="dataset"
+                ref={courseOutlineInputRef}
+                accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) {
+                    const validExtensions = [".csv", ".xls", ".xlsx"];
+                    const fileExtension = file.name.substring(
+                      file.name.lastIndexOf("."),
+                    );
+                    if (!validExtensions.includes(fileExtension)) {
+                      alert("Please upload a valid .csv, .xls, or .xlsx file.");
+                      return;
+                    }
+                    setCourseOutline(file);
                   }
-                  setCourseOutline(file);
-                }
-              }}
-              aria-label="Upload a dataset file in .xlsx or .csv format"
-            />
+                }}
+                aria-label="Upload a dataset file in .xlsx or .csv format"
+              />
+            </div>
+            <div className="text-sm font-bold font-Lexend text-black/60 mb-2">
+              <div className="text-sm font-bold font-Lexend text-black/60 mb-2">
+                Upload Dataset Instructions (.pdf)
+              </div>
+              <input
+                type="file"
+                name="datasetDocs"
+                ref={datasetDocsInputRef}
+                accept="application/pdf"
+                onChange={handleDatasetDocsChange}
+              />
+            </div>
           </div>
+
           <SubmitButton
             isLoading={loading}
             label="Submit"
