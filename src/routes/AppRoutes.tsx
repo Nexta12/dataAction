@@ -33,6 +33,8 @@ import AllProjects from "@pages/privatePages/projects/AllProjects";
 import AddNewProject from "@pages/privatePages/projects/AddNewProject";
 import SingleMessage from "@pages/privatePages/messages/SingleMessage";
 import Projects from "@pages/publicPages/projects/Projects";
+import ProjectSignup from "@pages/publicPages/projects/components/ProjectSignup";
+import ProjectSalesTable from "@pages/privatePages/projects/ProjectSalesTable";
 
 export const AppRoutes: React.FC = () => (
   <Routes>
@@ -45,6 +47,7 @@ export const AppRoutes: React.FC = () => (
       <Route path={paths.Consultation} element={<Consultation />} />
       <Route path={paths.ConsultationPage} element={<ConsultationPage />} />
       <Route path={paths.Marketplace} element={<Projects />} />
+      <Route path={`${paths.projectSignup}/:slug`} element={<ProjectSignup />} />
       <Route path={paths.Contact} element={<ContactUs />} />
       <Route path={`${paths.payment}/:id`} element={<Payment />} />
       <Route path={paths.paymentSuccess} element={<Success />} />
@@ -78,6 +81,7 @@ export const AppRoutes: React.FC = () => (
       <Route path={paths.paymentList} element={<PaymentTable />} />
       <Route path={paths.projectsList} element={<AllProjects />} />
       <Route path={paths.addNewProduct} element={<AddNewProject />} />
+      <Route path={paths.projectPurches} element={<ProjectSalesTable />} />
     </Route>
 
     <Route path="*" element={<NotFound />} />

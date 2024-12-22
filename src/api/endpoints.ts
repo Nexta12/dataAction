@@ -37,5 +37,10 @@ export const endpoints = {
   deletePaymentInfo: "/api/payment/delete",
   addNewProject: "/api/project/create",
   deleteProject: "/api/project/delete",
-  getAllProjects: "/api/project/all"
+  getAllProjects: "/api/project/all",
+  getSingleProjectBySlug: "/api/project/getOne",
+  createProjectSales: "/api/projectSales/create",
+  getSingleProjectSales: "/api/projectSales/getOne",
+  getAllProjectsSales: "/api/projectSales/all",
+  deleteProjectSales: "/api/projectSales/delete"
 };

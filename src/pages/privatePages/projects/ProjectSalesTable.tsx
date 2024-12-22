@@ -1,21 +1,18 @@
 import apiClient from "@api/apiClient";
 import { endpoints } from "@api/endpoints";
-import ButtonLink from "@components/button/ButtonLink";
 import DeleteModal from "@components/deleteConfirmation/DeleteModal";
 import SubHeading from "@components/subHeading/SubHeading";
 import Table, { Column } from "@components/table/Table";
-import { ProjectDetails } from "@customTypes/projects";
+import { ProjectSalesDetails } from "@customTypes/projectSales";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
-import { paths } from "@routes/paths";
 import { useEffect, useRef, useState } from "react";
-import { BiPlus } from "react-icons/bi";
-import { FaEllipsisVertical } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { FaArrowLeftLong, FaEllipsisVertical } from "react-icons/fa6";
+import { Link, useNavigate } from "react-router-dom";
 
-const AllProjects = () => {
+const ProjectSalesTable = () => {
   const [visiblePopup, setVisiblePopup] = useState<string | null>(null);
-  const [data, setData] = useState<ProjectDetails[]>([]);
+  const [data, setData] = useState<ProjectSalesDetails[]>([]);
   const popupRef = useRef<HTMLDivElement | null>(null);
   const [message, setMessage] = useState<ErrorMessageProps>({
     errorMessage: null,
@@ -26,6 +23,11 @@ const AllProjects = () => {
   const [openModal, setOpenModal] = useState(false);
   const [itemToDelete, setItemToDelete] = useState<string | null>(null);
 
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   const handleDelete = (value: string) => {
     setOpenModal(true);
     setItemToDelete(value);
@@ -35,7 +37,7 @@ const AllProjects = () => {
     if (itemToDelete) {
       try {
         // Make an API call to delete the item
-        await apiClient.delete(`${endpoints.deleteProject}/${itemToDelete}`);
+        await apiClient.delete(`${endpoints.deleteProjectSales}/${itemToDelete}`);
 
         // Remove the item from the list
         setData((prev) => prev.filter((user) => user._id !== itemToDelete));
@@ -56,8 +58,8 @@ const AllProjects = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await apiClient.get<ProjectDetails[]>(
-          endpoints.getAllProjects,
+        const response = await apiClient.get<ProjectSalesDetails[]>(
+          endpoints.getAllProjectsSales,
         );
         setData(response.data);
       } catch (err) {
@@ -88,12 +90,49 @@ const AllProjects = () => {
     };
   }, []);
 
-  const columns: Column<ProjectDetails>[] = [
-    { key: "title", header: "Project Title" },
-    { key: "industry", header: "Project Area" },
-    { key: "difficultyLevel", header: "Difficulty Level" },
-    { key: "price", header: "Cost" },
-    { key: "purpose", header: "Purpose" },
+  const columns: Column<ProjectSalesDetails>[] = [
+    { key: "applicantName", header: "Name" },
+    { key: "applicantEmail", header: "Email" },
+    { key: "projectIndustry", header: "Project Area" },
+    { key: "projectName", header: "Project Title" },
+    { key: "cost", header: "Project Cost" },
+    { key: "status", header: "Status",   render: (value) => {
+      if (typeof value === "string") {
+        // Determine the styles based on the value
+        let bgClass = "";
+        let textClass = "";
+
+        switch (value) {
+          case "Dataset Sent":
+            bgClass = "bg-green-100";
+            textClass = "text-green-800";
+            break;
+          case "Cancelled":
+            bgClass = "bg-red-100";
+            textClass = "text-red-800";
+            break;
+          case "Registration":
+            bgClass = "bg-blue-100";
+            textClass = "text-blue-800";
+            break;
+          default:
+            // Fallback for unexpected values
+            bgClass = "bg-gray-100";
+            textClass = "text-gray-800";
+        }
+
+        return (
+          <span
+            className={`px-2 py-1 rounded text-sm font-medium ${bgClass} ${textClass}`}
+          >
+            {value}
+          </span>
+        );
+      }
+
+      // Fallback for unexpected types
+      return null;
+    },  },
     {
       key: "actions",
       header: "Actions",
@@ -116,14 +155,7 @@ const AllProjects = () => {
               >
                 View
               </Link>
-
               <>
-                <Link
-                  to={`${paths.editAdmin}/${row._id}`}
-                  className="block mb-2"
-                >
-                  Edit
-                </Link>
                 <button
                   onClick={() => handleDelete(row._id)}
                   className="text-red-500"
@@ -137,7 +169,7 @@ const AllProjects = () => {
       ),
     },
   ];
-  const keyExtractor = (row: ProjectDetails) => row._id;
+  const keyExtractor = (row: ProjectSalesDetails) => row._id;
 
   return (
     <div className="">
@@ -148,21 +180,16 @@ const AllProjects = () => {
         onConfirm={confirmDelete}
         message="Are you Sure You want to this this Item ?"
       />
-      <div className="flex  md:flex-row gap-4 my-10 items-center">
-        <SubHeading className=" hidden xl:block whitespace-nowrap w-full">
-          All Projects
+      <div className=" my-5 flex items-center gap-10 justify-between ">
+        <FaArrowLeftLong
+          onClick={() => handleGoBack()}
+          className="cursor-pointer text-2xl text-dark"
+        />
+        
+        <SubHeading className=" whitespace-nowrap">
+          Project Sales and Download details
         </SubHeading>
-        <ButtonLink
-          className="w-64"
-          to={paths.projectPurches}
-          label=" Project Sales"
-        />
-        <ButtonLink
-          to={paths.addNewProduct}
-          label="Add New"
-          className=" w-52 bg-dark"
-          icon={BiPlus}
-        />
+        
       </div>
 
       <Table data={data} columns={columns} keyExtractor={keyExtractor} />
@@ -171,4 +198,4 @@ const AllProjects = () => {
   );
 };
 
-export default AllProjects;
+export default ProjectSalesTable;

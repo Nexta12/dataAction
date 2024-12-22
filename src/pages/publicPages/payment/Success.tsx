@@ -48,16 +48,11 @@ const Success = () => {
           <img src="/logo.png" alt="logo" className="w-9" />
           <span className="font-bold">DataActions</span>
         </div>
-        <div className="">
-          <div className="flex items-center gap-3">
-            <span>Transaction ID:</span>
-            <span className="font-bold">{Date.now()}</span>
+    
+          <div className="text-lg text-LightBlue">
+            Please Check your email for further Instructions
           </div>
-          <div className="flex items-center gap-3">
-            <span>Transaction Date:</span>
-            <span className="font-bold">{new Date(Date.now()).toLocaleString()}</span>
-          </div>
-        </div>
+   
         <ButtonLink to={paths.Index} label="Done" />
       </div>
     </PublicPageContainer>

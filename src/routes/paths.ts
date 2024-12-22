@@ -7,6 +7,7 @@ export const paths = {
   Consultation: "/book-consultation",
   ConsultationPage: "/consultation",
   Marketplace: "/projects",
+  projectSignup: "/projects",
   Contact: "/contact",
   courseDetails: "/course",
   payment: "/payments",
@@ -28,6 +29,7 @@ export const paths = {
   contactMessages: "/admin/messages",
   paymentList: "/admin/received/payment/view",
   projectsList: "/admin/project/chart",
+  projectPurches: "/admin/project/sales",
   addNewProduct: "/admin/project/addNew"
  
 };

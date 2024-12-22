@@ -162,8 +162,6 @@ const SingleCourseRegister = () => {
               onChange={(e) => setChoiceDate(e.target.value)}
               required
             />
-
-          
           </div>
 
           <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">

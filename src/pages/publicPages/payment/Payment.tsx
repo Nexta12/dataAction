@@ -1,3 +1,4 @@
+
 import apiClient from "@api/apiClient";
 import { endpoints } from "@api/endpoints";
 import { SubmitButton } from "@components/button/SubmitButton";
@@ -18,52 +19,64 @@ const Payment = () => {
     successMessage: null,
   });
 
-  const [consultType, setConsultType] = useState({
+  const [data, setData] = useState({
     _id: "",
-    title: "",
+    applicantName: "",
+    applicantEmail: "",
+    paymentFor: "",
+    choiceDate: "",
     price: "",
-    consultationType: "",
-    applicantName: "",
-    applicantEmail: "",
-    choiceDate: "",
-  });
-
-  const [trainingType, setTrainingType] = useState({
-    _id: "",
-    applicantName: "",
-    applicantEmail: "",
-    trainingType: "",
-    phoneNumber: "",
-    choiceDate: "",
-    comment: "",
-    cost: "",
   });
 
   useEffect(() => {
-    const fetchConsultationType = async () => {
+    const fetchData = async () => {
       try {
-        const response = await apiClient.get(
+        let response;
+
+        // Try to fetch from all three endpoints until data is retrieved
+        for (const endpoint of [
           `${endpoints.getConsultationById}/${id}`,
-        );
-        setConsultType(response.data);
-      } catch (error) {
-        setMessage({
-          errorMessage: ErrorFormatter(error),
-          successMessage: null,
-        });
-      }
-    };
-
-    if (id) fetchConsultationType();
-  }, [id]);
-
-  useEffect(() => {
-    const fetchTrainingType = async () => {
-      try {
-        const response = await apiClient.get(
           `${endpoints.getSingleTrainingApplication}/${id}`,
-        );
-        setTrainingType(response.data);
+          `${endpoints.getSingleProjectSales}/${id}`,
+        ]) {
+          try {
+            response = await apiClient.get(endpoint);
+            if (response.data) {
+              const {
+                _id,
+                applicantName,
+                applicantEmail,
+                consultationType,
+                trainingType,
+                projectName,
+                choiceDate,
+                cost,
+                price,
+                createdAt,
+              } = response.data;
+
+              setData({
+                _id,
+                applicantName,
+                applicantEmail,
+                paymentFor: consultationType || trainingType || projectName,
+                choiceDate: choiceDate || createdAt,
+                price: price || cost,
+              
+              });
+
+              return;
+            }
+          } catch (_) {
+            continue; // Skip to the next endpoint if there's an error
+          }
+        }
+
+        // If no data was retrieved, set an error message
+        setMessage({
+          errorMessage: "Failed to fetch data for payment.",
+          successMessage: null,
+        });
       } catch (error) {
         setMessage({
           errorMessage: ErrorFormatter(error),
@@ -72,48 +85,29 @@ const Payment = () => {
       }
     };
 
-    if (id) fetchTrainingType();
+    if (id) fetchData();
   }, [id]);
-
-  // Determine which data to display
-  const displayType =
-    consultType != undefined
-      ? {
-          paymentPurposeId: consultType._id,
-          applicantName: consultType.applicantName,
-          applicantEmail: consultType.applicantEmail,
-          consultationType: consultType.consultationType,
-          choiceDate: consultType.choiceDate,
-          price: consultType.price,
-        }
-      : {
-          paymentPurposeId: trainingType._id,
-          applicantName: trainingType.applicantName,
-          applicantEmail: trainingType.applicantEmail,
-          consultationType: trainingType.trainingType,
-          choiceDate: trainingType.choiceDate,
-          price: trainingType.cost,
-        };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const paymentDetails = {
-      applicantName: displayType.applicantName,
-      applicantEmail: displayType.applicantEmail,
-      paymentFor: displayType.consultationType,
-      amount: displayType.price,
-      paymentPurposeId: displayType.paymentPurposeId,
+      applicantName: data.applicantName,
+      applicantEmail: data.applicantEmail,
+      paymentFor: data.paymentFor,
+      amount: data.price,
+      paymentPurposeId: data._id,
     };
+
     setLoading(true);
     try {
       const response = await apiClient.post(endpoints.checkout, paymentDetails);
-
-      const paymentUrl = response.data;
-
-      window.location.href = paymentUrl;
+      window.location.href = response.data; // Redirect to payment URL
     } catch (error) {
-      setMessage({ errorMessage: ErrorFormatter(error) });
+      setMessage({
+        errorMessage: ErrorFormatter(error),
+        successMessage: null,
+      });
     } finally {
       setLoading(false);
     }
@@ -131,7 +125,7 @@ const Payment = () => {
           text="Consultation Service Payment"
         />
         <div className="flex justify-center items-center">
-          <img src="/assets/card.png" alt="about data action" />
+          <img src="/assets/card.png" alt="Payment Illustration" />
         </div>
       </div>
 
@@ -141,45 +135,38 @@ const Payment = () => {
           <Heading text="Verification" className="text-center" />
 
           <Input
-            placeholder=""
             className="bg-gray cursor-none"
-            value={`Payment for ${displayType.consultationType || ""}`}
+            value={`Payment for ${data.paymentFor || ""}`}
             disabled
           />
           <Input
             className="bg-gray cursor-none"
-            placeholder=""
-            value={displayType.applicantName || ""}
+            value={data.applicantName || ""}
             disabled
           />
           <Input
             className="bg-gray cursor-none"
-            placeholder=""
-            value={displayType.applicantEmail || ""}
+            value={data.applicantEmail || ""}
             disabled
           />
           <Input
             className="bg-gray cursor-none"
             label="Start Date"
             value={
-              displayType.choiceDate
-                ? new Date(displayType.choiceDate).toLocaleDateString()
+              data.choiceDate
+                ? new Date(data.choiceDate).toLocaleDateString()
                 : ""
             }
             disabled
           />
-          <Input
-            value={displayType.paymentPurposeId || ""}
-            style={{ display: "none" }}
-          />
           <SubmitButton
             className="w-full text-white"
             isLoading={loading}
-            cost={`${
-              displayType.price
-                ? `${displayType.price} with Stripe`
+            cost={
+              data.price
+                ? `${data.price} with Stripe`
                 : " Checkout With Stripe"
-            }`}
+            }
           >
             {loading ? "Please Wait..." : "Checkout With Stripe"}
           </SubmitButton>
@@ -190,3 +177,4 @@ const Payment = () => {
 };
 
 export default Payment;
+
