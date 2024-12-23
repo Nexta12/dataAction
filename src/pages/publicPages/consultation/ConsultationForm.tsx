@@ -84,7 +84,7 @@ const Consultation = () => {
       setMessage({
         errorMessage: null,
         successMessage:
-          "Schedule booked successfully, Redirecting to payment page",
+          "We have recieved your booking, we will get in touch shortly",
       });
 
       setApplicantName("");
@@ -92,8 +92,11 @@ const Consultation = () => {
       setConsultationType("");
       setChoiceDate("");
       setComment("");
-      navigate(`${paths.payment}/${response.data._id}`)
+       if(response.data.price !== 0){
+         navigate(`${paths.payment}/${response.data._id}`)
+       }
     } catch (error) {
+      console.log(error)
       setMessage({
         errorMessage: ErrorFormatter(error),
         successMessage: null,

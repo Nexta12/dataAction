@@ -102,7 +102,8 @@ const Payment = () => {
     setLoading(true);
     try {
       const response = await apiClient.post(endpoints.checkout, paymentDetails);
-      window.location.href = response.data; // Redirect to payment URL
+
+       window.location.href = response.data; // Redirect to payment URL
     } catch (error) {
       setMessage({
         errorMessage: ErrorFormatter(error),
