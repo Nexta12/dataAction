@@ -9,8 +9,8 @@ const AnimatedText: React.FC = () => {
       const options = {
         strings: [
           "and Scale Up",
-          "Into New Realities",
-          "and Unlock New Horizons",
+          "And unlock your potential ",
+          "And transform your future",
         ],
         typeSpeed: 100,
         backSpeed: 50,

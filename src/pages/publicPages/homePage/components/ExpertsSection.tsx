@@ -45,7 +45,7 @@ const ExpertsSection = () => {
     <div className="">
       <div className="flex flex-col items-center md:flex-row md:items-end gap-4 justify-center mb-4">
         <div className="flex-1">
-          <Heading>Meet Our Experts</Heading>
+          <Heading>Meet Our Experts And Mentors</Heading>
         </div>
         <div className="flex-1">
           <Paragraph>

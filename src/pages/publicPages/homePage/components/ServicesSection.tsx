@@ -1,4 +1,5 @@
 import ServiceCards from "@components/cards/serviceCards";
+import { scrollUP } from "@components/footer/Footer";
 import Heading from "@components/heading/Heading";
 import Paragraph from "@components/paragraph/Paragraph";
 import SmallTitle from "@components/smallTitle/SmallTitle";
@@ -24,9 +25,9 @@ const ServicesSection = () => {
           title="Training"
           url={paths.Training}
           linkText="Learn More"
+          onClick={()=>scrollUP}
         >
-          We are dedicated to helping you achieve your goals through top-tier
-          training programs and expert consulting services.
+          Elevate your career with our tailored training programs. Develop essential workplace skills that align with your goals, and unlock your full potential.
         </ServiceCards>
 
         <ServiceCards
@@ -34,19 +35,16 @@ const ServicesSection = () => {
           url={paths.Consultation}
           linkText="Learn More"
         >
-          Visualize your success. Our experts create interactive dashboards that
-          offer real-time insights, allowing you to monitor key metrics & make
-          data-driven decisions at a glance
+          Our consultants can help with CV building, interview prep, dashboards, web apps, and mobile apps. Partner with us for tailored solutions to drive your success.
         </ServiceCards>
 
         <ServiceCards
-          title="Dashboard Marketplace"
+          title="Data Projects"
           url={paths.Marketplace}
           linkText="Learn More"
+          onClick={scrollUP}
         >
-          Unlock the power of data storytelling with Power BI. Learn how to
-          create interactive dashboards and insightful reports that drive
-          business decisions.
+       You can address a business problem by requesting a business requirement and dataset. This allows you to work on data projects and enhance your portfolio.
         </ServiceCards>
       </div>
     </div>

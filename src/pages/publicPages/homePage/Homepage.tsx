@@ -19,6 +19,7 @@ import { endpoints } from "@api/endpoints";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { CoursesDetail } from "@customTypes/course";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
+import { paths } from "@routes/paths";
 
 
 const Homepage = () => {
@@ -72,14 +73,14 @@ const Homepage = () => {
         </Marquee>
       )}
       <PublicPageContainer
-        className="flex flex-col gap-14 lg:gap-36 !pt-8 overflow-x-hidden"
+        className="flex flex-col gap-14  !pt-8 overflow-x-hidden"
         gradientDirection="65deg"
       >
         <HeroSection />
         <div className="">
           <AlertMessage alert={message}/>
           <div className="flex flex-col md:flex-row items-center text-md justify-between my-3">
-            <Heading>Top Trending Courses</Heading>
+            <Heading>Featured Courses</Heading>
             <span></span>
           </div>
           <div className="productCards grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -97,9 +98,9 @@ const Homepage = () => {
         </div>
         <Modal />
         <CallToAction
-          text="Unsure which course suits you? Connect with our professionals for a Career Alignment Test and get personalized guidance on the best path for your goals"
-          linkText="Take A step Further"
-          link="/contact"
+          text="Not sure which course is right for you? Connect with our professionals for a Career Alignment Test"
+          linkText="Career Alignment Test"
+          link={paths.Contact}
           className="font-bold"
         />
 

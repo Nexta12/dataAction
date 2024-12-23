@@ -47,7 +47,7 @@ const Header = () => {
   return (
     <header
       className={`header-sticky bg-gray flex items-center
-         justify-between py-[20px] px-[30px] lg:px-[40px] xl:px-[80px] z-50 text-DeepBlue  ${sticky ? "sticky top-0 shadow-sm bg-white " : "relative"}`}
+         justify-between py-[20px] px-[20px] lg:px-[40px] xl:px-[80px] z-50 text-DeepBlue  ${sticky ? "sticky top-0 shadow-sm bg-white " : "relative"}`}
     >
       <Link to={paths.Index}>
         <div className="flex items-center gap-1 font-bold  text-lg">
@@ -68,7 +68,7 @@ const Header = () => {
             <Link
               key={item.title}
               to={item.link}
-              className={`transform transition-transform duration-150 hover:scale-105 ${isActive ? "font-extrabold" : ""}`}
+              className={`transform transition-transform text-sm duration-150 hover:scale-105 ${isActive ? "font-extrabold" : ""}`}
             >
               {item.title}
             </Link>

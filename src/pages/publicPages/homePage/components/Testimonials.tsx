@@ -34,15 +34,33 @@ function NextArrow(props: any) {
 const TestimonialData = [
   {
     id: 1,
-    text: "With Agency the results are very satisfying. wrapped with Hight quality and innovative design that makes a surge of visitors on my website",
-    author: "Renne Wells",
-    specialty: "Product Designer, Quotient",
+    text: "The training I received was top-notch! The hands-on sessions and real-world projects gave me the confidence to excel in my interview. I landed a fantastic role right after completing the course!",
+    author: "Olaolu",
+    specialty: "Head of business intelligence",
   },
   {
     id: 2,
-    text: "With Agency the results are very satisfying. wrapped with Hight quality and innovative design that makes a surge of visitors on my website",
-    author: "Cheyi Brigs",
-    specialty: "Chief Technical Office, BBSB Group",
+    text: "I was struggling to break into the tech industry, but the training and mentorship I received here completely changed my career path.",
+    author: "Amina",
+    specialty: "Information Analyst",
+  },
+  {
+    id: 3,
+    text: "This program didn’t just teach me skills—it prepared me for the workplace. The interview prep sessions were especially helpful.",
+    author: "Segun",
+    specialty: "Information Governance Officer",
+  },
+  {
+    id: 4,
+    text: "I can’t thank the team enough! The structured training, personalized guidance, and focus on real-world scenarios helped me land a job as soon as I finished the course.",
+    author: "Kazeem",
+    specialty: "Power BI Developer",
+  },
+  {
+    id: 5,
+    text: "From resume building to interview coaching, every step of the training was focused on employability. I’m now thriving in a role I once thought was out of reach",
+    author: "Marian",
+    specialty: "Business Data Analyst",
   },
 ];
 
@@ -59,16 +77,16 @@ const Testimonials = () => {
 
   return (
     <div className="">
-      <div className=" flex  flex-col md:flex-row gap-4 justify-between mb-16">
+      <div className=" flex  flex-col md:flex-row gap-4 justify-evenly mb-16">
         <div className=" inline-flex place-items-center">
-          <Heading>What our customers are saying</Heading>
+          <Heading className="!text-5xl">What our customers are saying</Heading>
         </div>
-        <div className=" inline-flex place-items-center">
+        <div className="inline-flex place-items-center">
           <Paragraph>We are trusted to deliver our promises.</Paragraph>
         </div>
       </div>
 
-      <div className="lg:px-32">
+      <div className="lg:px-64">
         <Slider {...settings}>
           {TestimonialData.map((item) => (
             <div key={item.id} className=" w-full lg:w-2/4 mx-auto">

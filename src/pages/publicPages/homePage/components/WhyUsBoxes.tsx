@@ -30,7 +30,7 @@ const WhyUsBoxes = ({
             return prev;
           }
         });
-      }, 10); // Adjust the speed of counting (milliseconds)
+      }, 100); // Adjust the speed of counting (milliseconds)
 
       return () => clearInterval(interval); // Cleanup the interval on component unmount
     }

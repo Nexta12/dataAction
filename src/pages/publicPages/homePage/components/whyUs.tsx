@@ -8,24 +8,24 @@ const WhyUsSection = () => {
     <div className="flex flex-col md:flex-row items-start justify-between gap-20 xl:gap-64 ">
       <div className="flex-[1.5] grid grid-cols-2 gap-4 w-full mx-auto">
         <WhyUsBoxes
-          textClassName="text-sm"
-          count="35"
-          text="Elevate your business our courses"
+          textClassName="text-sm capitalize"
+          count="8"
+          text="Elevate your business"
+        />
+        <WhyUsBoxes
+          textClassName="text-sm capitalize"
+          count="40"
+          text="Transform your Career"
+        />
+        <WhyUsBoxes
+          textClassName="text-sm capitalize"
+          count="38"
+          text="Build Software Solutions"
         />
         <WhyUsBoxes
           textClassName="text-sm"
-          count="987"
-          text="Elevate your business our courses"
-        />
-        <WhyUsBoxes
-          textClassName="text-sm"
-          count="890"
-          text="Elevate your business our courses"
-        />
-        <WhyUsBoxes
-          textClassName="text-sm"
-          count="77"
-          text="Elevate your business our courses"
+          count="21"
+          text="Request Data Project"
         />
       </div>
 
@@ -52,7 +52,7 @@ const WhyUsSection = () => {
             <div className="flex items-center gap-[10px]">
               <BulletPointDot />
               <p>
-                Job referral, Sponsorship job search strategy and references
+              We provide job referrals and references
               </p>
             </div>
             <div className="flex items-center gap-[10px]">

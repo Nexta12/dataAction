@@ -6,8 +6,8 @@ export interface MenuItem {
 export const menuTitles = {
   Home: "Home",
   About: "About Us",
-  Training: "Training",
+  Training: "Courses",
   // Consultation: "Consultation",
-  Marketplace: "Projects",
+  Marketplace: "Request-a-Project",
   Contact: "Contact Us",
 };

@@ -24,7 +24,7 @@ const ServiceCards = ({
 }: ConsultCardProps) => {
   return (
     <div className="bg-transparentWhite p-4 rounded-xl w-full text-center flex flex-col gap-3 justify-between border-2 border-white">
-      <div className="w-full h-44 bg-white rounded-xl">
+      <div className="w-full h-44 bg-white rounded-xl transition-all duration-300 ease-in-out hover:bg-LightBlue ">
         {image && (
           <img
             src={image}

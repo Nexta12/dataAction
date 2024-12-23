@@ -77,10 +77,10 @@ const ArticlesSection = () => {
   return (
     <div className=" ">
       <div className="text-center">
-        <Heading>Articles & Featured Dashboards</Heading>
+        <Heading className="capitalize">Data projects you an request for</Heading>
       </div>
       <div className="text-center mb-4">
-        <SubHeading>We have some interesting news for you</SubHeading>
+        <SubHeading>We have some interesting projects for you</SubHeading>
       </div>
 
       <div className="px-3 lg:px-0">
