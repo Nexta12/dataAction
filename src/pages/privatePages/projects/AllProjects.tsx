@@ -10,6 +10,7 @@ import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { paths } from "@routes/paths";
 import { useEffect, useRef, useState } from "react";
 import { BiPlus } from "react-icons/bi";
+import { FaDownload } from "react-icons/fa";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
@@ -52,6 +53,25 @@ const AllProjects = () => {
       }
     }
   };
+
+  // Handle file download
+
+  const handleDownload = (projectId: string ) => {
+    try {
+  
+      const downloadUrl = `${import.meta.env.VITE_API_BASE_URL}${endpoints.downloadDataset}/${projectId}`;
+      window.location.href = downloadUrl;
+     
+    } catch (error) {
+      setMessage({
+        successMessage: null,
+        errorMessage: "Failed to initiate the download.",
+      });
+    } 
+  };
+
+
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -111,19 +131,19 @@ const AllProjects = () => {
             >
               <Link
                 to="#"
-                className="block mb-2"
-                onClick={() => alert("Comming Soon !")}
+                className="mb-2 flex items-center text-LightBlue gap-2"
+                onClick={() => handleDownload(row._id, )}
               >
-                View
+                <FaDownload /> Dataset
               </Link>
 
               <>
-                <Link
+                {/* <Link
                   to={`${paths.editAdmin}/${row._id}`}
                   className="block mb-2"
                 >
                   Edit
-                </Link>
+                </Link> */}
                 <button
                   onClick={() => handleDelete(row._id)}
                   className="text-red-500"

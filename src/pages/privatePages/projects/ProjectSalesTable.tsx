@@ -7,6 +7,7 @@ import { ProjectSalesDetails } from "@customTypes/projectSales";
 import { ErrorFormatter } from "@pages/errors/errorFormatter";
 import { AlertMessage, ErrorMessageProps } from "@pages/errors/errorMessage";
 import { useEffect, useRef, useState } from "react";
+import { FaDownload } from "react-icons/fa";
 import { FaArrowLeftLong, FaEllipsisVertical } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -33,11 +34,31 @@ const ProjectSalesTable = () => {
     setItemToDelete(value);
   };
 
+  
+  // Handle file download
+
+  const handleDownload = (projectId: string ) => {
+    try {
+  
+      const downloadUrl = `${import.meta.env.VITE_API_BASE_URL}${endpoints.downloadDataset}/${projectId}`;
+      window.location.href = downloadUrl;
+     
+    } catch (error) {
+      setMessage({
+        successMessage: null,
+        errorMessage: "Failed to initiate the download.",
+      });
+    } 
+  };
+
+
   const confirmDelete = async () => {
     if (itemToDelete) {
       try {
         // Make an API call to delete the item
-        await apiClient.delete(`${endpoints.deleteProjectSales}/${itemToDelete}`);
+        await apiClient.delete(
+          `${endpoints.deleteProjectSales}/${itemToDelete}`,
+        );
 
         // Remove the item from the list
         setData((prev) => prev.filter((user) => user._id !== itemToDelete));
@@ -96,43 +117,47 @@ const ProjectSalesTable = () => {
     { key: "projectIndustry", header: "Project Area" },
     { key: "projectName", header: "Project Title" },
     { key: "cost", header: "Project Cost" },
-    { key: "status", header: "Status",   render: (value) => {
-      if (typeof value === "string") {
-        // Determine the styles based on the value
-        let bgClass = "";
-        let textClass = "";
+    {
+      key: "status",
+      header: "Status",
+      render: (value) => {
+        if (typeof value === "string") {
+          // Determine the styles based on the value
+          let bgClass = "";
+          let textClass = "";
 
-        switch (value) {
-          case "Dataset Sent":
-            bgClass = "bg-green-100";
-            textClass = "text-green-800";
-            break;
-          case "Cancelled":
-            bgClass = "bg-red-100";
-            textClass = "text-red-800";
-            break;
-          case "Registration":
-            bgClass = "bg-blue-100";
-            textClass = "text-blue-800";
-            break;
-          default:
-            // Fallback for unexpected values
-            bgClass = "bg-gray-100";
-            textClass = "text-gray-800";
+          switch (value) {
+            case "Dataset Sent":
+              bgClass = "bg-green-100";
+              textClass = "text-green-800";
+              break;
+            case "Cancelled":
+              bgClass = "bg-red-100";
+              textClass = "text-red-800";
+              break;
+            case "Registration":
+              bgClass = "bg-blue-100";
+              textClass = "text-blue-800";
+              break;
+            default:
+              // Fallback for unexpected values
+              bgClass = "bg-gray-100";
+              textClass = "text-gray-800";
+          }
+
+          return (
+            <span
+              className={`px-2 py-1 rounded text-sm font-medium ${bgClass} ${textClass}`}
+            >
+              {value}
+            </span>
+          );
         }
 
-        return (
-          <span
-            className={`px-2 py-1 rounded text-sm font-medium ${bgClass} ${textClass}`}
-          >
-            {value}
-          </span>
-        );
-      }
-
-      // Fallback for unexpected types
-      return null;
-    },  },
+        // Fallback for unexpected types
+        return null;
+      },
+    },
     {
       key: "actions",
       header: "Actions",
@@ -150,10 +175,10 @@ const ProjectSalesTable = () => {
             >
               <Link
                 to="#"
-                className="block mb-2"
-                onClick={() => alert("Comming Soon !")}
+                className="mb-2 flex items-center text-LightBlue gap-2"
+                onClick={() => handleDownload(row._id)}
               >
-                View
+                <FaDownload /> Dataset
               </Link>
               <>
                 <button
@@ -185,11 +210,10 @@ const ProjectSalesTable = () => {
           onClick={() => handleGoBack()}
           className="cursor-pointer text-2xl text-dark"
         />
-        
+
         <SubHeading className=" whitespace-nowrap">
           Project Sales and Download details
         </SubHeading>
-        
       </div>
 
       <Table data={data} columns={columns} keyExtractor={keyExtractor} />

@@ -38,6 +38,7 @@ export const endpoints = {
   addNewProject: "/api/project/create",
   deleteProject: "/api/project/delete",
   getAllProjects: "/api/project/all",
+  downloadDataset: "api/projectSales/download",
   getSingleProjectBySlug: "/api/project/getOne",
   createProjectSales: "/api/projectSales/create",
   getSingleProjectSales: "/api/projectSales/getOne",
